@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { SET_LOCALE } from '../constants/actionTypes'
+import * as actions from '../actions'
 
 import Header from '../components/Header'
 import Content from '../components/Content'
@@ -8,12 +9,13 @@ import Footer from '../components/Footer'
 
 class App extends Component {
   render() {
-    const { locale, setLocale } = this.props
+    console.log(this.props)
+    const { locale, setLocale, nextLocale } = this.props
     return (
       <div className="Cnt">
         <Header {...{ locale, setLocale }} />
         <Content {...{ locale }} />
-        <Footer {...{ locale }} />
+        <Footer {...{ locale, nextLocale }} />
       </div>
     )
   }
@@ -23,10 +25,6 @@ const mapsStateToProps = state => ({
   locale: state.locale
 })
 
-const mapsDispatchToProps = dispatch => ({
-  setLocale: locale => {
-    dispatch({ type: SET_LOCALE, payload: locale })
-  }
-})
+const mapsDispatchToProps = dispatch => bindActionCreators(actions, dispatch)
 
 export default connect(mapsStateToProps, mapsDispatchToProps)(App)
