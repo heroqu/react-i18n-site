@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 import Layout from '../../components/Layout'
 
@@ -9,8 +9,8 @@ class App extends Component {
         <h1>App</h1>
         <Layout />
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
