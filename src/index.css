@@ -5,6 +5,10 @@ body {
 }
 
 .Cnt {
-  border: 1px dashed yellow;
-  border-radius: 5px;
+  border: 1px dashed red;
+  border-radius: 10px;
+  background-color: hsla(220, 20%, 50%, 0.1);
+  margin: 1px;
+  padding: 10px;
+  text-align: center;
 }

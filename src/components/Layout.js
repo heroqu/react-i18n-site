@@ -7,11 +7,11 @@ import Content from './Content'
 import Footer from './Footer'
 
 const Layout = props => (
-  <div className="Cnt">
+  <Aux>
     <Header />
     <Content />
     <Footer />
-  </div>
+  </Aux>
 )
 
 export default Layout

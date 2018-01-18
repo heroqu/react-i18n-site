@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import './index.css';
 
 import Layout from '../../components/Layout'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <h1 className="App-title">App</h1>
+      <div className="Cnt">
+        <h1>App</h1>
         <Layout />
       </div>
     );
