@@ -1,9 +1,7 @@
 import { SET_LOCALE } from '../constants/actionTypes'
-import  { DEFAULT_LOCALE, ALLOWED_LOCALES } from '../config'
+import { DEFAULT_LOCALE, ALLOWED_LOCALES } from '../config'
 
-const initialState = {
-  locale: DEFAULT_LOCALE
-}
+const initialState = DEFAULT_LOCALE
 
 const sanitizedLocale = locale => {
   locale = ('' + locale).toLowerCase().trim()
@@ -17,7 +15,7 @@ const localeReducer = (state = initialState, action) => {
     case SET_LOCALE:
       const locale = sanitizedLocale(action.payload)
       if (locale) {
-        return { ...state, locale }
+        return locale
       }
     default:
   }
