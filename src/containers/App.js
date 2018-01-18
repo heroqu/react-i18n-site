@@ -12,8 +12,8 @@ class App extends Component {
     return (
       <div className="Cnt">
         <Header {...{ locale, setLocale }} />
-        <Content />
-        <Footer />
+        <Content {...{ locale }} />
+        <Footer {...{ locale }} />
       </div>
     )
   }

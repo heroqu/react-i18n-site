@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Footer = props => (
+const Footer = ({ locale }) => (
   <div className="Cnt">
-    <h2>Footer</h2>
+    <h2>Footer : {locale}</h2>
   </div>
 )
 
