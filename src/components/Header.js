@@ -2,8 +2,7 @@ import React from 'react'
 
 const Header = ({ locale, setLocale }) => (
   <div className="Cnt">
-    <h2>Header</h2>
-    <h3>locale: {locale}</h3>
+    <h2>Header: {locale}</h2>
     <button type="button" onClick={() => setLocale('en')}>
       EN
     </button>

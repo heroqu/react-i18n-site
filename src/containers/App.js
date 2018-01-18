@@ -7,18 +7,15 @@ import Header from '../components/Header'
 import Content from '../components/Content'
 import Footer from '../components/Footer'
 
-class App extends Component {
-  render() {
-    console.log(this.props)
-    const { locale, setLocale, nextLocale } = this.props
-    return (
-      <div className="Cnt">
-        <Header {...{ locale, setLocale }} />
-        <Content {...{ locale }} />
-        <Footer {...{ locale, nextLocale }} />
-      </div>
-    )
-  }
+const App = ({ locale, setLocale, nextLocale }) => {
+  return (
+    <div className="Cnt">
+      App
+      <Header {...{ locale, setLocale }} />
+      <Content {...{ locale }} />
+      <Footer {...{ locale, nextLocale }} />
+    </div>
+  )
 }
 
 const mapsStateToProps = state => ({

@@ -4,7 +4,7 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import registerServiceWorker from './registerServiceWorker'
 
-import App from './containers/App'
+import Root from './containers/Root'
 import reducer from './reducers'
 import './index.css'
 
@@ -12,7 +12,7 @@ const store = createStore(reducer)
 
 render(
   <Provider store={store}>
-    <App />
+    <Root />
   </Provider>,
   document.getElementById('root')
 )
