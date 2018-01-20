@@ -1,8 +1,8 @@
 import React from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 
-import { connect } from 'react-redux'
-import * as actions from '../actions'
+import getStore from '../store'
+import { setLocale, setAppUrl } from '../actions'
 
 import { ROOT_PAGE, DEFAULT_LOCALE, ALLOWED_LOCALES } from '../config'
 import localeCookie from './localeCookie'
@@ -24,8 +24,8 @@ const getFromCookie = () => {
 const LocaleRedirector = props => {
   return (
     <Switch>
-      <Route exact path="/:locale/:appUrl" component={Detector} />
-      <Route exact path="/:appUrl" component={Detector} />
+      <Route exact path="/:locale/:appUrl" component={detector} />
+      <Route exact path="/:appUrl" component={detector} />
       <Redirect from="/" to={`/${ROOT_PAGE}`} />
     </Switch>
   )
@@ -68,17 +68,11 @@ const detector = props => {
   // url is OK
 
   // update the state
-  props.setLocale(locale)
-  props.setAppUrl(appUrl)
+  const store = getStore()
+  store.dispatch(setLocale(locale))
+  store.dispatch(setAppUrl(appUrl))
 
   return null
 }
-
-const mapDispatchToProps = dispatch => ({
-  setLocale: locale => dispatch(actions.setLocale(locale)),
-  setAppUrl: appUrl => dispatch(actions.setAppUrl(appUrl))
-})
-
-export const Detector = connect(null, mapDispatchToProps)(detector)
 
 export default LocaleRedirector
