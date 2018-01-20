@@ -12,3 +12,22 @@ body {
   padding: 10px;
   text-align: center;
 }
+
+.Compact {
+  display: inline-block;
+  min-width: 50%;
+  margin: 0 auto;
+  padding: 5px;
+  border: 1px dashed blue;
+  border-radius: 5px;
+  text-align: left;
+}
+
+.Yellow {
+  color: #fe0;
+  text-shadow: 1px 2px 8px #630;
+}
+
+.Ind {
+  padding-left: 10px;
+}
