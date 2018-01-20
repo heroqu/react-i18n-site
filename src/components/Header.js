@@ -6,11 +6,17 @@ const Header = ({ locale, linkPrefix, setLocale, nextLocale }) => (
     <p>Header: {locale}</p>
     <nav>
       NavLinks{' : '}
-      <NavLink to="/aaa">AAA</NavLink>
+      <NavLink to="/home">Home</NavLink>
       {' | '}
-      <NavLink to="/bbb">BBB</NavLink>
+      <NavLink to="/intro">Intro</NavLink>
       {' | '}
-      <NavLink to="/ccc">CCC</NavLink>
+      <NavLink to="/experience">Experience</NavLink>
+      {' | '}
+      <NavLink to="/education">Education</NavLink>
+      {' | '}
+      <NavLink to="/about">About</NavLink>
+      {' | '}
+      <NavLink to="/contact">Contact</NavLink>
     </nav>
     <button type="button" onClick={() => setLocale('en')}>
       EN

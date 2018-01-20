@@ -11,13 +11,10 @@ const Layout = props => {
     <div className="Cnt">
       Layout
       <Header {...{ locale, linkPrefix, setLocale, nextLocale }} />
-      <ShowProps {...props}>
-        <Content {...props} />
-      </ShowProps>
-      <Footer {...{ locale, nextLocale }} />
+      <Content {...props} />
+      <Footer {...{ locale }} />
     </div>
   )
 }
-
 
 export default Layout
