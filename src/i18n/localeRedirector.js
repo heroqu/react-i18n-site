@@ -1,24 +1,16 @@
 import React from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 
-import getStore from '../store'
+import { connect } from 'react-redux'
 import { setLocale, setAppUrl } from '../actions'
 
-import { ROOT_PAGE, DEFAULT_LOCALE, ALLOWED_LOCALES } from '../config'
-import localeCookie from './localeCookie'
+import { ROOT_PAGE, DEFAULT_LOCALE } from '../config'
 
 const sanitize = obj => {
   if (obj) {
     return ('' + obj).toLowerCase().trim()
   }
   return ''
-}
-
-const getFromCookie = () => {
-  let locale = sanitize(localeCookie.get())
-  if (ALLOWED_LOCALES.indexOf(locale) !== -1) {
-    return locale
-  }
 }
 
 const LocaleRedirector = props => {
@@ -31,21 +23,36 @@ const LocaleRedirector = props => {
   )
 }
 
-const detector = props => {
-  const { match } = props
+const mapStateToProps = state => ({
+  locale: state.i18n.locale,
+  appUrl: state.i18n.appUrl
+})
 
-  const localeFromCookie = getFromCookie()
+const mapDispatchToProps = dispatch => ({
+  setLocale: locale => dispatch(setLocale(locale)),
+  setAppUrl: appUrl => dispatch(setAppUrl(appUrl))
+})
+
+const detector = connect(mapStateToProps, mapDispatchToProps)(props => {
+  const { match, setLocale, setAppUrl } = props
+
   const localeFromUrl = sanitize(match.params.locale)
 
-  // the effective locale value that we are going to honour:
-  const locale = localeFromCookie || localeFromUrl || DEFAULT_LOCALE
+  /**
+  * The effective locale value that we are going to honour
+  *
+  * new user can hit the site for the first time at arbitrary nested url
+  * which can already be localized. In such a case props.locale woudl be empty
+  * and we should extract prefered locale from url prefix
+  */
+  const locale = props.locale || localeFromUrl || DEFAULT_LOCALE
 
-  if (localeFromCookie !== locale) {
-    localeCookie.set(locale) // update the cookie
-  }
+  const appUrl = sanitize(match.params.appUrl)
 
-  let appUrl = sanitize(match.params.appUrl)
-
+  /**
+  * Let's see if url needs a repair
+  * ----- BEGIN
+  */
   let newPathname
 
   if (locale === DEFAULT_LOCALE) {
@@ -64,15 +71,17 @@ const detector = props => {
     // url needs a fix
     return <Redirect to={newPathname} />
   }
+  /**
+  * ----- END
+  */
 
   // url is OK
 
-  // update the state
-  const store = getStore()
-  store.dispatch(setLocale(locale))
-  store.dispatch(setAppUrl(appUrl))
+  // update the state store
+  setLocale(locale)
+  setAppUrl(appUrl)
 
   return null
-}
+})
 
 export default LocaleRedirector

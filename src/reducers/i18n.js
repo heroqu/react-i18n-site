@@ -1,8 +1,9 @@
 import * as actionTypes from '../constants/actionTypes'
 import { DEFAULT_LOCALE } from '../config'
+import localeCookie from '../i18n/localeCookie'
 
 const initialState = {
-  locale: DEFAULT_LOCALE,
+  locale: localeCookie.get() || '',
   linkPrefix: ''
 }
 
