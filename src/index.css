@@ -5,20 +5,21 @@ body {
 }
 
 .Cnt {
-  border: 1px dashed red;
-  border-radius: 10px;
-  background-color: hsla(220, 20%, 50%, 0.1);
+  /* border: 1px dashed red; */
+  border-radius: 5px;
+  background-color: hsla(220, 35%, 50%, 0.1);
   margin: 1px;
-  padding: 10px;
+  padding: 5px;
   text-align: center;
 }
 
 .Compact {
+  background-color: hsla(220, 35%, 50%, 0.1);
   display: inline-block;
   min-width: 50%;
   margin: 0 auto;
   padding: 5px;
-  border: 1px dashed blue;
+  /* border: 1px dashed blue; */
   border-radius: 5px;
   text-align: left;
 }
