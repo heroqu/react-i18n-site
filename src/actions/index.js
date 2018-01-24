@@ -19,13 +19,6 @@ const sanitizedLocale = locale => {
 export const setLocale = locale => {
   locale = sanitizedLocale(locale) || DEFAULT_LOCALE
   localeCookie.set(locale)
-  // if (locale !== localeCookie.get()) {
-  //   return {
-  //     type: types.SET_LOCALE,
-  //     payload: 'Unable to save locale to cookie',
-  //     error: true
-  //   }
-  // }
   return { type: types.SET_LOCALE, payload: locale }
 }
 

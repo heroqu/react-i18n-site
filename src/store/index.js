@@ -1,8 +1,6 @@
 import { createStore } from 'redux'
 import reducer from '../reducers'
 
-let store
+const store = createStore(reducer)
 
-const getStore = (() => () => (store = store || createStore(reducer)))()
-
-export default getStore
+export default store

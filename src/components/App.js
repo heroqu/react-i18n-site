@@ -4,6 +4,10 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as actions from '../actions'
 
+import { IntlProvider } from 'react-intl'
+import '../i18n/loadLocaleData'
+import combinedMessages from '../i18n/messages.json'
+
 import LocaleRedirector from '../i18n/localeRedirector'
 import Layout from '../components/Layout'
 
@@ -11,15 +15,21 @@ const App = props => {
   return (
     <div className="Cnt">
       App : connected to redux store
-      <Router>
+      <IntlProvider
+        locale={props.locale}
+        messages={combinedMessages[props.locale]}
+      >
         <div className="Cnt">
-          <React.Fragment>
-            Router
-            <LocaleRedirector />
-            <Layout {...props} />
-          </React.Fragment>
+          IntlProvider : get locale from props
+          <Router>
+            <div className="Cnt">
+              Router
+              <LocaleRedirector />
+              <Layout {...props} />
+            </div>
+          </Router>
         </div>
-      </Router>
+      </IntlProvider>
     </div>
   )
 }

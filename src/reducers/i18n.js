@@ -8,12 +8,10 @@ const initialState = {
 }
 
 const i18nReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case actionTypes.SET_LOCALE:
-      const locale = action.payload
-      const linkPrefix = locale === DEFAULT_LOCALE ? '' : `/${locale}`
-      return { locale, linkPrefix }
-    default:
+  if (action.type === actionTypes.SET_LOCALE) {
+    const locale = action.payload
+    const linkPrefix = locale === DEFAULT_LOCALE ? '' : `/${locale}`
+    return { locale, linkPrefix }
   }
   return state
 }
