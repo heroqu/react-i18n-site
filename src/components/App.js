@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -11,27 +11,29 @@ import combinedMessages from '../i18n/messages.json'
 import LocaleRedirector from '../i18n/localeRedirector'
 import Layout from '../components/Layout'
 
-const App = props => {
-  return (
-    <div className="Cnt">
-      App : connected to redux store
-      <Router>
-        <div className="Cnt">
-          Router
-          <LocaleRedirector />
+class App extends Component {
+  render() {
+    const locale = this.props.locale
+    const messages = combinedMessages[locale]
+
+    return (
+      <div className="Cnt">
+        App : connected to redux store
+        <Router>
           <div className="Cnt">
-            IntlProvider : get locale from props
-            <IntlProvider
-              locale={props.locale}
-              messages={combinedMessages[props.locale]}
-            >
-              <Layout {...props} />
-            </IntlProvider>
+            Router
+            <LocaleRedirector />
+            <div className="Cnt">
+              IntlProvider : get locale from props
+              <IntlProvider locale={locale} messages={messages}>
+                <Layout {...this.props} />
+              </IntlProvider>
+            </div>
           </div>
-        </div>
-      </Router>
-    </div>
-  )
+        </Router>
+      </div>
+    )
+  }
 }
 
 const mapsStateToProps = state => ({
