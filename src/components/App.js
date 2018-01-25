@@ -15,21 +15,21 @@ const App = props => {
   return (
     <div className="Cnt">
       App : connected to redux store
-      <IntlProvider
-        locale={props.locale}
-        messages={combinedMessages[props.locale]}
-      >
+      <Router>
         <div className="Cnt">
-          IntlProvider : get locale from props
-          <Router>
-            <div className="Cnt">
-              Router
-              <LocaleRedirector />
+          Router
+          <LocaleRedirector />
+          <div className="Cnt">
+            IntlProvider : get locale from props
+            <IntlProvider
+              locale={props.locale}
+              messages={combinedMessages[props.locale]}
+            >
               <Layout {...props} />
-            </div>
-          </Router>
+            </IntlProvider>
+          </div>
         </div>
-      </IntlProvider>
+      </Router>
     </div>
   )
 }
