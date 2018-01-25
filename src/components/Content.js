@@ -1,5 +1,4 @@
 import React from 'react'
-// import * as pages from './pages'
 
 import About from './pages/About'
 import Contact from './pages/Contact'

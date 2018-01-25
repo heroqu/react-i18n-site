@@ -12,6 +12,10 @@ import LocaleRedirector from '../i18n/localeRedirector'
 import Layout from '../components/Layout'
 
 class App extends Component {
+  componentDidMount() {
+    this.props.loadStaticData()
+  }
+
   render() {
     const locale = this.props.locale
     const messages = combinedMessages[locale]
@@ -39,7 +43,8 @@ class App extends Component {
 const mapsStateToProps = state => ({
   locale: state.i18n.locale,
   linkPrefix: state.i18n.linkPrefix,
-  appUrl: state.appUrl
+  appUrl: state.appUrl,
+  staticData: state.staticData
 })
 
 const mapsDispatchToProps = dispatch => bindActionCreators(actions, dispatch)

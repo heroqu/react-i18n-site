@@ -19,3 +19,14 @@ export const setAppUrl = appUrl => ({
   type: types.SET_APP_URL,
   payload: appUrl
 })
+
+export const loadStaticData = () => async dispatch => {
+  try {
+    const response = await fetch('/static.json')
+    const staticData = await response.json()
+
+    dispatch({ type: types.LOAD_STATIC_DATA, payload: staticData })
+  } catch (e) {
+    console.log(`Error fetching static data:\n${e}`)
+  }
+}
