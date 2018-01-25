@@ -1,7 +1,7 @@
 import React from 'react'
 import NavLink from './AppNavLink'
 
-const Header = ({ locale, linkPrefix, setLocale, nextLocale }) => (
+const Header = ({ locale, linkPrefix, setLocale }) => (
   <div className="Cnt">
     <p>Header: {locale}</p>
     <nav>
@@ -23,9 +23,6 @@ const Header = ({ locale, linkPrefix, setLocale, nextLocale }) => (
     </button>
     <button type="button" onClick={() => setLocale('ru')}>
       RU
-    </button>
-    <button type="button" onClick={nextLocale}>
-      Next Locale
     </button>
   </div>
 )

@@ -5,11 +5,11 @@ import Content from '../components/Content'
 import Footer from '../components/Footer'
 
 const Layout = props => {
-  const { locale, linkPrefix, setLocale, nextLocale } = props
+  const { locale, linkPrefix, setLocale } = props
   return (
     <div className="Cnt">
       Layout
-      <Header {...{ locale, linkPrefix, setLocale, nextLocale }} />
+      <Header {...{ locale, linkPrefix, setLocale }} />
       <Content {...props} />
       <Footer {...{ locale }} />
     </div>
