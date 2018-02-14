@@ -1,5 +1,4 @@
 import React from 'react'
-import jsonStringify from 'json-pretty'
 
 const ShowProps = props => {
   let { children, ...mainProps } = props
@@ -15,7 +14,7 @@ const ShowProps = props => {
     <div className="Cnt">
       <div className="Compact">
         <p>props:</p>
-        <pre className="Yellow Ind">{jsonStringify(mainProps)}</pre>
+        <pre className="Yellow Ind">{JSON.stringify(mainProps,null,2)}</pre>
         {children}
       </div>
     </div>

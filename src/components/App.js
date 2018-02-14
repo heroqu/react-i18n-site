@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as actions from '../actions'
 
+import { DEFAULT_LOCALE } from '../config'
 import { IntlProvider } from 'react-intl'
 import '../i18n/loadLocaleData'
 import combinedMessages from '../i18n/messages.json'
@@ -41,6 +42,7 @@ class App extends Component {
 }
 
 const mapsStateToProps = state => ({
+  defaultLocale: DEFAULT_LOCALE,
   locale: state.i18n.locale,
   linkPrefix: state.i18n.linkPrefix,
   appUrl: state.appUrl,

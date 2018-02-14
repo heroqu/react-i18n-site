@@ -1,29 +1,16 @@
 import React from 'react'
+import _ from 'lodash'
 
-import About from './pages/About'
-import Contact from './pages/Contact'
-import Education from './pages/Education'
-import Experience from './pages/Experience'
-import Home from './pages/Home'
-import Intro from './pages/Intro'
+import pages from './pages'
 
-const componentByProps = props => {
-  switch (('' + props.appUrl).toLowerCase().trim()) {
-    case 'about':
-      return <About {...props} />
-    case 'contact':
-      return <Contact {...props} />
-    case 'education':
-      return <Education {...props} />
-    case 'experience':
-      return <Experience {...props} />
-    case 'home':
-      return <Home {...props} />
-    case 'intro':
-      return <Intro {...props} />
-    default:
+const componentFromProps = props => {
+  const component =
+    pages[props.locale][props.appUrl] ||
+    pages[props.defaultLocale][props.appUrl]
+  if (component) {
+    return React.createElement(component, { ...props })
   }
-  return <Home {...props} />
+  return null
 }
 
 const Content = props => {
@@ -31,7 +18,7 @@ const Content = props => {
   return (
     <div className="Cnt">
       Content : {locale} : {appUrl}
-      {componentByProps(props)}
+      {componentFromProps(props)}
     </div>
   )
 }

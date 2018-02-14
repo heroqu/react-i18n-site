@@ -4,13 +4,13 @@ import { FormattedMessage } from 'react-intl'
 const Footer = ({ locale }) => (
   <div className="Cnt">
     Footer : {locale}
-    <h3>
+    <p>
       <FormattedMessage
         id="app.hello_world"
         defaultMessage="Hello World!"
-        description="Hello world header greeting"
+        description="Hello world footer greeting"
       />
-    </h3>
+    </p>
   </div>
 )
 

@@ -3,20 +3,16 @@ import NavLink from './AppNavLink'
 
 const Header = ({ locale, linkPrefix, setLocale }) => (
   <div className="Cnt">
-    <p>Header: {locale}</p>
+    Header: {locale}
     <nav>
-      NavLinks{' : '}
-      <NavLink to="/home">Home</NavLink>
-      {' | '}
-      <NavLink to="/intro">Intro</NavLink>
-      {' | '}
-      <NavLink to="/experience">Experience</NavLink>
-      {' | '}
-      <NavLink to="/education">Education</NavLink>
-      {' | '}
-      <NavLink to="/about">About</NavLink>
-      {' | '}
-      <NavLink to="/contact">Contact</NavLink>
+      <NavLink className="Navlink" to="/home">Home</NavLink>
+      <NavLink className="Navlink" to="/intro">Intro</NavLink>
+      <NavLink className="Navlink" to="/skills">Skills</NavLink>
+      <NavLink className="Navlink" to="/experience">Experience</NavLink>
+      <NavLink className="Navlink" to="/foss">Open Source</NavLink>
+      <NavLink className="Navlink" to="/education">Education</NavLink>
+      <NavLink className="Navlink" to="/about">About</NavLink>
+      <NavLink className="Navlink" to="/contact">Contact</NavLink>
     </nav>
     <button type="button" onClick={() => setLocale('en')}>
       EN
