@@ -1,24 +1,30 @@
 {
   "name": "ReactResume",
   "description": "React Resume app with static & dynamic pages and i18n",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "serve": "serve -s build -p 3000"
   },
   "dependencies": {
-    "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "lodash": "^4.17.10",
+    "markdown-to-jsx": "^6.6.2",
+    "prop-types": "^15.6.1",
+    "react": "^16.3.2",
+    "react-accordion-composable": "^0.1.10",
+    "react-dom": "^16.3.2",
+    "react-image-lightbox": "^4.6.0",
     "react-intl": "^2.4.0",
-    "react-redux": "^5.0.6",
+    "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.0",
-    "redux": "^3.7.2",
+    "react-scripts": "^1.1.4",
+    "redux": "^4.0.0",
     "redux-thunk": "^2.2.0",
+    "serve": "^6.5.5",
     "universal-cookie": "^2.1.2"
   }
 }
