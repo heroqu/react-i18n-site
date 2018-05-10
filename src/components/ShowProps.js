@@ -1,5 +1,9 @@
 import React from 'react'
+import './ShowProps.css'
 
+/**
+ * Use this component to quickly visualize the props
+ */
 const ShowProps = props => {
   let { children, ...mainProps } = props
 
