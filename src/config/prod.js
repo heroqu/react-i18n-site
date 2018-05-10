@@ -1,11 +1,8 @@
 //  prod.js
 
-module.exports = {
-  env: process.env.NODE_ENV,
-  DEFAULT_LOCALE: process.env.DEFAULT_LOCALE,
-  ALLOWED_LOCALES: (''+process.env.ALLOWED_LOCALES).split(','),
-  ROOT_PAGE: process.env.ROOT_PAGE,
-  STATIC_PAGES: (''+process.env.STATIC_PAGES).split(','),
-  COOKIE_SECRET: process.env.COOKIE_SECRET,
-  COOKIE_MAX_AGE: process.env.COOKIE_MAX_AGE
-}
+export const DEFAULT_LOCALE = process.env.DEFAULT_LOCALE
+export const ALLOWED_LOCALES = ('' + process.env.ALLOWED_LOCALES).split(',')
+export const ROOT_PAGE = process.env.ROOT_PAGE
+export const COOKIE_SECRET = process.env.COOKIE_SECRET
+export const COOKIE_MAX_AGE = process.env.COOKIE_MAX_AGE
+export const DEBUG_MODE = process.env.DEBUG_MODE === 'true'
