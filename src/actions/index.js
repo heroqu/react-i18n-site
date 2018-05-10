@@ -20,13 +20,29 @@ export const setAppUrl = appUrl => ({
   payload: appUrl
 })
 
-export const loadStaticData = () => async dispatch => {
-  try {
-    const response = await fetch('/static.json')
-    const staticData = await response.json()
+export const setAppUrls = appUrls => ({
+  type: types.SET_APP_URLS,
+  payload: appUrls
+})
 
-    dispatch({ type: types.LOAD_STATIC_DATA, payload: staticData })
+export const loadProjectsData = () => async dispatch => {
+  try {
+    const response = await fetch('/data/projects.json')
+    const data = await response.json()
+
+    dispatch({ type: types.LOAD_PROJECTS_DATA, payload: data })
   } catch (e) {
-    console.log(`Error fetching static data:\n${e}`)
+    console.log(`Error fetching projects data:\n${e}`)
+  }
+}
+
+export const loadGalleryData = () => async dispatch => {
+  try {
+    const response = await fetch('/data/gallery.json')
+    const data = await response.json()
+
+    dispatch({ type: types.LOAD_GALLERY_DATA, payload: data })
+  } catch (e) {
+    console.log(`Error fetching gallery data:\n${e}`)
   }
 }

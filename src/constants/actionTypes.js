@@ -1,3 +1,5 @@
 export const SET_LOCALE = 'SET_LOCALE'
 export const SET_APP_URL = 'SET_APP_URL'
-export const LOAD_STATIC_DATA = 'LOAD_STATIC_DATA'
+export const SET_APP_URLS = 'SET_APP_URLS'
+export const LOAD_PROJECTS_DATA = 'LOAD_PROJECTS_DATA'
+export const LOAD_GALLERY_DATA = 'LOAD_GALLERY_DATA'
