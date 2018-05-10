@@ -1,0 +1,42 @@
+.PageContent {
+  max-width: 38em;
+  margin: 0 auto;
+}
+
+/* Styles for Education */
+
+.Book,
+.Course {
+  display: flex;
+}
+
+/* .BookTitle,
+.CourseTitle {
+} */
+
+.BookAuthor,
+.CourseDetails {
+  color: hsla(220, 0%, 0%, 0.35);
+  margin-left: 0.6em;
+}
+
+.BookAuthor::before,
+.CourseDetails::before {
+  content: '/';
+  margin-right: 0.6em;
+  color: hsla(220, 0%, 0%, 0.35);
+}
+
+/* Styles for Contact form */
+
+#c_email,
+#c_name,
+#c_message {
+  /* color: red; */
+  font-family: inherit;
+  font-size: smaller;
+  min-width: 50%;
+  border-width: 1px;
+  border-style: ridge;
+  margin-top: 0.5em;
+}

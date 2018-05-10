@@ -11,32 +11,32 @@ import combinedMessages from '../i18n/messages.json'
 
 import LocaleRedirector from '../i18n/localeRedirector'
 import Layout from '../components/Layout'
+import Debug from './Debug'
 
 class App extends Component {
   componentDidMount() {
-    this.props.loadStaticData()
+    this.props.loadProjectsData()
+    this.props.loadGalleryData()
   }
 
   render() {
-    const locale = this.props.locale
+    const locale = this.props.locale || DEFAULT_LOCALE
     const messages = combinedMessages[locale]
 
     return (
-      <div className="Cnt">
-        App : connected to redux store
+      <React.Fragment>
+        <Debug>App : connected to redux store</Debug>
         <Router>
-          <div className="Cnt">
-            Router
+          <React.Fragment>
+            <Debug>Router</Debug>
             <LocaleRedirector />
-            <div className="Cnt">
-              IntlProvider : get locale from props
-              <IntlProvider locale={locale} messages={messages}>
-                <Layout {...this.props} />
-              </IntlProvider>
-            </div>
-          </div>
+            <Debug>IntlProvider : get locale from props</Debug>
+            <IntlProvider locale={locale} messages={messages}>
+              <Layout {...this.props} locale={locale} />
+            </IntlProvider>
+          </React.Fragment>
         </Router>
-      </div>
+      </React.Fragment>
     )
   }
 }
@@ -46,7 +46,8 @@ const mapsStateToProps = state => ({
   locale: state.i18n.locale,
   linkPrefix: state.i18n.linkPrefix,
   appUrl: state.appUrl,
-  staticData: state.staticData
+  projectsData: state.projectsData,
+  galleryData: state.galleryData
 })
 
 const mapsDispatchToProps = dispatch => bindActionCreators(actions, dispatch)

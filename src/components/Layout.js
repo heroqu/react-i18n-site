@@ -1,17 +1,19 @@
 import React from 'react'
-
 import Header from '../components/Header'
 import Content from '../components/Content'
 import Footer from '../components/Footer'
+import Debug from './Debug'
 
 const Layout = props => {
   const { locale, linkPrefix, setLocale } = props
   return (
-    <div className="Cnt">
-      Layout
-      <Header {...{ locale, linkPrefix, setLocale }} />
-      <Content {...props} />
-      <Footer {...{ locale }} />
+    <div className="WholePage">
+      <div className="WholePage__ButFooter">
+        <Debug>Layout</Debug>
+        <Header {...{ locale, linkPrefix, setLocale }} />
+        <Content {...props} />
+      </div>
+      <Footer {...props} />
     </div>
   )
 }
