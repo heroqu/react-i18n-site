@@ -1,4 +1,4 @@
-import {COOKIE_SECRET, COOKIE_MAX_AGE} from '../config'
+import { COOKIE_SECRET, COOKIE_MAX_AGE } from '../config'
 import Cookies from 'universal-cookie'
 
 const cookies = new Cookies()
