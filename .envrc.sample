@@ -1,0 +1,22 @@
+###############################################
+# While in production mode the app depends
+# on these ENV VARS.
+#
+# See `config` directory for loading mechanics.
+###############################################
+
+DEFAULT_LOCALE=en
+ALLOWED_LOCALES=en,ru
+ROOT_PAGE=home
+STATIC_PAGES=Home,Intro,Skills,Experience,Foss,Education,About,Contact
+COOKIE_SECRET=12345678901234567890
+COOKIE_MAX_AGE=2592000       # 30 * 24 * 3600
+DEBUG_MODE=true
+
+export DEFAULT_LOCALE
+export ALLOWED_LOCALES
+export ROOT_PAGE
+export STATIC_PAGES
+export COOKIE_SECRET
+export COOKIE_MAX_AGE
+export DEBUG_MODE
