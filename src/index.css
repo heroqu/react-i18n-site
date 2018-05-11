@@ -8,11 +8,21 @@ body {
 }
 
 body {
-  background-image: url('assets/images/gradient_028.png'),
-    /* url('assets/images/starsky_007.jpg'), */
-    url('assets/images/starsky_010.png'),
-    url();
-  background-position: center -40px;
+  background-image: url('assets/images/starsky_014.png'),
+    linear-gradient(
+      90deg,
+      hsla(220, 25%, 50%, 0),
+      hsla(220, 25%, 77%, 0.85) 35%,
+      hsla(220, 25%, 77%, 1) 50%,
+      hsla(220, 25%, 77%, 0.85) 65%,
+      hsla(220, 25%, 50%, 0)
+    ),
+    linear-gradient(
+      hsla(220, 25%, 35%, 1),
+      hsla(220, 25%, 35%, 0.3) 45%,
+      hsla(220, 25%, 80%, 1)
+    );
+  background-position: center 0;
   background-color: hsla(220, 25%, 55%, 1);
 
   background-attachment: fixed;
@@ -38,12 +48,9 @@ body {
   font-size: 0.64em;
   flex-shrink: 0;
   padding: 90px 0 0 0;
-
-  /* background-color: hsla(230, 25%, 50%, 0.5); */
-
   background-image: url('assets/images/skyline_006.png');
   background-repeat: repeat-x;
-  background-position: center 0px;
+  background-position: center 1em;
 
   margin-top: 2em 0 0 0;
   /* margin-bottom: 0 !important; */
@@ -196,17 +203,6 @@ li::before {
 }
 
 .Cnt {
-  /* border: 1px dashed red;
-  border-radius: 5px;
-  background-color: hsla(230, 20%, 50%, 0.15); */
-  /* margin: 1px;
-  padding: 1px; */
-  text-align: center;
-}
-
-.Cnt__Trans {
-  margin: 1px;
-  padding: 1px;
   text-align: center;
 }
 
@@ -219,28 +215,21 @@ li::before {
   margin: 0.5em 0;
   font-size: larger;
   color: hsla(0, 100%, 37%, 1);
-  /* text-shadow: 2px 2px 5px hsla(220, 20%, 20%, 0.75); */
-  /* background-color: hsla(0, 50%, 50%, 0.05); */
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0.7em 0 0.1em 0;
 }
 
 .Title {
   color: hsla(220, 50%, 20%, 1);
-  border-radius: 5px;
-  /* background-color: hsla(220, 35%, 50%, 0.06); */
-  /* margin: 1em 1px 0.5em 1px; */
-  margin: 38px 1px 19px 1px;
-  padding: 5px;
   text-shadow: 3px 3px 5px hsla(0, 0%, 50%, 0.65);
 }
 
 .Subtitle {
-  /* font-size: 1.3rem; */
-  /* color: hsla(0, 0%, 100%, 0.74); */
   color: white;
-  border-radius: 5px;
-  /* background-color: hsla(220, 35%, 50%, 0.06); */
-  /* margin: 1px; */
-  margin: 1em 1px 0.4em 1px;
-  padding: 5px;
   text-shadow: 2px 2px 5px hsla(0, 0%, 30%, 0.65);
 }

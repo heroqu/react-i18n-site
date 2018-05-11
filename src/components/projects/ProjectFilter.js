@@ -22,7 +22,7 @@ const ProjectFilter = ({ tags, selectedTags, onToggle, reset }) => {
   })
 
   return (
-    <div className="Cnt__Trans">
+    <div className="Cnt">
       <div className="Flex">
         <div className="Flex__Start Flex__Grow Title">{FM_ProjectFilter}</div>
         <div className="Flex__End">
