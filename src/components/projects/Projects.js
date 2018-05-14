@@ -78,15 +78,9 @@ class Projects extends Component {
   }
 
   render() {
-    // console.log(`------ selectedTags:`)
-    // console.log(this.state.selectedTags)
-    //
     const { projectsData, locale, defaultLocale } = this.props
     const { projects, tags, T: T0 } = ProjectsParser(projectsData)
     const T = (project, attr) => T0(project, attr, locale, defaultLocale)
-
-    // console.log(`------ selectedTags:`)
-    // console.log(this.state.selectedTags)
 
     const filterBy = this.state.selectedTags.sort().join(', ')
 
@@ -98,21 +92,25 @@ class Projects extends Component {
         <p className="Title">
           {FM_UnderMicroscope} <AppLink to="/resume">{FM_Here}</AppLink>
         </p>
-        <div className="Flex">
-          <div className="Flex__Start">{FM_FilterBy}:</div>
-          <div className="Flex__Middle MarginLeft_1 Colored">{filterBy}</div>
-        </div>
+
         <div className="Projects">
-          <div className="ProjectFilter">
-            <ProjectFilter
-              tags={tags}
-              onToggle={tag => this.onTagToggle(tag)}
-              selectedTags={this.state.selectedTags || []}
-              reset={() => this.reset()}
-            />
+          <div className="Projects__CurrentFilter">
+            <div className="Projects__CurrentFilter__Caption">{FM_FilterBy}:</div>
+            <div className="Projects__CurrentFilter__Value Colored">{filterBy}</div>
           </div>
-          <div className="ProjectList">
-            <ProjectList projects={visible} T={T} />
+
+          <div className="Projects__FilterAndList">
+            <div className="Projects__Filter">
+              <ProjectFilter
+                tags={tags}
+                onToggle={tag => this.onTagToggle(tag)}
+                selectedTags={this.state.selectedTags || []}
+                reset={() => this.reset()}
+              />
+            </div>
+            <div className="Projects__List">
+              <ProjectList projects={visible} T={T} />
+            </div>
           </div>
         </div>
       </div>

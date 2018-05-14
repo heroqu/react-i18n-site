@@ -1,31 +1,51 @@
 .Projects {
+  padding: 0 0.5em;
+}
+
+/* Projects : Current filter */
+
+.Projects__CurrentFilter {
   display: flex;
-  flex-wrap: nowrap;
-  flex-direction: row;
-  align-items: flex-start;
-  align-content: flex-start;
-  justify-content: left;
+  flex-flow: row nowrap;
+  justify-content: center;
+  padding: 0.25em 0;
+  font-size: 0.7em;
+}
+
+.Projects__CurrentFilter__Caption {
+  text-align: right;
+  /* flex-grow: 2;
+  flex-basis: 40%; */
+  flex: 2 4 200px;
+  padding: 0 0.5em 0 0;
+}
+.Projects__CurrentFilter__Value {
   text-align: left;
-  padding: 0;
+  flex: 3 3 300px;
+  padding: 0 0 0 0.5em;
 }
 
 /* Project filter & Project list */
 
-.ProjectFilter,
-.ProjectList {
-  flex: 0 1 auto;
-  padding: 0 0.5em;
+.Projects__FilterAndList {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  text-align: left;
+  padding: 0;
 }
 
-.ProjectFilter {
+.Projects__Filter {
   flex: 2 2 200px;
+  padding: 0 0.5em 0 0;
 }
-.ProjectList {
+.Projects__List {
   flex: 3 3 300px;
+  padding: 0 0 0 0.5em;
 }
 
 @media (max-width: 768px) {
-  .Projects {
+  .Projects__FilterAndList {
     flex-direction: column;
   }
 }
@@ -85,29 +105,21 @@
 
 .ProjectName {
   flex-grow: 1;
-  color: #0f0;
-  color: #c03;
-  color: #b02;
-  color: #901;
-  color: #ffd;
+  color: hsla(48, 100%, 95%, 1);
 }
 .Tag {
   font-size: smaller;
   padding: 0px 0.4em;
   margin-top: 2px;
   margin-right: 2px;
-  /* background-color: hsla(220, 35%, 50%, 0.2); */
-  background-color: hsla(220, 20%, 35%, 0.5);
-  background-color: hsla(220, 30%, 70%, 0.2);
-  color: #f0e9bb;
-  color: #fff;
-  color: hsla(0, 100%, 100%, 0.75);
-  color: hsla(0, 100%, 100%, 0.35);
   border-radius: 5px;
+  color: hsla(0, 100%, 100%, 0.4);
+  background-color: hsla(220, 30%, 75%, 0.2);
 }
 
 .Tag__Selected {
-  background-color: hsla(220, 30%, 30%, 0.4);
+  color: hsla(0, 100%, 100%, 1);
+  background-color: hsla(220, 30%, 40%, 0.25);
 }
 
 .Badge {
@@ -142,8 +154,7 @@
   /* width: 100%; */
   /* border: 1px solid lime; */
   border-radius: 5px;
-  background-color: hsla(220, 35%, 50%, 0.1);
-  background-color: hsla(220, 5%, 100%, 0.75);
+  background-color: hsla(220, 50%, 97%, 0.75);
   /* background-color: #ffe; */
   text-align: left;
   /* overflow-y: scroll;
