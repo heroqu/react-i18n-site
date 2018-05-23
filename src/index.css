@@ -8,8 +8,7 @@ body {
 }
 
 body {
-  background-image:
-    url('assets/images/starsky_018.png'),
+  background-image: url('assets/images/starsky_018.png'),
     linear-gradient(
       90deg,
       hsla(220, 25%, 50%, 0),
@@ -38,10 +37,13 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  /* padding-top: 2.5em; */
 }
 
 .WholePage__ButFooter {
+  padding: 0 0px;
   flex: 1;
+  /* border-top: 1px solid white; */
 }
 
 .Footer {
@@ -56,35 +58,6 @@ body {
 
   padding: 12em 0 0 0;
   margin: 2em 0 0 0;
-}
-
-.Header {
-  padding: 0.4em 0.5em 0.8em 0.5em !important;
-  /* background-color: hsla(220, 20%, 55%, 1); */
-
-  background-image: linear-gradient(
-    180deg,
-    hsla(220, 17%, 50%, 0),
-    hsla(220, 17%, 50%, 0.6) 20%,
-    hsla(220, 17%, 50%, 0.9) 35%,
-    hsla(220, 17%, 50%, 1) 50%,
-    hsla(220, 17%, 50%, 0.9) 65%,
-    hsla(220, 17%, 50%, 0.6) 75%,
-    hsla(220, 17%, 50%, 0.0) 87%
-  );
-  /* background-image: linear-gradient(
-    hsla(230, 25%, 90%, 0),
-    hsla(230, 25%, 90%, 0),
-    hsla(230, 25%, 90%, 0),
-    hsla(230, 25%, 90%, 0.03),
-    hsla(230, 25%, 90%, 0.1),
-    hsla(230, 25%, 90%, 0.2),
-    hsla(230, 25%, 90%, 0.3),
-    hsla(230, 25%, 90%, 0.5),
-    hsla(230, 25%, 90%, 0.1),
-    hsla(230, 25%, 90%, 0),
-    hsla(230, 25%, 90%, 0)
-  ); */
 }
 
 /* More */
@@ -116,34 +89,6 @@ a.Photo:hover {
   border-width: 0 !important;
 }
 
-.Navlink::before {
-  content: '·';
-  content: '•';
-  /* content: ":"; */
-  margin-left: 0.35em;
-  margin-right: 0.35em;
-  color: hsla(220, 0%, 100%, 0.45);
-  /* margin-left: 0.6em; */
-  border-bottom-width: 0px;
-}
-.Navlink__Active {
-  color: #333;
-}
-.Navlink__Active::before {
-  content: '•';
-  margin-left: 0.35em;
-  margin-right: 0.35em;
-  /* color: red; */
-}
-.Navlink__Active a {
-  color: #333;
-  border-color: #333;
-}
-
-.Spacer1 {
-  margin-left: 1em;
-}
-
 .Colored {
   color: hsl(0, 100%, 37%);
 }
@@ -154,7 +99,6 @@ a.Photo:hover {
 }
 .Flex__Start {
   align-self: flex-start;
-  /* flex-grow: 1; */
   text-align: left;
 }
 .Flex__Grow {
@@ -166,9 +110,9 @@ a.Photo:hover {
 }
 .Flex__End {
   align-self: flex-end;
-  /* flex-grow: 1; */
   text-align: right;
 }
+
 .MarginLeft_1 {
   margin-left: 1em;
 }
@@ -210,7 +154,6 @@ li {
 li::before {
   content: '•';
   margin-right: 0.6em;
-  color: hsla(220, 0%, 100%, 0.45);
   color: hsl(0, 100%, 37%);
 }
 
@@ -244,4 +187,31 @@ h3 {
 .Subtitle {
   color: white;
   text-shadow: 2px 2px 5px hsla(0, 0%, 30%, 0.65);
+}
+
+/* Navlink */
+
+/* suppress coloring by react-router-dom's NavLink  */
+
+a.active {
+  color: inherit;
+}
+
+/* ============= */
+
+.Navlink {
+  margin: 1px;
+  color: hsla(48, 100%, 92%, 1);
+}
+
+.NavLink__Active {
+  margin: 1px;
+  /* margin: 0.1em !important; */
+  color: hsla(0, 100%, 77%, 1);
+  background-color: hsla(220, 100%, 67%, 0.25);
+}
+
+.NavLink__Active a {
+  color: hsla(0, 100%, 77%, 1);
+  border-color: red;
 }

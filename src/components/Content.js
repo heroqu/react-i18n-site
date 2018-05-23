@@ -31,7 +31,7 @@ const componentFromProps = props => {
 const Content = props => {
   const { locale, appUrl } = props
   return (
-    <div className="Cnt">
+    <div className="Cnt PadTop">
       <Debug>
         Content : {locale} : {appUrl}
       </Debug>
