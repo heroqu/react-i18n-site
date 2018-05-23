@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import classNames from 'classnames'
 
 /**
  * NavLink enhancement that takes care of adding proper locale prefix
@@ -11,11 +12,14 @@ import { NavLink } from 'react-router-dom'
  * while with locale='en' full_url => '/about'
  */
 const AppNavLink = ({ linkPrefix, appUrl, to, children, className }) => {
-  className += (`/${appUrl}` === to ? '__Active' : '')
+  if (`/${appUrl}` === to) {
+    className = classNames(className, 'NavLink__Active')
+  }
+
   return (
-    <span className={className}>
+    <div className={className}>
       <NavLink to={`${linkPrefix}${to}`}>{children}</NavLink>
-    </span>
+    </div>
   )
 }
 
