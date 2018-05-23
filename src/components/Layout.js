@@ -4,6 +4,8 @@ import Content from './Content'
 import Footer from './Footer'
 import Debug from './Debug'
 
+import '../fonts'
+
 const Layout = props => {
   const { locale, linkPrefix, setLocale } = props
   return (

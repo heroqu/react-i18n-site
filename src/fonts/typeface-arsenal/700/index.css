@@ -1,0 +1,12 @@
+/* arsenal-700normal - latin */
+@font-face {
+  font-family: 'Arsenal';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src:
+    local('Arsenal Regular '),
+    local('Arsenal-Regular'),
+    url('../files/arsenal-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../files/arsenal-latin-700.woff') format('woff'); /* Modern Browsers */
+}
