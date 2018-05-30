@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -24,19 +24,21 @@ class App extends Component {
     const messages = combinedMessages[locale]
 
     return (
-      <React.Fragment>
+      <Fragment>
         <Debug>App : connected to redux store</Debug>
         <Router>
-          <React.Fragment>
+          <Fragment>
             <Debug>Router</Debug>
             <LocaleRedirector />
-            <Debug>IntlProvider : get locale from props</Debug>
             <IntlProvider locale={locale} messages={messages}>
-              <Layout {...this.props} locale={locale} />
+              <Fragment>
+                <Debug>IntlProvider : get locale from props</Debug>
+                <Layout {...this.props} locale={locale} />
+              </Fragment>
             </IntlProvider>
-          </React.Fragment>
+          </Fragment>
         </Router>
-      </React.Fragment>
+      </Fragment>
     )
   }
 }
