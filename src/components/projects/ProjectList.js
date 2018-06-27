@@ -47,7 +47,7 @@ class ProjectList extends Component {
   }
 
   render() {
-    const { projects, tags, T } = this.props
+    const { projects, T } = this.props
 
     if (!Array.isArray(projects) || projects.lengh === 0) {
       return null

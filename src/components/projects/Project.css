@@ -50,14 +50,6 @@
   }
 }
 
-/* Under a microscope svg pictogram */
-
-.UnderMic {
-  background: url('../../assets/images/microscope_003.svg');
-  background-position: center -0.5em;
-  background-repeat: no-repeat;
-}
-
 /* Accordion */
 
 .Accordion {
@@ -117,7 +109,7 @@
   background-color: hsla(220, 30%, 75%, 0.2);
 }
 
-.Tag__Selected {
+.Tag__Active {
   color: hsla(0, 100%, 100%, 1);
   background-color: hsla(220, 30%, 40%, 0.25);
 }

@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&subset=cyrillic');
+
 html,
 body {
   height: 100%;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -21,67 +24,80 @@ body {
       hsla(220, 25%, 80%, 1)
     );
   background-position: center 0;
+  /* background-position: 0 0; */
   background-color: hsla(220, 25%, 55%, 1);
 
   background-attachment: fixed;
+  /* background-attachment: scroll; */
 
-  font-family: Arsenal, sans-serif;
+  font-family: Arsenal, serif, sans-serif;
   font-size: 1.2em;
 }
 
-/* Sticky footer */
+/* Buttons */
 
-.WholePage {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-  /* padding-top: 2.5em; */
+.Button__Active {
+  color: hsla(220, 20%, 10%, 1) !important;
 }
 
-.WholePage__ButFooter {
-  padding: 0 0px;
-  flex: 1;
-  /* border-top: 1px solid white; */
-}
-
-.Footer {
-  text-align: center;
-  color: hsla(220, 25%, 75%, 0.5);
-  font-size: 0.64em;
-  flex-shrink: 0;
-
-  background-image: url('assets/images/skyline_006.png');
-  background-repeat: repeat-x;
-  background-position: center 1em;
-
-  padding: 12em 0 0 0;
-  margin: 2em 0 0 0;
-}
-
-/* More */
+/* Links */
 
 a {
-  text-decoration: none;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  color: hsla(48, 100%, 93%, 1);
+  text-decoration: underline;
+  /* border-bottom-width: 1px;
+  border-bottom-style: solid; */
+  color: hsla(48, 100%, 91%, 1);
   border-bottom-color: hsla(48, 100%, 93%, 0.75);
 }
 
 a.Photo {
   color: hsla(5, 100%, 45%, 0.6);
-  border-bottom-color: hsla(5, 100%, 45%, 0.4);
+  border-bottom-color: hsla(350, 100%, 45%, 0.4);
 }
 
 a:hover,
 a.Photo:hover {
-  color: hsla(5, 100%, 45%, 1);
-  border-bottom-color: hsla(5, 100%, 45%, 1);
+  color: hsla(0, 100%, 38%, 1);
+  border-bottom-color: hsla(350, 100%, 45%, 1);
 }
 
-.Debug {
-  color: green;
+/* Navlink */
+
+a.NavLink {
+  text-decoration: none;
+  border-width: 0;
+  margin: 0px;
+  color: hsla(48, 100%, 91%, 1);
 }
+a.NavLink:hover {
+  color: hsl(38, 100%, 85%);
+  color: hsl(2, 100%, 84%);
+  /* color: hsl(0, 100%, 35%); */
+}
+a.NavLink__Active,
+a.NavLink__Active:hover {
+  color: hsla(220, 20%, 10%, 1);
+  /* color: hsl(220, 100%, 98%); */
+}
+
+/* AppBar */
+
+.AppBar {
+  background-color: hsla(220, 20%, 45%, 1) !important;
+  background: url('assets/images/starsky_018.png'),
+    linear-gradient(
+      90deg,
+      hsla(220, 25%, 50%, 0),
+      hsla(220, 25%, 77%, 0.85) 35%,
+      hsla(220, 25%, 77%, 1) 50%,
+      hsla(220, 25%, 77%, 0.85) 65%,
+      hsla(220, 25%, 50%, 0)
+    );
+  background-position: center 0;
+  padding: 5px;
+}
+
+/* ============= */
 
 .NoBorder {
   border-width: 0 !important;
@@ -145,14 +161,15 @@ li {
   padding: 0 10px;
   border-color: hsla(220, 0%, 0%, 0.15);
   border-style: dashed;
-  border-width: 0 0 1px 0;
   border-width: 0;
-}
-
-li::before {
-  content: '•';
-  margin-right: 0.6em;
-  color: hsl(0, 100%, 37%);
+  background-image: linear-gradient(
+    90deg,
+    hsla(220, 25%, 50%, 0),
+    hsla(220, 25%, 77%, 0.85) 35%,
+    hsla(220, 25%, 77%, 1) 50%,
+    hsla(220, 25%, 77%, 0.85) 65%,
+    hsla(220, 25%, 50%, 0)
+  );
 }
 
 .Cnt {
@@ -174,7 +191,7 @@ h1,
 h2,
 h3 {
   margin: 0;
-  padding: 0.7em 0 0.1em 0;
+  padding: 0.5em 0 0.1em 0;
 }
 
 .Title {
@@ -187,29 +204,27 @@ h3 {
   text-shadow: 2px 2px 5px hsla(0, 0%, 30%, 0.65);
 }
 
-/* Navlink */
+/*
+Overwrite Chrome’s forced yellow background color
 
-/* suppress coloring by react-router-dom's NavLink  */
+  based on:
+    http://webagility.com/posts/the-ultimate-list-of-hacks-for-chromes-forced-yellow-background-on-autocompleted-inputs
+*/
 
-a.active {
-  color: inherit;
+input {
+  /* border: 1px solid green; */
+  background-color: transparent;
 }
 
-/* ============= */
-
-.Navlink {
-  margin: 1px;
-  color: hsla(48, 100%, 92%, 1);
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-transition-delay: 99999s;
 }
 
-.NavLink__Active {
-  margin: 1px;
-  /* margin: 0.1em !important; */
-  color: hsla(0, 100%, 77%, 1);
-  background-color: hsla(220, 100%, 67%, 0.25);
-}
+/* Button */
 
-.NavLink__Active a {
-  color: hsla(0, 100%, 77%, 1);
-  border-color: red;
+.Button__Active {
+  /* color: 'lime' !important; */
 }

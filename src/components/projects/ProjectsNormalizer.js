@@ -1,6 +1,13 @@
 import _ from 'lodash'
 
-function ProjectsParser(projectsData) {
+/**
+ * Normalize loaded projects data:
+ *  - renumber badges (in json files they can go with large steps)
+ *  - form badgeMinor field if absent
+ *  - sort projects by (badge, badgeMinor)
+ *  - forms full badge
+ */
+function ProjectsNormalizer(projectsData) {
   let projects = Array.isArray(projectsData) ? projectsData : []
 
   // get list of all the unique badges
@@ -98,4 +105,4 @@ function formatDateField(DateStr) {
   }
 }
 
-export default ProjectsParser
+export default ProjectsNormalizer

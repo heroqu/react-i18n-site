@@ -1,14 +1,25 @@
-import React from 'react'
-import NavBar from '../NavBar'
+import React, { Fragment } from 'react'
+import { Hidden } from '@material-ui/core'
 
-import './Header.css'
+import MenuTop from './MenuTop'
+import MenuLeft from './MenuLeft'
+import LanguagePanel from './LanguagePanel'
 
+/**
+ * when width >= 768px shows MenuTop
+ * when width < 768px shows MenuLeft
+ * always show LanguagePanel
+ */
 const Header = props => (
-  <div className="StickyTop">
-    <div className="Header">
-      <NavBar {...props} color={'#ffd'} />
-    </div>
-  </div>
+  <Fragment>
+    <Hidden smDown>
+      <MenuTop />
+    </Hidden>
+    <Hidden mdUp>
+      <MenuLeft />
+    </Hidden>
+    <LanguagePanel />
+  </Fragment>
 )
 
 export default Header

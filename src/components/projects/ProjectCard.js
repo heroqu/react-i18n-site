@@ -1,13 +1,7 @@
 import React from 'react'
-import Tag from './Tag'
 import Markdown from 'markdown-to-jsx'
 import { FormattedMessage } from 'react-intl'
-import ShowProps from '../ShowProps'
 import Gallery from '../Gallery'
-
-const FM_Employer = (
-  <FormattedMessage id="app.Employer" defaultMessage="Employer" />
-)
 
 const ALink = props => (
   <a
@@ -35,17 +29,20 @@ const MarkdownOptions = {
   }
 }
 
+const FM_Employer = (
+  <FormattedMessage id="app.Employer" defaultMessage="Employer" />
+)
+
 const ProjectCard = props => {
   if (!props) {
     return null
   }
 
-  // console.log(props)
   const { T: T0 } = props
   const T = attr => T0(props, attr)
 
   let contents = null
-  // <span className="TimeSpan">{props.startDate} - {props.endDate}</span>
+
   try {
     let description = T('description')
     if (description) {
@@ -69,11 +66,9 @@ const ProjectCard = props => {
         </div>
       )
     } else {
-      console.log(`----------- NULL`)
       return null
     }
   } catch (e) {
-    console.log(`----------- CATCH ERROR`)
     return null
   }
 

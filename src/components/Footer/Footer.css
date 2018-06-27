@@ -1,0 +1,18 @@
+.Footer {
+  text-align: center;
+  color: hsla(220, 25%, 75%, 0.5);
+  font-size: 0.64em;
+  background-image: url('../../assets/images/skyline_007.png')
+    /* ,
+    linear-gradient(
+      transparent 45%,
+      #000 45%
+    ) */;
+  background-repeat: repeat-x;
+  background-position: center 1em;
+
+  /* dimensions */
+  height: 100%;
+  padding: 12em 0 0 0;
+  margin: 1em 0 0 0;
+}

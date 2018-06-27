@@ -2,6 +2,10 @@ import * as types from '../constants/actionTypes'
 import localeCookie from '../i18n/localeCookie'
 import { DEFAULT_LOCALE, ALLOWED_LOCALES } from '../config'
 
+import makeFetchJsonWithCache from './FetchJsonWithCache'
+
+const fetchJsonWithCache = makeFetchJsonWithCache()
+
 const sanitizedLocale = locale => {
   locale = ('' + locale).toLowerCase().trim()
   if (ALLOWED_LOCALES.indexOf(locale) !== -1) {
@@ -20,15 +24,14 @@ export const setAppUrl = appUrl => ({
   payload: appUrl
 })
 
-export const setAppUrls = appUrls => ({
-  type: types.SET_APP_URLS,
-  payload: appUrls
-})
-
 export const loadProjectsData = () => async dispatch => {
   try {
-    const response = await fetch('/data/projects.json')
-    const data = await response.json()
+    // console.log(`_____ actions: loadProjectsData  ${Date.now()}`)
+
+    const data = await fetchJsonWithCache('/data/projects.json')
+
+    // console.log(`_____ actions: loadProjectsData: data:`)
+    // console.log(data)
 
     dispatch({ type: types.LOAD_PROJECTS_DATA, payload: data })
   } catch (e) {
@@ -38,8 +41,12 @@ export const loadProjectsData = () => async dispatch => {
 
 export const loadGalleryData = () => async dispatch => {
   try {
-    const response = await fetch('/data/gallery.json')
-    const data = await response.json()
+    // console.log(`_____ actions: loadGalleryData   ${Date.now()}`)
+
+    const data = await fetchJsonWithCache('/data/gallery.json')
+
+    // console.log(`_____ actions: loadGalleryData: data:`)
+    // console.log(data)
 
     dispatch({ type: types.LOAD_GALLERY_DATA, payload: data })
   } catch (e) {

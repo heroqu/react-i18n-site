@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import Lightbox from 'react-image-lightbox'
 import _ from 'lodash'
+import PropTypes from 'prop-types'
 
-import Debug from './Debug'
-import { FormattedMessage } from 'react-intl'
-import { sanitize, getI18nAttr } from '../i18n/utils'
+import { sanitize, getI18nAttr } from '../i18n'
 
 import { connect } from 'react-redux'
+import { loadGalleryData } from '../actions'
 
 class Gallery extends Component {
   constructor(props) {
@@ -18,14 +18,20 @@ class Gallery extends Component {
     }
   }
 
+  componentDidMount() {
+    console.log(`_____ Gallery: componentDidMount`)
+    console.log(`_____ Gallery: FIRE loadGalleryData()`)
+    this.props.loadGalleryData()
+  }
+
   /**
    * get current subcollection of images that correspond
    * to the current tag
    * @return {array} - array of image objects. See underlying
-   * function _getCurrentImages for details.
+   * function _imagesWithTag for details.
    */
-  getCurrentImages() {
-    return _getCurrentImages(this.props.galleryData, this.props.tag)
+  imagesWithTag() {
+    return _imagesWithTag(this.props.galleryData, this.props.tag)
   }
 
   /**
@@ -43,7 +49,7 @@ class Gallery extends Component {
       // by default start with the first image of subcollection
       return 0
     }
-    const index = this.getCurrentImages().findIndex(
+    const index = this.imagesWithTag().findIndex(
       x => sanitize(x.name) === sanitize(name)
     )
     return index === -1 ? 0 : index
@@ -52,19 +58,26 @@ class Gallery extends Component {
   render() {
     const { photoIndex, isOpen } = this.state
 
-    const images = this.getCurrentImages()
+    const images = this.imagesWithTag()
     const subcollectionIsNotEmpty = images.length !== 0
 
-    console.log(`subcollectionIsNotEmpty: `, subcollectionIsNotEmpty)
+    // console.log(`subcollectionIsNotEmpty: `, subcollectionIsNotEmpty)
 
     // a localized version of caption attribute
-    const caption = getI18nAttr(images[photoIndex], 'caption', this.props.locale)
+    const caption = getI18nAttr(
+      images[photoIndex],
+      'caption',
+      this.props.locale
+    )
 
-    const className = this.props.className || ""
+    const className = this.props.className || ''
 
     return (
       <span>
-        <a className={className} onClick={() => this.setState({ isOpen: true })}>
+        <a
+          className={className}
+          onClick={() => this.setState({ isOpen: true })}
+        >
           {this.props.children}
         </a>
 
@@ -95,23 +108,32 @@ class Gallery extends Component {
   }
 }
 
-// export default Gallery
+Gallery.propTypes = {
+  name: PropTypes.string,
+  tag: PropTypes.string
+}
 
 const mapsStateToProps = state => ({
   galleryData: state.galleryData,
   locale: state.i18n.locale
 })
 
-export default connect(mapsStateToProps)(Gallery)
+const mapDispatchToProps = dispatch => ({
+  loadGalleryData: locale => dispatch(loadGalleryData(locale))
+})
+
+export default connect(
+  mapsStateToProps,
+  mapDispatchToProps
+)(Gallery)
 
 /*
  * helper functions
  */
 
 /**
- * filters the full set of images to only those
- * having specfied tag. If no tag is given then
- * no filtering occurs.
+ * Get array of all the images with specified tag,
+ * or just all of them if no tag is given
  *
  * @param {array} items - array of all image objects.
  *      Each object should nave following attributes:
@@ -119,20 +141,21 @@ export default connect(mapsStateToProps)(Gallery)
  *        name {string},
  *        order: {number},
  *        src: {string} - same as in <img src=... />,
- *        tags: {string} - e.g. "vacation,hot",
+ *        tags: {string} - comma separated values, e.g. "vacation,hot",
  *        caption: {string} - text that will go beneath the picture
  *      }
  * @param {string} tag - if present the collection will be filtered by it
  * @return {array} - a filtered array of image objects
  */
-function _getCurrentImages(items, tag) {
-  return _.chain(items)
-    .filter(tagFilter(tag))
+function _imagesWithTag(items, tag) {
+  return _
+    .chain(items)
+    .filter(_makeTagFilter(tag))
     .sortBy('order')
     .value()
 }
 
-function tagFilter(tag) {
+function _makeTagFilter(tag) {
   if (!tag) {
     // no filtering: show all images
     return () => true

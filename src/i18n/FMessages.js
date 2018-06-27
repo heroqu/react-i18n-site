@@ -1,43 +1,41 @@
 import React from 'react'
 import { FormattedMessage } from 'react-intl'
 
-const defaultMessages = {
-  nav: {
-    Home: 'Home',
-    Intro: 'Intro',
-    Skills: 'Skills',
-    Experience: 'Experience',
-    Foss: 'Open Source',
-    Education: 'Education',
-    About: 'About',
-    Contact: 'Contact'
-  }
-}
+import { DEFAULT_LOCALE } from '../config'
+import messages from '../i18n/messages.json'
 
-export function navMessages() {
-  return Object.keys(defaultMessages.nav).reduce((acc, attr) => {
-    acc[attr] = fmtMessage(`nav.${attr}`)
+const defaultMessages = messages[DEFAULT_LOCALE]
+
+const defaultNavMessages = Object.keys(defaultMessages)
+  .filter(key => key.split('.')[0] === 'nav')
+  .reduce((acc, key) => {
+    acc[key.split('.')[1]] = defaultMessages[key]
     return acc
   }, {})
-}
+
+// use unbreakable spaces inside menu titles
+const unBreakSpace = txt => `${txt}`.replace(/ /g, '\u00a0')
+
+export const navMessages = Object.keys(defaultNavMessages).reduce(
+  (acc, attr) => {
+    acc[attr.toLowerCase()] = fmtMessage(`nav.${attr}`)
+    return acc
+  },
+  {}
+)
 
 export function fmtMessage(id) {
-  // console.log(`fmtMessage: id: ${id}`)
   if (!id) return null
 
-  const defaultMessage =
-    `${id}`.split('.').reduce((val, attr) => {
-      if (attr && val) {
-        val = val[attr]
-      }
-      return val
-    }, defaultMessages) || ''
-
-  // console.log(`fmtMessage: defaultMessage: ${defaultMessage}`)
+  let defaultMessage = defaultMessages[id]
 
   if (!defaultMessage) return null
 
-  return <FormattedMessage id={id} defaultMessage={defaultMessage} />
+  if (defaultMessage.indexOf(' ') !== -1) {
+    defaultMessage = unBreakSpace(defaultMessage)
+  }
+
+  return <FormattedMessage {...{ id, defaultMessage }} />
 }
 
 export default { fmtMessage, navMessages }

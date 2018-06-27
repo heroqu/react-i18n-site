@@ -39,19 +39,44 @@ export function sanitizeLocale(locale) {
  */
 export function getI18nAttr(obj, attr, locale) {
   if (!obj) {
-    return null
+    return undefined
   }
 
   locale = sanitizeLocale(locale) || DEFAULT_LOCALE
 
-  const paths = locale === DEFAULT_LOCALE ? [locale] : [locale, DEFAULT_LOCALE]
+  const pathList = locale === DEFAULT_LOCALE ? [locale] : [locale, DEFAULT_LOCALE]
 
-  // try get nested attr for every path until success
-  for (let p of paths) {
+  // try to get nested attr for every path in the list until success
+  for (let p of pathList) {
     let { [p]: tmp } = obj
     let { [attr]: value } = tmp || {}
-    if (value) return value
+    if (value !== undefined) return value
   }
 }
 
-export default { sanitize, sanitizeLocale, getI18nAttr }
+/**
+ * factory that makes a FM (FormatMessage) function
+ * based on `intl` object received through props
+ *
+ * to get it work the host component should be
+ * injected with react-intl:
+ *
+ * import { injectIntl } from 'react-intl'
+ * ...
+ * export default injectIntl(<current component>)
+ *
+ * then use this function to extract translation values directly:
+ *
+ * // somewhere inside `render`:
+ * const FM = makeFM(this.props)
+ * ...
+ * const translatedText = FM('app.hello_world')
+ */
+export const makeFM = ({ intl }) => id => intl.formatMessage({ id })
+
+export default {
+  sanitize,
+  sanitizeLocale,
+  getI18nAttr,
+  makeFM
+}

@@ -1,5 +1,6 @@
 import React from 'react'
 import { FormattedMessage } from 'react-intl'
+import Tag from './Tag'
 
 const FM_ProjectFilter = (
   <FormattedMessage id="app.ProjectFilter" defaultMessage="Project filter" />
@@ -8,18 +9,15 @@ const FM_ProjectFilter = (
 const FM_Reset = <FormattedMessage id="app.Reset" defaultMessage="Reset" />
 
 const ProjectFilter = ({ tags, selectedTags, onToggle, reset }) => {
-  // console.log(`ProjectFilter: selectedTags:`)
-  // console.log(selectedTags)
-
-  const Tags = tags.map(tag => {
-    const isSelected = selectedTags.indexOf(tag) !== -1
-    const className = isSelected ? 'Tag Tag__Selected' : 'Tag'
-    return (
-      <span className={className} key={tag} onClick={() => onToggle(tag)}>
-        {tag}
-      </span>
-    )
-  })
+  const Tags = tags.map(tag => (
+    <Tag
+      key={tag}
+      isActive={selectedTags.indexOf(tag) !== -1}
+      onClick={() => onToggle(tag)}
+    >
+      {tag}
+    </Tag>
+  ))
 
   return (
     <div className="Cnt">

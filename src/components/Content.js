@@ -1,43 +1,51 @@
-import React from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import * as actions from '../actions'
+
 import pages from './pages'
-import Projects from './projects/Projects'
-import Gallery from './Gallery'
 import NotFound from './NotFound'
 
 import './Content.css'
-import Debug from './Debug'
 
-const componentFromProps = props => {
-  let component =
-    pages[props.locale][props.appUrl] ||
-    pages[props.defaultLocale][props.appUrl]
-
-  if (!component) {
-    // not a static page, could also be a special
-    // (we have only one such page currently)
-    if (props.appUrl === 'experience') {
-      component = Projects
-    } else {
-      component = NotFound
-    }
+class Content extends Component {
+  componentDidMount() {
+    // this.props.loadProjectsData()
+    // this.props.loadGalleryData()
   }
 
-  if (component) {
-    return React.createElement(component, { ...props })
+  render() {
+    const { defaultLocale, locale, appUrl } = this.props
+
+    const Component =
+      (pages[locale] && pages[locale][appUrl]) ||
+      (pages[defaultLocale] && pages[defaultLocale][appUrl]) ||
+      NotFound
+
+    return (
+      <div className="Cnt PadTop">
+        <Component {...this.props} />
+      </div>
+    )
   }
-  return null
 }
 
-const Content = props => {
-  const { locale, appUrl } = props
-  return (
-    <div className="Cnt PadTop">
-      <Debug>
-        Content : {locale} : {appUrl}
-      </Debug>
-      {componentFromProps(props)}
-    </div>
-  )
+Content.propTypes = {
+  loadProjectsData: PropTypes.func.isRequired,
+  loadGalleryData: PropTypes.func.isRequired,
+  defaultLocale: PropTypes.string,
+  locale: PropTypes.string,
+  appUrl: PropTypes.string
 }
 
-export default Content
+const mapsStateToProps = state => ({
+  defaultLocale: state.i18n.defaultLocale,
+  locale: state.i18n.locale,
+  appUrl: state.appUrl
+})
+
+const mapsDispatchToProps = dispatch => bindActionCreators(actions, dispatch)
+
+export default connect(mapsStateToProps, mapsDispatchToProps)(Content)

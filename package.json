@@ -1,34 +1,37 @@
 {
-  "name": "ReactResume",
-  "description": "React Resume app with static & dynamic pages and i18n",
-  "version": "0.1.1",
+  "name": "React-static-site",
+  "description": "React static site with i18n",
+  "version": "0.0.20",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heroqu/react-static-site.git"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "serve": "serve -s build -p 3000"
+    "eject": "react-scripts eject"
   },
   "dependencies": {
-    "@material-ui/core": "^1.0.0",
-    "classnames": "^2.2.5",
+    "@material-ui/core": "^1.2.3",
+    "@material-ui/icons": "^1.1.0",
+    "classnames": "^2.2.6",
     "lodash": "^4.17.10",
-    "markdown-to-jsx": "^6.6.2",
-    "prop-types": "^15.6.1",
-    "react": "^16.3.2",
+    "markdown-to-jsx": "^6.6.8",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.1",
     "react-accordion-composable": "^0.1.10",
-    "react-dom": "^16.3.2",
+    "react-dom": "^16.4.1",
     "react-icons": "^2.2.7",
-    "react-image-lightbox": "^4.6.0",
+    "react-image-lightbox": "4.6.0",
     "react-intl": "^2.4.0",
+    "react-material-ui-form-validator": "^2.0.0-beta.10",
     "react-redux": "^5.0.7",
-    "react-router-dom": "^4.2.2",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "^1.1.4",
     "redux": "^4.0.0",
-    "redux-thunk": "^2.2.0",
-    "serve": "^6.5.5",
-    "styled-components": "^3.2.6",
-    "universal-cookie": "^2.1.2"
+    "redux-thunk": "^2.3.0",
+    "universal-cookie": "^2.2.0"
   }
 }
