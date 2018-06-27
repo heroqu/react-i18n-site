@@ -1,0 +1,12 @@
+/* roboto-300normal - latin+cyrillic */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300;
+  src:
+    local('Roboto Light '),
+    local('Roboto-Light'),
+    url('roboto-light-cyrillic.woff2') format('woff2'), /* Super Modern Browsers */
+    url('roboto-light-cyrillic.woff') format('woff'); /* Modern Browsers */
+}

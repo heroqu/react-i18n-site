@@ -6,13 +6,18 @@
 
 /* Roboto font for Material-UI components */
 
+// import './roboto-cyrillic'
+
 import './typeface-roboto/300'
 import './typeface-roboto/400'
 import './typeface-roboto/500'
 
 /* The font for everything else */
 
-import './typeface-arsenal/400'
+// import './typeface-jura'
+import './arsenal-cyrillic'
+
+// import './typeface-arsenal/400'
 // import './typeface-arsenal/700'
 // import './typeface-arsenal/400italic'
 // import './typeface-arsenal/700italic'
