@@ -19,8 +19,6 @@ class Gallery extends Component {
   }
 
   componentDidMount() {
-    console.log(`_____ Gallery: componentDidMount`)
-    console.log(`_____ Gallery: FIRE loadGalleryData()`)
     this.props.loadGalleryData()
   }
 
@@ -60,8 +58,6 @@ class Gallery extends Component {
 
     const images = this.imagesWithTag()
     const subcollectionIsNotEmpty = images.length !== 0
-
-    // console.log(`subcollectionIsNotEmpty: `, subcollectionIsNotEmpty)
 
     // a localized version of caption attribute
     const caption = getI18nAttr(
