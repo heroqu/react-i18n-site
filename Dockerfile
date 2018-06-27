@@ -1,30 +1,36 @@
-FROM node:9.11.1-alpine
+ARG DISTRO=node:10.5.0-alpine
 
-LABEL maintainer="Heroqu"
+FROM $DISTRO as builder
 
-# Create app directory
-WORKDIR /opt/app
+WORKDIR /usr/src/app
 
-# # Install app dependencies
-# RUN npm -g install serve
-
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
 COPY package*.json ./
 
 RUN npm install
-# RUN yarn
-# If you are building your code for production
-# RUN npm install --only=production
 
-# Bundle app source
 COPY . .
 
-# Build react static files
 RUN npm run build
 
-EXPOSE 3000
+FROM $DISTRO as deploy
 
-# serve build folder on port 3000
-CMD ["serve", "-s", "/opt/app/build", "-p", "3000"]
+RUN npm i -g serve@9.1.0
+
+WORKDIR /usr/src/app
+
+COPY --from=builder /usr/src/app/build/ .
+
+# Starting from version 9.1.0 `serve` can read the PORT value
+# from process.env.PORT, which is a good news for us, as Docker
+# currently does not do var expansion inside CMD parameters
+# in `exec` form, thus we couldn't just write
+#  CMD ["serve", "-p", "$PORT"]
+# - this would not work.
+#
+# Let's use that feature to make the port configurable
+# simultaneously in container and serve:
+ENV PORT=3010
+
+EXPOSE $PORT
+
+CMD ["serve"]
