@@ -51,38 +51,9 @@ function ProjectsNormalizer(projectsData) {
     return projects.length
   }
 
-  function FirstN(n) {
-    return _.slice(projects, 0, n)
-  }
-
-  /**
-   * Get best available translation of an attribute value
-   * - if there is no value for desired locale then
-   * default locale value is tried
-   * @param       {Object} project
-   * @param       {string} attr
-   * @param       {string} locale
-   * @param       {string} defaultLocale
-   */
-  function T(project, attr, locale, defaultLocale) {
-    let p = project[locale]
-
-    if (p && p[attr]) {
-      return p[attr]
-    }
-
-    p = project[defaultLocale]
-
-    if (p && p[attr]) {
-      return p[attr]
-    }
-  }
-
   return {
     projects,
     Length,
-    FirstN,
-    T,
     tags
   }
 }

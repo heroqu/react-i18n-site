@@ -10,6 +10,8 @@ import ProjectList from './ProjectList'
 import ProjectFilter from './ProjectFilter'
 import './Project.css'
 
+import { getI18nAttr } from '../../i18n'
+
 /**
  * we define React-intl formatted mesages here in this verbose format
  * to be able to extract them from site source code in a bulk manner
@@ -83,10 +85,10 @@ class Projects extends Component {
   }
 
   render() {
-    const { projectsData, locale, defaultLocale } = this.props
-    const { projects, tags, T: fnTranslate } = ProjectsNormalizer(projectsData)
-    const T = (project, attr) =>
-      fnTranslate(project, attr, locale, defaultLocale)
+    const { projectsData, locale } = this.props
+    const { projects, tags } = ProjectsNormalizer(projectsData)
+
+    const T = (project, attr) => getI18nAttr(project, attr, locale)
 
     const filterBy = this.state.selectedTags.sort().join(', ')
 
