@@ -7,18 +7,20 @@ import _ from 'lodash'
  *  - sort projects by (badge, badgeMinor)
  *  - forms full badge
  */
-function ProjectsNormalizer(projectsData) {
+function projectsDataNormalize(projectsData) {
   let projects = Array.isArray(projectsData) ? projectsData : []
 
   // get list of all the unique badges
-  const badges = _.chain(projects)
+  const badges = _
+    .chain(projects)
     .map(p => p.badge)
     .sortBy()
     .sortedUniq()
     .value()
 
   // normalize badge numbers and sort projects
-  projects = _.chain(projects)
+  projects = _
+    .chain(projects)
     .map(p => ({
       ...p,
       // normalize badge numbers (to their ascending ordinal number)
@@ -38,22 +40,15 @@ function ProjectsNormalizer(projectsData) {
     .value()
 
   // Extract all tags from all projects
-  const tags = _.chain(projects)
+  const tags = _
+    .chain(projects)
     .reduce((acc, p) => [...acc, ...(p.tags || [])], [])
     .uniq()
     .sortBy()
     .value()
 
-  // console.log(`All tags:`)
-  // console.log(tags)
-
-  // function Length() {
-  //   return projects.length
-  // }
-
   return {
     projects,
-    // Length,
     tags
   }
 }
@@ -76,4 +71,4 @@ function formatDateField(DateStr) {
   }
 }
 
-export default ProjectsNormalizer
+export default projectsDataNormalize

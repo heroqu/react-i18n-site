@@ -1,11 +1,9 @@
 import _ from 'lodash'
 import React, { Component } from 'react'
-
 import { connect } from 'react-redux'
 import { loadProjectsData } from '../../actions'
 
 import { FormattedMessage } from 'react-intl'
-import ProjectsNormalizer from './ProjectsNormalizer'
 import ProjectList from './ProjectList'
 import ProjectFilter from './ProjectFilter'
 import './Project.css'
@@ -48,8 +46,6 @@ class Projects extends Component {
   }
 
   componentDidMount() {
-    console.log(`_____ Projects: componentDidMount`)
-    console.log(`_____ Projects: FIRE loadProjectsData()`)
     this.props.loadProjectsData()
   }
 
@@ -85,8 +81,7 @@ class Projects extends Component {
   }
 
   render() {
-    const { projectsData, locale } = this.props
-    const { projects, tags } = ProjectsNormalizer(projectsData)
+    const { projects, tags, locale } = this.props
 
     const T = (project, attr) => getI18nAttr(project, attr, locale)
 
@@ -126,7 +121,8 @@ class Projects extends Component {
 const mapsStateToProps = state => ({
   defaultLocale: state.i18n.defaultLocale,
   locale: state.i18n.locale,
-  projectsData: state.projectsData
+  projects: state.projectsData.projects,
+  tags: state.projectsData.tags
 })
 
 const mapDispatchToProps = dispatch => ({

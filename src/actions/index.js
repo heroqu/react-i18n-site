@@ -3,6 +3,7 @@ import localeCookie from '../i18n/localeCookie'
 import { DEFAULT_LOCALE, ALLOWED_LOCALES } from '../config'
 
 import makeFetchJsonWithCache from './FetchJsonWithCache'
+import projectsDataNormalize from './projectsDataNormalize'
 
 const fetchJsonWithCache = makeFetchJsonWithCache()
 
@@ -26,14 +27,11 @@ export const setAppUrl = appUrl => ({
 
 export const loadProjectsData = () => async dispatch => {
   try {
-    // console.log(`_____ actions: loadProjectsData  ${Date.now()}`)
-
     const data = await fetchJsonWithCache('/data/projects.json')
 
-    // console.log(`_____ actions: loadProjectsData: data:`)
-    // console.log(data)
+    const { projects, tags } = projectsDataNormalize(data)
 
-    dispatch({ type: types.LOAD_PROJECTS_DATA, payload: data })
+    dispatch({ type: types.LOAD_PROJECTS_DATA, payload: { projects, tags } })
   } catch (e) {
     console.log(`Error fetching projects data:\n${e}`)
   }
@@ -41,12 +39,7 @@ export const loadProjectsData = () => async dispatch => {
 
 export const loadGalleryData = () => async dispatch => {
   try {
-    // console.log(`_____ actions: loadGalleryData   ${Date.now()}`)
-
     const data = await fetchJsonWithCache('/data/gallery.json')
-
-    // console.log(`_____ actions: loadGalleryData: data:`)
-    // console.log(data)
 
     dispatch({ type: types.LOAD_GALLERY_DATA, payload: data })
   } catch (e) {

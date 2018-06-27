@@ -1,6 +1,9 @@
 import * as actionTypes from '../constants/actionTypes'
 
-const initialState = {}
+const initialState = {
+  projects: [],
+  tags: []
+}
 
 const projectsDataReducer = (state = initialState, action) => {
   switch (action.type) {

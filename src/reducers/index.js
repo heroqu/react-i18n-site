@@ -7,6 +7,8 @@ import galleryData from './galleryData'
 const rootReducer = combineReducers({
   i18n,
   appUrl,
+  // projects: projectsData.projects,
+  // tags: projectsData.tags,
   projectsData,
   galleryData
 })
