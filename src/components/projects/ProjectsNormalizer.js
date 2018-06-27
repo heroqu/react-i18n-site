@@ -47,13 +47,13 @@ function ProjectsNormalizer(projectsData) {
   // console.log(`All tags:`)
   // console.log(tags)
 
-  function Length() {
-    return projects.length
-  }
+  // function Length() {
+  //   return projects.length
+  // }
 
   return {
     projects,
-    Length,
+    // Length,
     tags
   }
 }
