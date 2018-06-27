@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-// import classNames from 'classnames'
 import { withStyles } from '@material-ui/core/styles'
 
 import { Drawer, List, ListItem } from '@material-ui/core'
@@ -9,8 +8,6 @@ import MenuIcon from '@material-ui/icons/Menu'
 
 import AppButton from '../Buttons/AppButton'
 import NavButton from '../Buttons/NavButton'
-
-// import NavLink from '../../AppLink'
 
 import { navMessages } from '../../i18n/FMessages'
 
@@ -31,25 +28,11 @@ const styles = theme => ({
     display: 'flex',
     flexWrap: 'wrap'
   },
-  margin: {
-    // margin: theme.spacing.unit / 2
-  },
-  cssRoot: {
-    // color: colors.fgLink,
-    // backgroundColor: colors.bgDark,
-    // '&:hover': {
-    //   backgroundColor: colors.bgDarkerTrans
-    // }
-  },
   paper: {
     background: colors.trans,
     left: '0.5em',
     top: '0.5em',
     height: 'auto'
-  },
-  drawer: {
-    // background: colors.trans,
-    // height: '75vh'
   },
   list: {
     margin: 0,
@@ -60,7 +43,6 @@ const styles = theme => ({
     marginBottom: 0
   },
   button: {
-    // height: '3em',
     textTransform: 'none',
     fontFamily: 'Arsenal',
     fontSize: '1.2em',
@@ -68,11 +50,11 @@ const styles = theme => ({
     background: colors.bgLighterTrans,
     marginTop: '1px !important',
     '&:hover': {
-      backgroundColor: 'transparent', //colors.trans,
+      backgroundColor: 'transparent',
       '@media (hover: none)': {
         backgroundColor: 'transparent'
       },
-      '&$disabled': {
+      '&:disabled': {
         backgroundColor: 'transparent'
       }
     }
