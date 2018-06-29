@@ -4,7 +4,7 @@ import { Route, Switch, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import { setLocale, setAppUrl } from '../actions'
-import { ROOT_PAGE, ALLOWED_LOCALES } from '../config'
+import { HOME_PAGE, ALLOWED_LOCALES } from '../config'
 import { sanitize, sanitizeLocale } from '../i18n'
 
 const LocaleRedirector = props => {
@@ -12,7 +12,7 @@ const LocaleRedirector = props => {
     <Switch>
       <Route path="/:part1/:part2" component={Redirector} />
       <Route path="/:part1" component={Redirector} />
-      <Redirect from="/" to={`/${ROOT_PAGE}`} />
+      <Redirect from="/" to={`/${HOME_PAGE}`} />
     </Switch>
   )
 }

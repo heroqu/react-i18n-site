@@ -2,7 +2,7 @@ import React from 'react'
 import { FormattedMessage } from 'react-intl'
 
 import AppLink from './AppLink'
-import { ROOT_PAGE } from '../config'
+import { HOME_PAGE } from '../config'
 
 const NotFound = props => (
   <div className="Cnt">
@@ -13,7 +13,7 @@ const NotFound = props => (
       />
     </h1>
     <h4>
-      You can go to the <AppLink to={`/${ROOT_PAGE}`}>homepage</AppLink>
+      You can go to the <AppLink to={`/${HOME_PAGE}`}>homepage</AppLink>
     </h4>
   </div>
 )
