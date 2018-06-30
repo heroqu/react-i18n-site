@@ -1,21 +1,14 @@
 import * as types from '../constants/actionTypes'
 import localeCookie from '../i18n/localeCookie'
-import { DEFAULT_LOCALE, ALLOWED_LOCALES } from '../config'
+import { resolveLocale } from '../i18n'
 
 import makeFetchJsonWithCache from './FetchJsonWithCache'
 import projectsDataNormalize from './projectsDataNormalize'
 
 const fetchJsonWithCache = makeFetchJsonWithCache()
 
-const sanitizedLocale = locale => {
-  locale = ('' + locale).toLowerCase().trim()
-  if (ALLOWED_LOCALES.indexOf(locale) !== -1) {
-    return locale
-  }
-}
-
 export const setLocale = locale => {
-  locale = sanitizedLocale(locale) || DEFAULT_LOCALE
+  locale = resolveLocale(locale)
   localeCookie.set(locale)
   return { type: types.SET_LOCALE, payload: locale }
 }

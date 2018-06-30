@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
-import LocaleRedirector from './LocaleRedirector'
+
+import AppRouter from './AppRouter'
+
 import Intl from './Intl'
 import Theme from './Theme'
 import Layout from './Layout'
@@ -9,9 +11,8 @@ import Layout from './Layout'
  * What happens here:
  *
  * 1. React-Router
- * 2. LocaleRedirector
- *     make sure the url matches locale,
- *     and if it doesn't then do a React-router's Redirect
+ * 2. AppRouter
+ *     take care of App routes and redirect logics
  * 3. Intl
  *      React-Intl provider loaded with translation messages
  *      and locale data.
@@ -22,7 +23,7 @@ import Layout from './Layout'
 const App = () => (
   <Router>
     <Fragment>
-      <LocaleRedirector />
+      <AppRouter />
       <Intl>
         <Theme>
           <Layout />

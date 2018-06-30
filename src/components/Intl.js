@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { IntlProvider } from 'react-intl'
 
 import '../i18n/loadLocaleData'
+import { resolveLocale } from '../i18n'
 import messages from '../i18n/messages.json'
 
 /**
@@ -13,10 +14,12 @@ import messages from '../i18n/messages.json'
  *  - pluralization and format rules for all allowable locales
  *      (see import of loadLocaleData above)
  */
-const Intl = ({ children, defaultLocale, locale }) => {
-  // locale is derived from app state (redux store)
-  // but it can be empty on the first load as it finally goes from cookie
-  locale = locale || defaultLocale
+const Intl = ({ children, locale }) => {
+  // props.locale comes from from app state (redux store),
+  // but it can be empty on the first load
+  // because ultimately it comes from cookie.
+  // But here we need a valid locale no matter what:
+  locale = resolveLocale(locale)
 
   return (
     <IntlProvider locale={locale} messages={messages[locale]}>
@@ -26,12 +29,10 @@ const Intl = ({ children, defaultLocale, locale }) => {
 }
 
 Intl.propTypes = {
-  defaultLocale: PropTypes.string.isRequired,
   locale: PropTypes.string.isRequired
 }
 
 const mapsStateToProps = state => ({
-  defaultLocale: state.i18n.defaultLocale,
   locale: state.i18n.locale
 })
 

@@ -13,18 +13,46 @@ export function sanitize(arg) {
 }
 
 /**
- * Return a canonic format of locale (lowercased trimmed) if it
- * belongs to allowed list. Otherwise return empty string
+ * Try to interpret given value as a valid locale.
+ * If fails to do so - return empty string.
  *
  * @param  {string} locale - locale under examination
- * @return {string} -  locale properly formatted, or undefined
+ * @return {string} -  valid locale or ''
  */
-export function sanitizeLocale(locale) {
-  locale = sanitize(locale)
-  if (locale && ALLOWED_LOCALES.indexOf(locale) !== -1) {
-    return locale
+export function extractLocale(value) {
+  value = sanitize(value)
+  if (value && ALLOWED_LOCALES.indexOf(value) !== -1) {
+    return value
   }
   return ''
+}
+
+/**
+ * Try to resolve one or more gived candidate values
+ * as a valid locale and return the first one
+ * successfully resolved.
+ * If none does resolve, return the DEFAULT_LOCALE
+ *
+ * Sample usage:
+ *   ( assuming that
+ *      ALLOWED_LOCALES === ['en', 'ru']
+ *      DEFAULT_LOCALE='en' )
+ *
+ *    'ru' === resolveLocale('RU')
+ *    'ru' === resolveLocale('ru','de')
+ *    'ru' === resolveLocale('de','ru')
+ *    'ru' === resolveLocale('de', 'ar', 'ru')
+ *    'en' === resolveLocale('de')
+ *    'en' === resolveLocale('de','ar')
+ *    'en' === resolveLocale('rus')
+ *    'en' === resolveLocale()
+ *
+ * @param  {[stringtype]} args [description]
+ * @return {[type]}      [description]
+ */
+export function resolveLocale(...values){
+  return [...values, DEFAULT_LOCALE].map(extractLocale).find(Boolean)
+  // return extractLocale(locale) || extractLocale(default) || DEFAULT_LOCALE
 }
 
 /**
@@ -43,7 +71,7 @@ export function getI18nAttr(obj, attr, locale) {
     return undefined
   }
 
-  locale = sanitizeLocale(locale) || DEFAULT_LOCALE
+  locale = resolveLocale(locale)
 
   const pathList = locale === DEFAULT_LOCALE ? [locale] : [locale, DEFAULT_LOCALE]
 
@@ -77,7 +105,8 @@ export const makeFM = ({ intl }) => id => intl.formatMessage({ id })
 
 export default {
   sanitize,
-  sanitizeLocale,
+  extractLocale,
+  resolveLocale,
   getI18nAttr,
   makeFM
 }
