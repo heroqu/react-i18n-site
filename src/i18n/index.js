@@ -14,16 +14,17 @@ export function sanitize(arg) {
 
 /**
  * Return a canonic format of locale (lowercased trimmed) if it
- * belongs to allowed list. Otherwise return undefined
+ * belongs to allowed list. Otherwise return empty string
  *
  * @param  {string} locale - locale under examination
  * @return {string} -  locale properly formatted, or undefined
  */
 export function sanitizeLocale(locale) {
-  const index = ALLOWED_LOCALES.indexOf(sanitize(locale))
-  if (index !== -1) {
-    return ALLOWED_LOCALES[index]
+  locale = sanitize(locale)
+  if (locale && ALLOWED_LOCALES.indexOf(locale) !== -1) {
+    return locale
   }
+  return ''
 }
 
 /**
