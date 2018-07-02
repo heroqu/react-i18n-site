@@ -50,9 +50,32 @@ export function extractLocale(value) {
  * @param  {[stringtype]} args [description]
  * @return {[type]}      [description]
  */
-export function resolveLocale(...values){
+export function resolveLocale(...values) {
   return [...values, DEFAULT_LOCALE].map(extractLocale).find(Boolean)
   // return extractLocale(locale) || extractLocale(default) || DEFAULT_LOCALE
+}
+
+/**
+ * Create a prefix to be used before payload part of an URL
+ *
+ * Examples:
+ *   ( assuming that
+ *      ALLOWED_LOCALES === ['en', 'ru']
+ *      DEFAULT_LOCALE='en' )
+ *
+ *    locale = 'en', prefix = ''
+ *    locale = 'ru', prefix = '/ru'
+ *    locale = 'any invalid locale', prefix = ''
+ *
+ * @param  {string} locale
+ * @return {string}     correct prefix
+ */
+export function localeURLPrefix(locale) {
+  locale = extractLocale(locale)
+  if (locale && locale !== DEFAULT_LOCALE) {
+    return `/{locale}`
+  }
+  return ''
 }
 
 /**
@@ -73,7 +96,8 @@ export function getI18nAttr(obj, attr, locale) {
 
   locale = resolveLocale(locale)
 
-  const pathList = locale === DEFAULT_LOCALE ? [locale] : [locale, DEFAULT_LOCALE]
+  const pathList =
+    locale === DEFAULT_LOCALE ? [locale] : [locale, DEFAULT_LOCALE]
 
   // try to get nested attr for every path in the list until success
   for (let p of pathList) {
@@ -107,6 +131,7 @@ export default {
   sanitize,
   extractLocale,
   resolveLocale,
+  localeURLPrefix,
   getI18nAttr,
   makeFM
 }
