@@ -1,7 +1,7 @@
 import { DEFAULT_LOCALE, ALLOWED_LOCALES } from '../config'
 
 /**
- * Turn an argument into a lowercased trimmed string
+ * Turn argument into a lowercased trimmed string
  * @param  {any} arg - can be anything
  * @return {string}
  */
@@ -73,7 +73,7 @@ export function resolveLocale(...values) {
 export function localeURLPrefix(locale) {
   locale = extractLocale(locale)
   if (locale && locale !== DEFAULT_LOCALE) {
-    return `/{locale}`
+    return `/${locale}`
   }
   return ''
 }
