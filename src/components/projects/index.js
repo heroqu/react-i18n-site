@@ -119,7 +119,6 @@ class Projects extends Component {
 }
 
 const mapsStateToProps = state => ({
-  // defaultLocale: state.i18n.defaultLocale,
   locale: state.i18n.locale,
   projects: state.projectsData.projects,
   tags: state.projectsData.tags
