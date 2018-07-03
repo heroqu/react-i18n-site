@@ -3,9 +3,9 @@ import React, { Fragment } from 'react'
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { setLocale } from '../../../actions'
+import { setLocale } from '../../actions'
 
-import AppButton from '../AppButton'
+import AppButton from './AppButton'
 
 /**
  * Link for switching the locale

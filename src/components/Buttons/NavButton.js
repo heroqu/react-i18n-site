@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import AppLink from '../../AppLink'
-import AppButton from '../AppButton'
+import AppLink from '../AppLink'
+import AppButton from './AppButton'
 
 class NavButton extends Component {
   constructor(props) {
