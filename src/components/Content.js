@@ -1,23 +1,20 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import * as actions from '../actions'
 
 import pages from './pages'
 import NotFound from './NotFound'
+
+import { getI18nAttr } from '../i18n'
 
 import './Content.css'
 
 class Content extends Component {
   render() {
-    const { defaultLocale, locale, appUrl } = this.props
+    const { locale, appUrl } = this.props
 
-    const Component =
-      (pages[locale] && pages[locale][appUrl]) ||
-      (pages[defaultLocale] && pages[defaultLocale][appUrl]) ||
-      NotFound
+    const Component = getI18nAttr(pages, appUrl, locale) || NotFound
 
     return (
       <div className="Cnt PadTop">
@@ -28,17 +25,13 @@ class Content extends Component {
 }
 
 Content.propTypes = {
-  defaultLocale: PropTypes.string,
   locale: PropTypes.string,
   appUrl: PropTypes.string
 }
 
 const mapsStateToProps = state => ({
-  defaultLocale: state.i18n.defaultLocale,
   locale: state.i18n.locale,
   appUrl: state.appUrl
 })
 
-const mapsDispatchToProps = dispatch => bindActionCreators(actions, dispatch)
-
-export default connect(mapsStateToProps, mapsDispatchToProps)(Content)
+export default connect(mapsStateToProps)(Content)
