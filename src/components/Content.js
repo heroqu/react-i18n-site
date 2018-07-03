@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import { connect } from 'react-redux'
@@ -10,18 +10,16 @@ import { getI18nAttr } from '../i18n'
 
 import './Content.css'
 
-class Content extends Component {
-  render() {
-    const { locale, appUrl } = this.props
+const Content = props => {
+  const { locale, appUrl } = props
 
-    const Component = getI18nAttr(pages, appUrl, locale) || NotFound
+  const Component = getI18nAttr(pages, appUrl, locale) || NotFound
 
-    return (
-      <div className="Cnt PadTop">
-        <Component {...this.props} />
-      </div>
-    )
-  }
+  return (
+    <div className="Cnt PadTop">
+      <Component {...props} />
+    </div>
+  )
 }
 
 Content.propTypes = {
