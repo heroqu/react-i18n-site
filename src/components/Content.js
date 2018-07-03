@@ -11,11 +11,6 @@ import NotFound from './NotFound'
 import './Content.css'
 
 class Content extends Component {
-  componentDidMount() {
-    // this.props.loadProjectsData()
-    // this.props.loadGalleryData()
-  }
-
   render() {
     const { defaultLocale, locale, appUrl } = this.props
 
@@ -33,8 +28,6 @@ class Content extends Component {
 }
 
 Content.propTypes = {
-  loadProjectsData: PropTypes.func.isRequired,
-  loadGalleryData: PropTypes.func.isRequired,
   defaultLocale: PropTypes.string,
   locale: PropTypes.string,
   appUrl: PropTypes.string
