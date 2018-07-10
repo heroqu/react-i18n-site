@@ -1,4 +1,6 @@
-ARG DISTRO=node:10.5.0-alpine
+ARG DISTRO=node:10.6.0-alpine
+
+ARG SERVE_VERSION=9.2.0
 
 FROM $DISTRO as builder
 
@@ -14,7 +16,7 @@ RUN npm run build
 
 FROM $DISTRO as deploy
 
-RUN npm i -g serve@9.1.0
+RUN npm i -g serve@$SERVE_VERSION
 
 WORKDIR /usr/src/app
 
