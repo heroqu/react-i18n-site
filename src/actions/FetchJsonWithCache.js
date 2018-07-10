@@ -29,7 +29,8 @@ function makeFetchJsonWithCache(ttl) {
       value = cached.value
     } else {
       // have to do a real fetch
-      value = fetchJson(path)
+      const response = await fetch(path)
+      value = await response.json()
 
       // save to cache
       cache.set(path, { value, timestamp: Date.now() })
@@ -37,12 +38,6 @@ function makeFetchJsonWithCache(ttl) {
 
     return value
   }
-}
-
-async function fetchJson(path) {
-  const response = await fetch(path)
-  const value = await response.json()
-  return value
 }
 
 export default makeFetchJsonWithCache
