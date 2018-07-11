@@ -5,8 +5,7 @@ export const HOME_PAGE = process.env.REACT_APP_HOME_PAGE
 export const COOKIE_SECRET = process.env.REACT_APP_COOKIE_SECRET
 export const COOKIE_MAX_AGE = process.env.REACT_APP_COOKIE_MAX_AGE
 export const MAILER_URL = process.env.REACT_APP_MAILER_URL
-
-console.log(`Loaded config for app version: ${APP_VERSION}`)
+export const BUILD_TIMESTAMP = process.env.REACT_APP_BUILD_TIMESTAMP
 
 AssertIsSet('DEFAULT_LOCALE', DEFAULT_LOCALE)
 
