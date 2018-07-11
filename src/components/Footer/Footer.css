@@ -1,6 +1,6 @@
 .Footer {
   text-align: center;
-  color: hsla(220, 25%, 75%, 0.5);
+  color: hsla(220, 25%, 75%, 0.45);
   font-size: 0.64em;
   background-image: url('../../assets/images/skyline_007.png')
     /* ,
@@ -15,4 +15,23 @@
   height: 100%;
   padding: 12em 0 0 0;
   margin: 1em 0 0 0;
+}
+
+.Footer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.Footer__Item {
+  padding: 0.2em 0.7em;
+  flex: 1 1 12em;
+}
+
+.Right {
+  text-align: right;
+}
+
+.Left {
+  text-align: left;
 }
