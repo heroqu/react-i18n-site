@@ -1,1 +1,1 @@
-# React static site with i18n
+# React i18n site

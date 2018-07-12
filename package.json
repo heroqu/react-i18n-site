@@ -1,11 +1,11 @@
 {
-  "name": "React-static-site",
-  "description": "React static site with i18n",
+  "name": "React-i18n-site",
+  "description": "React site with i18n",
   "version": "0.0.21",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/heroqu/react-static-site.git"
+    "url": "git+https://github.com/heroqu/react-i18n-site.git"
   },
   "scripts": {
     "start": "react-scripts start",
