@@ -1,0 +1,16 @@
+/**
+ * A sample of index.js file that expected to come here
+ * automatically from Authoring sub-project.
+ * If you are not using that subproject, then just make sure
+ * you have such a file here and that is it reflects
+ * the actual locales used in the site.
+ * ( This one is for the case of two: ['en', 'ru'] )
+ */
+
+import en from './en'
+import ru from './ru'
+
+export default {
+  en,
+  ru
+}
