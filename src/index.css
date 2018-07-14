@@ -141,7 +141,7 @@ a.NavLink__Active:hover {
 /* Lists */
 
 ul {
-  list-style-type: none;
+  list-style-type: circle;
   padding-left: 0;
   margin: 0 auto;
   text-align: left;
@@ -157,8 +157,8 @@ ul.LongList {
 }
 
 li {
-  margin: 0.3em 0 0.2em 0;
-  padding: 0 10px;
+  margin: 0.3em 0 0.2em 1em;
+  padding: 0 0.4em;
   border-color: hsla(220, 0%, 0%, 0.15);
   border-style: dashed;
   border-width: 0;
