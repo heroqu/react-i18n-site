@@ -12,7 +12,7 @@
     "build:react": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "build:ts": "node timestamp-the-build.js",
+    "build:ts": "node scripts/timestamp-the-build.js",
     "build": "npm-run-all -s build:ts build:react"
   },
   "dependencies": {
