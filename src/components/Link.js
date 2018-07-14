@@ -1,6 +1,6 @@
 /**
  * An alias to AppLink
  *
- * Used for the sake of brevity inside static pages generated from pug
+ * Can be used for the sake of brevity while authoring the content pages
  */
 export { default } from './AppLink'
