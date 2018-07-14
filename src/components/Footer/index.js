@@ -1,7 +1,7 @@
 import React from 'react'
 import { FormattedMessage } from 'react-intl'
 
-import LastUpdated from '../LastUpdated'
+import LastBuilt from '../LastBuilt'
 
 import './Footer.css'
 
@@ -12,7 +12,7 @@ const Footer = props => (
       <FormattedMessage id="app.footer_text" defaultMessage="©" />
     </div>
     <div className="Footer__Item Right">
-      <LastUpdated />
+      <LastBuilt />
     </div>
   </div>
 )

@@ -9,17 +9,17 @@ const buildTsFormatted =
     ? timestampFullFormat(parseInt(BUILD_TIMESTAMP, 10))
     : null
 
-const LastUpdated = () => {
+const LastBuilt = () => {
   if (!buildTsFormatted) return null
 
   return (
     <Fragment>
       <FormattedMessage
-        id="app.last_updated"
-        defaultMessage="Last updated at"
+        id="app.last_built"
+        defaultMessage="Last built at"
       />: {buildTsFormatted}
     </Fragment>
   )
 }
 
-export default LastUpdated
+export default LastBuilt
