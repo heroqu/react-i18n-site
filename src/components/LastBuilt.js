@@ -1,25 +1,17 @@
 import React, { Fragment } from 'react'
 import { BUILD_TIMESTAMP } from '../config'
-import { timestampFullFormat } from '../utils/time'
+import { tsFormatter } from '../utils/time'
 
 import { FormattedMessage } from 'react-intl'
 
-const buildTsFormatted =
-  BUILD_TIMESTAMP && typeof BUILD_TIMESTAMP === 'string'
-    ? timestampFullFormat(parseInt(BUILD_TIMESTAMP, 10))
-    : null
+const BUILD_TIMESTAMP_FMT = tsFormatter(BUILD_TIMESTAMP)
 
-const LastBuilt = () => {
-  if (!buildTsFormatted) return null
-
-  return (
+const LastBuilt = () =>
+  BUILD_TIMESTAMP_FMT ? (
     <Fragment>
-      <FormattedMessage
-        id="app.last_built"
-        defaultMessage="Last built at"
-      />: {buildTsFormatted}
+      <FormattedMessage id="app.last_built" defaultMessage="Last built at" />:{' '}
+      {BUILD_TIMESTAMP_FMT}
     </Fragment>
-  )
-}
+  ) : null
 
 export default LastBuilt
