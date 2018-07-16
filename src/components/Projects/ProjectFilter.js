@@ -2,11 +2,12 @@ import React from 'react'
 import { FormattedMessage } from 'react-intl'
 import Tag from './Tag'
 
-const FM_ProjectFilter = (
-  <FormattedMessage id="app.ProjectFilter" defaultMessage="Project filter" />
-)
-
-const FM_Reset = <FormattedMessage id="app.Reset" defaultMessage="Reset" />
+const FM = {
+  ProjectFilter: (
+    <FormattedMessage id="app.ProjectFilter" defaultMessage="Project filter" />
+  ),
+  Reset: <FormattedMessage id="app.Reset" defaultMessage="Reset" />
+}
 
 const ProjectFilter = ({ tags, selectedTags, onToggle, reset }) => {
   const Tags = tags.map(tag => (
@@ -22,7 +23,7 @@ const ProjectFilter = ({ tags, selectedTags, onToggle, reset }) => {
   return (
     <div className="Cnt">
       <div className="Flex">
-        <div className="Flex__Start Flex__Grow Title">{FM_ProjectFilter}</div>
+        <div className="Flex__Start Flex__Grow Title">{FM.ProjectFilter}</div>
         <div className="Flex__End">
           <a
             onClick={() => {
@@ -30,7 +31,7 @@ const ProjectFilter = ({ tags, selectedTags, onToggle, reset }) => {
               return false
             }}
           >
-            {FM_Reset}
+            {FM.Reset}
           </a>
         </div>
       </div>

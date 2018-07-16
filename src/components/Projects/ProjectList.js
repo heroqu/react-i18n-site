@@ -69,12 +69,12 @@ class ProjectList extends Component {
         <div className="Flex MarginBottom_03">
           <div className="Flex__Middle">{FM.ProjectList}</div>
           <div className="Flex__End MarginLeft_1">
-            <a className="_NoBorder" onClick={() => this.collapseAll()}>
+            <a onClick={() => this.collapseAll()}>
               {FM.CollapseAll}
             </a>
           </div>
           <div className="Flex__End MarginLeft_1">
-            <a className="_NoBorder" onClick={() => this.expandAll()}>
+            <a onClick={() => this.expandAll()}>
               {FM.ExpandAll}
             </a>
           </div>
