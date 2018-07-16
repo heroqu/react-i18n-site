@@ -22,12 +22,13 @@ import PropTypes from 'prop-types'
  *    full_url === '/about'
  *    linkPrefix === ''
  *
- * This arrangement frees us from bothering about locales, we simply
- * specify the 'to' attribute of AppLink as logical address inside
- * the app and locale is then taken care of here automagically.
+ * Now we can write <AppLink to=/about>...</AppLink>
+ * in any language.
  */
-const AppLink = ({ linkPrefix, to, children }) => (
-  <Link to={`${linkPrefix}${to}`}>{children}</Link>
+const AppLink = ({ linkPrefix, to, children, className }) => (
+  <Link to={`${linkPrefix}${to}`} className={className}>
+    {children}
+  </Link>
 )
 
 AppLink.propTypes = {

@@ -95,9 +95,9 @@ class MailForm extends Component {
 
     this.state = {
       formData: {
-        name: 'John',
-        email: 'lennon@mail.me',
-        message: 'Hi there!'
+        name: '',
+        email: '',
+        message: ''
       },
       submit: {
         status: SubmitStatus.NONE,
@@ -123,14 +123,9 @@ class MailForm extends Component {
     event.preventDefault()
     const data = new FormData(event.target)
 
-    console.log(`handleSubmit: data:`)
-    console.log(data)
-    console.log(`-------------------`)
-
     this.setState({
       submit: { status: SubmitStatus.IS_SENDING, message: 'sending...' }
     })
-
 
     const fData = { ...this.state.formData, subject: '✉️  site response' }
 
@@ -147,16 +142,10 @@ class MailForm extends Component {
         })
       ])
 
-      console.error(`_____________ SUCCESS:`)
-
       this.setState({
         submit: { status: SubmitStatus.SENT, message: 'has been sent!' }
       })
     } catch (e) {
-      console.error(`_____________ERROR:`)
-      console.error(e)
-      console.error(`_____________ .`)
-
       this.setState({
         submit: {
           status: SubmitStatus.ERROR,

@@ -99,13 +99,7 @@ a.NavLink__Active:hover {
 
 /* ============= */
 
-.NoBorder {
-  border-width: 0 !important;
-}
 
-.Colored {
-  color: hsl(0, 100%, 37%);
-}
 
 .Flex {
   display: flex;
@@ -195,6 +189,10 @@ li ul li {
 .Highlight {
   margin: 0.5em 0;
   font-size: larger;
+}
+
+.Colored {
+  color: hsl(0, 100%, 37%);
 }
 
 h1,

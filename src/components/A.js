@@ -9,14 +9,14 @@ import PropTypes from 'prop-types'
  * attributes to make external links inside content authoring
  * less verbose.
  * Now instead of
- *     <a href="https://github.com/heroqu/react-i18n-site/blob/master/README.md"
+ *     <a href="https://.../README.md"
  *         target="_blank"
  *         rel="noopener noreferrer"
  *      >
  *      README
  *      </a>
  * one can write a somewhat terser:
- *     <A href="https://github.com/heroqu/react-i18n-site/blob/master/README.md">
+ *     <A href="https://.../README.md">
  *      README
  *      </A>
  */

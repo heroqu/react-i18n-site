@@ -10,7 +10,7 @@ import Layout from './Layout'
 /**
  * What happens here:
  *
- * 1. React-Router
+ * 1. React-Router provider
  * 2. AppRouter
  *     take care of App routes and redirect logics
  * 3. Intl

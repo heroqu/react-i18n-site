@@ -31,18 +31,15 @@ class ProjectList extends Component {
   }
 
   accordionDispatch(actions) {
-    console.log(`accordionDispatch: fire`)
     this.setState({
       accordionMsg: actionsToMsg(actions)
     })
   }
 
   collapseAll() {
-    console.log(`collapseAll: fire`)
     this.accordionDispatch({ type: actionTypes.collapseAll })
   }
   expandAll() {
-    console.log(`expandAll: fire`)
     this.accordionDispatch({ type: actionTypes.expandAll })
   }
 
