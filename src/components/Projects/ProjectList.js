@@ -37,7 +37,7 @@ class ProjectList extends Component {
   }
 
   collapseAll() {
-    this.accordionDispatch({ type: actionTypes.collapseAll })
+    this.accordionDispatch({ type: actionTypes.selectIds, ids: [] })
   }
   expandAll() {
     this.accordionDispatch({ type: actionTypes.expandAll })
