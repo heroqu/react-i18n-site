@@ -15,6 +15,11 @@ const ALink = props => (
   </a>
 )
 
+/**
+ * we are going to replace on the fly:
+ *    <a> -> <Alink>
+ *    <Photo> -> <Gallery className='LinkInProjectCard'>
+ */
 const MarkdownOptions = {
   overrides: {
     a: {
@@ -29,9 +34,9 @@ const MarkdownOptions = {
   }
 }
 
-const FM_Employer = (
-  <FormattedMessage id="app.Employer" defaultMessage="Employer" />
-)
+const FM = {
+  Employer: <FormattedMessage id="app.Employer" defaultMessage="Employer" />
+}
 
 const ProjectCard = props => {
   if (!props) {
@@ -54,7 +59,7 @@ const ProjectCard = props => {
               {props.monthSpan}
             </span>
             <span className="Flex__End ProjectCard__EmployerLabel">
-              {FM_Employer}:{' '}
+              {FM.Employer}:{' '}
             </span>
             <span className="Flex__End ProjectCard__Employer MarginLeft_1">
               {T('employer')}

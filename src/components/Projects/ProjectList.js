@@ -9,17 +9,17 @@ import {
   actionTypes,
   actionsToMsg
 } from 'react-accordion-composable'
-// } from '../accordion'
 
-const FM_ProjectList = (
-  <FormattedMessage id="app.ProjectList" defaultMessage="Project list" />
-)
-const FM_CollapseAll = (
-  <FormattedMessage id="app.CollapseAll" defaultMessage="Collapse All" />
-)
-const FM_ExpandAll = (
-  <FormattedMessage id="app.ExpandAll" defaultMessage="Expand All" />
-)
+const FM = {
+  ProjectList: (
+    <FormattedMessage id="app.ProjectList" defaultMessage="Project list" />
+  ),
+  CollapseAll: (
+    <FormattedMessage id="app.CollapseAll" defaultMessage="Collapse All" />
+  ),
+  ExpandAll: <FormattedMessage id="app.ExpandAll" defaultMessage="Expand All" />
+}
+
 
 class ProjectList extends Component {
   constructor(props) {
@@ -53,7 +53,7 @@ class ProjectList extends Component {
       return null
     }
 
-    const sections = projects.map((p, idx) => (
+    const sections = projects.map(p => (
       <AccordionSection
         id={`p_${p.id}`}
         key={`p_${p.id}`}
@@ -67,15 +67,15 @@ class ProjectList extends Component {
     return (
       <div className="XLeft">
         <div className="Flex MarginBottom_03">
-          <div className="Flex__Middle">{FM_ProjectList}</div>
+          <div className="Flex__Middle">{FM.ProjectList}</div>
           <div className="Flex__End MarginLeft_1">
             <a className="_NoBorder" onClick={() => this.collapseAll()}>
-              {FM_CollapseAll}
+              {FM.CollapseAll}
             </a>
           </div>
           <div className="Flex__End MarginLeft_1">
             <a className="_NoBorder" onClick={() => this.expandAll()}>
-              {FM_ExpandAll}
+              {FM.ExpandAll}
             </a>
           </div>
         </div>
