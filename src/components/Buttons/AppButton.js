@@ -6,10 +6,8 @@ import classNames from 'classnames'
 const colors = {
   trans: 'transparent',
   link: 'hsl(48, 100%, 91%)',
-  linkActive: 'hsl(220, 20%, 10%)',
   linkHover: 'hsla(0, 100%, 42%, 1)',
-  lighter: `hsla(220, 20%, 80%, 0.32)`,
-  darker: `hsla(220, 20%, 20%, 0.25)`
+  lighter: `hsla(220, 20%, 80%, 0.32)`
 }
 
 const styles = theme => ({
@@ -19,7 +17,6 @@ const styles = theme => ({
     minHeight: '2.2em',
     // padding: `${theme.spacing.unit}px ${theme.spacing.unit * 2}px`,
     padding: `0 0.7em`,
-    // borderRadius: 4,
     borderRadius: '0.25em',
     // color: theme.palette.text.primary,
     color: colors.link,
