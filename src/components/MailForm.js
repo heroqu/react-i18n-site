@@ -121,7 +121,6 @@ class MailForm extends Component {
 
   async handleSubmit(event) {
     event.preventDefault()
-    const data = new FormData(event.target)
 
     this.setState({
       submit: { status: SubmitStatus.IS_SENDING, message: 'sending...' }

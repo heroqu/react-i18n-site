@@ -101,8 +101,6 @@ class Projects extends Component {
      */
     const T = (project, attr) => getI18nAttr(project, attr, locale)
 
-    const filterBy = this.state.selectedTags.sort().join(', ')
-
     const visible = this.visibleProjects(projects)
 
     return (
