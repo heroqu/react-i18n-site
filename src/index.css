@@ -142,13 +142,13 @@ a.NavLink__Active:hover {
 
 ul {
   list-style-type: circle;
-  padding-left: 0;
+  padding-left: 0.2em;
   margin: 0 auto;
   text-align: left;
 }
 
 ul ul {
-  padding-left: 0.4em;
+  padding-left: 0.2em;
 }
 
 ul.LongList {
@@ -157,8 +157,8 @@ ul.LongList {
 }
 
 li {
-  margin: 0.3em 0 0.2em 1em;
-  padding: 0 0.4em;
+  margin: 0.25em 0 0.2em 1em;
+  padding: 1px 0.4em;
   border-color: hsla(220, 0%, 0%, 0.15);
   border-style: dashed;
   border-width: 0;
@@ -168,6 +168,17 @@ li {
     hsla(220, 25%, 77%, 0.85) 35%,
     hsla(220, 25%, 77%, 1) 50%,
     hsla(220, 25%, 77%, 0.85) 65%,
+    hsla(220, 25%, 50%, 0)
+  );
+}
+
+li ul li {
+  background-image: linear-gradient(
+    90deg,
+    hsla(220, 25%, 50%, 0),
+    hsla(220, 25%, 93%, 0.35) 30%,
+    hsla(220, 25%, 93%, 0.5) 50%,
+    hsla(220, 25%, 93%, 0.35) 70%,
     hsla(220, 25%, 50%, 0)
   );
 }
@@ -211,7 +222,6 @@ Overwrite Chrome’s forced yellow background color
 */
 
 input {
-  /* border: 1px solid green; */
   background-color: transparent;
 }
 
@@ -220,10 +230,4 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-transition-delay: 99999s;
-}
-
-/* Button */
-
-.Button__Active {
-  /* color: 'lime' !important; */
 }
