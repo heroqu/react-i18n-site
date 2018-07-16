@@ -6,6 +6,14 @@
 
 .Projects__CurrentFilter {
   display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  padding: 0.25em 0;
+  font-size: 0.7em;
+}
+
+.Projects__CurrentFilter__old {
+  display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   padding: 0.25em 0;
@@ -13,15 +21,16 @@
 }
 
 .Projects__CurrentFilter__Caption {
-  text-align: right;
+  /* text-align: right; */
   /* flex-grow: 2;
   flex-basis: 40%; */
   flex: 2 4 200px;
+  flex: 0 0 auto;
   padding: 0 0.5em 0 0;
 }
 .Projects__CurrentFilter__Value {
-  text-align: left;
-  flex: 3 3 300px;
+  /* text-align: left; */
+  flex: 1 1 100px;
   padding: 0 0 0 0.5em;
 }
 

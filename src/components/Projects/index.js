@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { loadProjectsData } from '../../actions'
 
@@ -14,7 +14,7 @@ import { getI18nAttr } from '../../i18n'
  * we define React-intl formatted mesages here in this verbose format
  * to be able to extract them from site source code in a bulk manner
  */
-const FMs = {
+const FM = {
   FilterBy: <FormattedMessage id="app.FilterBy" defaultMessage="Filter by" />
 }
 
@@ -80,9 +80,25 @@ class Projects extends Component {
     return projects
   }
 
+  currentFilter() {
+    const filterBy = this.state.selectedTags.sort().join(', ')
+
+    return filterBy ? (
+      <Fragment>
+        <div className="Projects__CurrentFilter__Caption">{FM.FilterBy}:</div>
+        <div className="Projects__CurrentFilter__Value Colored">{filterBy}</div>
+      </Fragment>
+    ) : (
+      <Fragment>&nbsp;</Fragment>
+    )
+  }
+
   render() {
     const { projects, tags, locale } = this.props
 
+    /**
+     * Attribute translator function, with current locale value injected
+     */
     const T = (project, attr) => getI18nAttr(project, attr, locale)
 
     const filterBy = this.state.selectedTags.sort().join(', ')
@@ -91,15 +107,6 @@ class Projects extends Component {
 
     return (
       <div className="Projects">
-        <div className="Projects__CurrentFilter">
-          <div className="Projects__CurrentFilter__Caption">
-            {FMs.FilterBy}:
-          </div>
-          <div className="Projects__CurrentFilter__Value Colored">
-            {filterBy}
-          </div>
-        </div>
-
         <div className="Projects__FilterAndList">
           <div className="Projects__Filter">
             <ProjectFilter
@@ -110,6 +117,7 @@ class Projects extends Component {
             />
           </div>
           <div className="Projects__List">
+            <div className="Projects__CurrentFilter">{this.currentFilter()}</div>
             <ProjectList projects={visible} T={T} />
           </div>
         </div>
