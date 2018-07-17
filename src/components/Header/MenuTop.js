@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import { AppBar, Toolbar } from '@material-ui/core'
-import NavButton from '../Buttons/NavButton'
+import NavButton from '../buttons/NavButton'
 
 // import BgImage from '../../assets/images/starsky_018.png'
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import { Toolbar } from '@material-ui/core'
 
-import LocaleButton from '../Buttons/LocaleButton'
+import LocaleButton from '../buttons/LocaleButton'
 
 import { connect } from 'react-redux'
 

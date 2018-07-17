@@ -6,8 +6,8 @@ import { Drawer, List, ListItem } from '@material-ui/core'
 
 import MenuIcon from '@material-ui/icons/Menu'
 
-import AppButton from '../Buttons/AppButton'
-import NavButton from '../Buttons/NavButton'
+import AppButton from '../buttons/AppButton'
+import NavButton from '../buttons/NavButton'
 
 import { navMessages } from '../../i18n/FMessages'
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import { Paper } from '@material-ui/core'
 import { TextValidator, ValidatorForm } from 'react-material-ui-form-validator'
-import AppButton from './Buttons/AppButton'
+import AppButton from './buttons/AppButton'
 
 import classNames from 'classnames'
 
