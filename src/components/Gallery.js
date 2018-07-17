@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Fragment, Component } from 'react'
 import Lightbox from 'react-image-lightbox'
 import _ from 'lodash'
 import PropTypes from 'prop-types'
@@ -33,11 +33,15 @@ class Gallery extends Component {
   }
 
   /**
-   * One can specify a 'name' prop with a name of an image
-   * in current subcollection to start the show from.
-   * This function tries to find index by that name.
-   * If it fails, the show will start from very first image
-   * in current subcollection.
+   * One can specify name of an image that current subcollection
+   * should start the show from, e.g.:
+   *    <Gallery name='pic_1' tag='graphics'>picture 1</Gallery>
+   * - which reads as: "open `graphics` subcollection
+   * and start show from the image with the name='pic_1'"
+   *
+   * This function finds index of the image with that name
+   * inside current subcollection, or returns zero, if it's not found,
+   * which means the show will start from very first image.
    *
    * @return {integer} - the index of the first image to be displayed
    */
@@ -55,51 +59,38 @@ class Gallery extends Component {
 
   render() {
     const { photoIndex, isOpen } = this.state
+    const { locale, children } = this.props
 
     const images = this.imagesWithTag()
-    const subcollectionIsNotEmpty = images.length !== 0
+    const count = images.length
 
-    // a localized version of caption attribute
-    const caption = getI18nAttr(
-      images[photoIndex],
-      'caption',
-      this.props.locale
-    )
+    // indexes
+    const idx = photoIndex
+    const idxNext = (idx + 1) % count
+    const idxPrev = (idx + count - 1) % count
 
+    // Attributes to be applied to <a>:
     const className = this.props.className || ''
+    const aAttrs = className ? { className } : {}
 
     return (
-      <span>
-        <a
-          className={className}
-          onClick={() => this.setState({ isOpen: true })}
-        >
-          {this.props.children}
+      <Fragment>
+        <a {...aAttrs} onClick={() => this.setState({ isOpen: true })}>
+          {children}
         </a>
-
-        {isOpen &&
-          subcollectionIsNotEmpty && (
-            <Lightbox
-              imageCaption={caption}
-              mainSrc={images[photoIndex].src}
-              nextSrc={images[(photoIndex + 1) % images.length].src}
-              prevSrc={
-                images[(photoIndex + images.length - 1) % images.length].src
-              }
-              onCloseRequest={() => this.setState({ isOpen: false })}
-              onMovePrevRequest={() =>
-                this.setState({
-                  photoIndex: (photoIndex + images.length - 1) % images.length
-                })
-              }
-              onMoveNextRequest={() =>
-                this.setState({
-                  photoIndex: (photoIndex + 1) % images.length
-                })
-              }
-            />
-          )}
-      </span>
+        {!isOpen || count === 0 ? null : (
+          <Lightbox
+            // a localized version of caption
+            imageCaption={getI18nAttr(images[photoIndex], 'caption', locale)}
+            mainSrc={images[idx].src}
+            nextSrc={images[idxNext].src}
+            prevSrc={images[idxPrev].src}
+            onCloseRequest={() => this.setState({ isOpen: false })}
+            onMovePrevRequest={() => this.setState({ photoIndex: idxPrev })}
+            onMoveNextRequest={() => this.setState({ photoIndex: idxNext })}
+          />
+        )}
+      </Fragment>
     )
   }
 }
