@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Switch, Redirect } from 'react-router-dom'
 import { HOME_PAGE } from '../config'
 import LocaleRedirector from './LocaleRedirector'
 import ScrollToTop from './ScrollToTop'
@@ -12,7 +12,7 @@ const AppRouter = () => (
     <ScrollToTop />
     <Switch>
       <Redirect exact from="/" to={`/${HOME_PAGE}`} />
-      <Route component={LocaleRedirector} />
+      <LocaleRedirector />
     </Switch>
   </Fragment>
 )

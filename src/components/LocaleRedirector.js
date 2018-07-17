@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Route, Redirect } from 'react-router-dom'
+import { withRouter, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import { setLocale, setAppUrl } from '../actions'
@@ -11,18 +11,7 @@ import {
   localeURLPrefix
 } from '../i18n'
 
-/**
- * We wrap Redirector in Route to make sure we get access
- * to location object through a prop
- */
-const LocaleRedirector = () => <Route component={Redirector} />
-
-export default LocaleRedirector
-
-/**
- * Redirector not yet connected to redux
- */
-const RedirectorBase = ({
+const LocaleRedirector = ({
   location: { pathname },
   locale,
   appUrl,
@@ -81,7 +70,7 @@ const RedirectorBase = ({
   return null
 }
 
-RedirectorBase.propTypes = {
+LocaleRedirector.propTypes = {
   location: PropTypes.object.isRequired,
   locale: PropTypes.string,
   appUrl: PropTypes.string,
@@ -90,7 +79,7 @@ RedirectorBase.propTypes = {
 }
 
 /**
- * Redirector, connected to redux
+ * Let'c connect to Redux
  */
 
 const mapStateToProps = state => ({
@@ -103,10 +92,17 @@ const mapDispatchToProps = dispatch => ({
   setAppUrl: appUrl => dispatch(setAppUrl(appUrl))
 })
 
-const Redirector = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(RedirectorBase)
+/**
+ * Let's also `connect` to React-router,
+ * giving access to { match, history, location } props
+ */
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(LocaleRedirector)
+)
 
 /**
  * Helpers
