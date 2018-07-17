@@ -5,7 +5,7 @@ import _ from 'lodash'
  *  - renumber badges (in json files they can go with large steps)
  *  - form badgeMinor field if absent
  *  - sort projects by (badge, badgeMinor)
- *  - forms full badge
+ *  - form badgeFull out of Badge and BadgeMinor
  */
 function projectsDataNormalize(projectsData) {
   let projects = Array.isArray(projectsData) ? projectsData : []
@@ -54,15 +54,16 @@ function projectsDataNormalize(projectsData) {
 }
 
 function monthSpan(project) {
-  let start = formatDateField(project.startDate['$date'])
-  let end = formatDateField(project.endDate['$date'])
-  let delimeter = start || end ? ' - ' : ''
+  const emDash = '—'
+  const start = formatDateField(project.startDate['$date'])
+  const end = formatDateField(project.endDate['$date'])
+  const delimeter = start && end ? ` ${emDash} ` : ''
   return `${start}${delimeter}${end}`
 }
 
-function formatDateField(DateStr) {
+function formatDateField(dateStr) {
   try {
-    const d = new Date(Date.parse(DateStr))
+    const d = new Date(Date.parse(dateStr))
     const m = d.getMonth() + 1
     const y = d.getFullYear()
     return `${y}-${('0' + m).substr(-2)}`

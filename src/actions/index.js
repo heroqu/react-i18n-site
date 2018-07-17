@@ -2,8 +2,8 @@ import * as types from '../constants/actionTypes'
 import localeCookie from '../i18n/localeCookie'
 import { resolveLocale } from '../i18n'
 
-import makeFetchJsonWithCache from './FetchJsonWithCache'
-import projectsDataNormalize from './projectsDataNormalize'
+import makeFetchJsonWithCache from '../utils/FetchJsonWithCache'
+import projectsDataNormalize from '../utils/projectsDataNormalize'
 
 const fetchJsonWithCache = makeFetchJsonWithCache()
 
