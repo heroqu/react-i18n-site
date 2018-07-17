@@ -1,5 +1,5 @@
-const isValidDate = d =>
-  d && Object.prototype.toString.call(d) === '[object Date]' && !isNaN(d)
+const isDate = d => d && Object.prototype.toString.call(d) === '[object Date]'
+const isValidDate = d => isDate(d) && !isNaN(d)
 
 // 7 -> '07'
 const PAD2 = x => (x + 100).toString().slice(-2)
@@ -21,41 +21,63 @@ const ss = d => PAD2(d.getSeconds())
  * if it's a function then apply it as function on arg
  * it is's a string then use it as is
  */
-const applyFOS = fOs => x => (typeof fOs === 'function' ? fOs(x) : fOs)
+const applyFunctionOrString = fOs => x =>
+  typeof fOs === 'function' ? fOs(x) : fOs
 
 /**
- * Formats the date as 'YYYY-MM-DD HH:mm:ss'
+ * factory for making format functions
  *
- * @param  {any} d  - a valid date or enything else
- * @return {String|Null}  a formatted date or Null, if date is invalid
+ * @param  {Array} fmt - a format - an array of date part extractors,
+ *                   mixed with string delimeters, e.g.:
+ *                   [YYYY, '-', MM, '-', DD]
+ *                   here YYYY, MM and DD - functions to extract date parts,
+ *                   whereas '-' is a string to inserted in between
+ * @return {Function}  - a formatting function (date => string),
+ *                   based on the format given
  */
-const ourDateFormatter = d =>
-  isValidDate(d)
-    ? [YYYY, '-', MM, '-', DD, ' ', hh, ':', mm, ':', ss].reduce(
-        (acc, f) => acc + applyFOS(f)(d),
-        ''
-      )
-    : null
+const makeFormatDate = fmt => d => {
+  d = new Date(d)
+  if (!isValidDate(d)) return ''
+
+  if (!Array.isArray(fmt)) return `${d}` // toString() is default formatting
+
+  // Apply each `micro` format piece one by one
+  return fmt.reduce((acc, f) => acc + applyFunctionOrString(f)(d), '')
+}
 
 /**
- * parse timestamp from ENV VAR (which is therefore a string)
- *        into a JavaScript Date
- *
- * @param  {String} ts - a string containing the number of missiseconds
- *                        since unix epoch, e.g.: '1531655957912'
- * @return {Date}    - date, either valid or not, depending on parsing success
+ * Let's make some particular formatters:
  */
-const ts2Date = ts => new Date(parseInt(ts, 10))
+
+const fmt_Full = [YYYY, '-', MM, '-', DD, ' ', hh, ':', mm, ':', ss]
+const fmt_YearMonth = [YYYY, '-', MM]
+
+export const formatDate_Full = makeFormatDate(fmt_Full)
+export const formatDate_YearMonth = makeFormatDate(fmt_YearMonth)
+
+/**
+ * Make sure the given timestamp is in a numeric format
+ *  ( timestamp from ENV VAR comes as string )
+ *
+ * @param  {String|Number} ts  - a timestamp,
+ *           either a number of missiseconds since unix epoch,
+ *              1531655957912
+ *           or, the same number but in a string form:
+ *             '1531655957912'
+ * @return {Number}    timestamp in a numeric form
+ */
+const normalizeTs = ts => (typeof ts === 'string') ? parseInt(ts, 10) : ts
+
 
 /**
  * Formats the timestamp with our particular date formatter
  *
  * Examples:
- *   console.log(tsFormatter('1531655957912'))
+ *   console.log(formatTimestamp_Full('1531655957912'))
  *   => '2018-07-15 14:59:17'
- *   console.log(tsFormatter('bad'))
+ *   console.log(formatTimestamp_Full('bad'))
  *   => null
  */
-export const tsFormatter = ts => ourDateFormatter(ts2Date(ts))
+export const formatTimestamp_Full = ts => formatDate_Full(normalizeTs(ts))
 
-export default { tsFormatter }
+export default { formatTimestamp_Full, formatDate_YearMonth }

@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
 import { BUILD_TIMESTAMP } from '../config'
-import { tsFormatter } from '../utils/time'
+import { formatTimestamp_Full } from '../utils/time'
 
 import { FormattedMessage } from 'react-intl'
 
-const BUILD_TIMESTAMP_FMT = tsFormatter(BUILD_TIMESTAMP)
+const BUILD_TIMESTAMP_FMT = formatTimestamp_Full(BUILD_TIMESTAMP)
 
 const LastBuilt = () =>
   BUILD_TIMESTAMP_FMT ? (

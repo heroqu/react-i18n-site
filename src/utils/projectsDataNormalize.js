@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import { formatDate_YearMonth } from './time'
 
 /**
  * Normalize loaded projects data:
@@ -55,21 +56,10 @@ function projectsDataNormalize(projectsData) {
 
 function monthSpan(project) {
   const emDash = '—'
-  const start = formatDateField(project.startDate['$date'])
-  const end = formatDateField(project.endDate['$date'])
+  const start = formatDate_YearMonth(project.startDate['$date'])
+  const end = formatDate_YearMonth(project.endDate['$date'])
   const delimeter = start && end ? ` ${emDash} ` : ''
   return `${start}${delimeter}${end}`
-}
-
-function formatDateField(dateStr) {
-  try {
-    const d = new Date(Date.parse(dateStr))
-    const m = d.getMonth() + 1
-    const y = d.getFullYear()
-    return `${y}-${('0' + m).substr(-2)}`
-  } catch (e) {
-    return ''
-  }
 }
 
 export default projectsDataNormalize
