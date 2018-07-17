@@ -6,7 +6,7 @@ import classNames from 'classnames'
 const colors = {
   trans: 'transparent',
   link: 'hsl(48, 100%, 91%)',
-  linkHover: 'hsla(0, 100%, 42%, 1)',
+  linkHover: 'hsl(0, 100%, 42%)',
   lighter: `hsla(220, 20%, 80%, 0.32)`
 }
 
@@ -15,7 +15,6 @@ const styles = theme => ({
     // minWidth: theme.spacing.unit * 11,
     minWidth: '2.5em',
     minHeight: '2.2em',
-    // padding: `${theme.spacing.unit}px ${theme.spacing.unit * 2}px`,
     padding: `0 0.7em`,
     borderRadius: '0.25em',
     // color: theme.palette.text.primary,

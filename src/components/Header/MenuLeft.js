@@ -13,13 +13,7 @@ import { navMessages } from '../../i18n/FMessages'
 
 const colors = {
   trans: 'hsla(0, 0%, 0%, 0)',
-  fgLink: 'hsla(48, 100%, 90%, 1)',
   fgDark: 'hsla(220, 20%, 40%, 1)',
-  bgDark: 'hsla(220, 20%, 50%, 1)',
-  bgDarker: 'hsla(220, 20%, 40%, 1)',
-  bgDarkerTrans: 'hsla(220, 20%, 35%, 0.4)',
-  bgLight: 'hsla(220, 20%, 55%, 1)',
-  bgLighter: 'hsla(220, 20%, 65%, 1)',
   bgLighterTrans: 'hsla(220, 20%, 55%, 0.75)'
 }
 

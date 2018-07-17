@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-// import classNames from 'classnames'
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
