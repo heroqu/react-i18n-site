@@ -81,6 +81,10 @@ const styles = theme => ({
   }
 })
 
+/**
+ * Enum emulation, a naive one,
+ * but simple and good enough for the purpose
+ */
 const SubmitStatus = Object.freeze({
   NONE: 'NONE',
   IS_SENDING: 'IS_SENDING',
@@ -143,7 +147,7 @@ class MailForm extends Component {
 
   submitStatusDiv() {
     const { classes } = this.props
-    const FM = makeFM(this.props)
+    const fm = makeFM(this.props)
 
     const cls = [classes.submitStatus]
     if (this.state.status === SubmitStatus.ERROR) {
@@ -152,7 +156,7 @@ class MailForm extends Component {
 
     return this.state.status === SubmitStatus.NONE ? null : (
       <div className={classNames(cls)}>
-        {FM(`MailForm.SubmitStatus_${this.state.status}`)}
+        {fm(`MailForm.SubmitStatus_${this.state.status}`)}
       </div>
     )
   }
@@ -160,7 +164,7 @@ class MailForm extends Component {
   render() {
     const { formData } = this.state
     const { classes } = this.props
-    const FM = makeFM(this.props)
+    const fm = makeFM(this.props)
 
     const isDisabled = this.isSending()
 
@@ -176,8 +180,8 @@ class MailForm extends Component {
             name="name"
             value={formData.name}
             validators={[validations.isNotBlank]}
-            errorMessages={[FM('app.please_enter_your_name')]}
-            label={FM('app.Name')}
+            errorMessages={[fm('app.please_enter_your_name')]}
+            label={fm('app.Name')}
             className={classes.textField}
             InputProps={{
               className: classes.input,
@@ -193,8 +197,8 @@ class MailForm extends Component {
             value={formData.email}
             validators={[validations.isNotBlank, validations.isEmail]}
             errorMessages={[
-              FM('app.please_enter_your_email'),
-              FM('app.email_is_not_valid')
+              fm('app.please_enter_your_email'),
+              fm('app.email_is_not_valid')
             ]}
             label="Email"
             className={classes.textField}
@@ -211,9 +215,9 @@ class MailForm extends Component {
             name="message"
             value={formData.message}
             validators={[validations.isNotBlank]}
-            errorMessages={[FM('app.please_enter_your_message')]}
+            errorMessages={[fm('app.please_enter_your_message')]}
             multiline
-            label={FM('app.Message')}
+            label={fm('app.Message')}
             className={classNames(
               classes.textField
               // classes.inputMultiline
@@ -231,7 +235,7 @@ class MailForm extends Component {
               disabled={isDisabled}
               className={classes.button}
             >
-              {isDisabled ? FM('app.Your_message_is_sent') : FM('app.Send')}
+              {isDisabled ? fm('app.Your_message_is_sent') : fm('app.Send')}
             </AppButton>
           </div>
         </Paper>

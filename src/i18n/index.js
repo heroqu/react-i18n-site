@@ -121,9 +121,9 @@ export function getI18nAttr(obj, attr, locale) {
  * then use this function to extract translation values directly:
  *
  * // somewhere inside `render`:
- * const FM = makeFM(this.props)
+ * const fm = makeFM(this.props)
  * ...
- * const translatedText = FM('app.hello_world')
+ * const translatedText = fm('app.hello_world')
  */
 export const makeFM = ({ intl }) => id => intl.formatMessage({ id })
 
