@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { Switch, Redirect } from 'react-router-dom'
-import { HOME_PAGE } from '../config'
+import { HOME_PAGE } from '../../config'
 import LocaleRouter from './LocaleRouter'
 import ScrollToTop from './ScrollToTop'
 

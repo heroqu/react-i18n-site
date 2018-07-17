@@ -1,15 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { withRouter, Route, Redirect } from 'react-router-dom'
+import { withRouter, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import { setLocale, setAppUrl } from '../actions'
+import { setLocale, setAppUrl } from '../../actions'
 import {
   sanitize,
   extractLocale,
   resolveLocale,
   localeURLPrefix
-} from '../i18n'
+} from '../../i18n'
 
 const LocaleRouter = ({
   location: { pathname },
