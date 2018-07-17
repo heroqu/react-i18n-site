@@ -4,13 +4,13 @@ import { formatTimestamp_Full } from '../utils/time'
 
 import { FormattedMessage } from 'react-intl'
 
-const BUILD_TIMESTAMP_FMT = formatTimestamp_Full(BUILD_TIMESTAMP)
+const dateString = formatTimestamp_Full(BUILD_TIMESTAMP)
 
 const LastBuilt = () =>
-  BUILD_TIMESTAMP_FMT ? (
+  dateString ? (
     <Fragment>
       <FormattedMessage id="app.last_built" defaultMessage="Last built at" />:{' '}
-      {BUILD_TIMESTAMP_FMT}
+      {dateString}
     </Fragment>
   ) : null
 
