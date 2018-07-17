@@ -62,7 +62,6 @@ const styles = theme => ({
   },
   submitStatus: {
     verticalAlign: 'center',
-    // borderRadius: 2,
     padding: '3px 0.8em',
     backgroundImage: `linear-gradient(
           60deg,
@@ -83,10 +82,10 @@ const styles = theme => ({
 })
 
 const SubmitStatus = Object.freeze({
-  NONE: Symbol('NONE'),
-  IS_SENDING: Symbol('IS_SENDING'),
-  SENT: Symbol('SENT'),
-  ERROR: Symbol('ERROR')
+  NONE: 'NONE',
+  IS_SENDING: 'IS_SENDING',
+  SENT: 'SENT',
+  ERROR: 'ERROR'
 })
 
 class MailForm extends Component {
@@ -99,10 +98,7 @@ class MailForm extends Component {
         email: '',
         message: ''
       },
-      submit: {
-        status: SubmitStatus.NONE,
-        message: null
-      }
+      status: SubmitStatus.NONE
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -122,9 +118,7 @@ class MailForm extends Component {
   async handleSubmit(event) {
     event.preventDefault()
 
-    this.setState({
-      submit: { status: SubmitStatus.IS_SENDING, message: 'sending...' }
-    })
+    this.setState({ status: SubmitStatus.IS_SENDING })
 
     const fData = { ...this.state.formData, subject: '✉️  site response' }
 
@@ -141,31 +135,26 @@ class MailForm extends Component {
         })
       ])
 
-      this.setState({
-        submit: { status: SubmitStatus.SENT, message: 'has been sent!' }
-      })
+      this.setState({ status: SubmitStatus.SENT })
     } catch (e) {
-      this.setState({
-        submit: {
-          status: SubmitStatus.ERROR,
-          message:
-            'Oops, the message was not delivered due to connection or server problem. Are you online? Can always contact me through my email address though.'
-        }
-      })
+      this.setState({ status: SubmitStatus.ERROR })
     }
   }
 
   submitStatusDiv() {
     const { classes } = this.props
+    const FM = makeFM(this.props)
 
     const cls = [classes.submitStatus]
-    if (this.state.submit.status === SubmitStatus.ERROR) {
+    if (this.state.status === SubmitStatus.ERROR) {
       cls.push(classes.submitError)
     }
 
-    return this.state.submit.message ? (
-      <div className={classNames(cls)}>{this.state.submit.message}</div>
-    ) : null
+    return this.state.status === SubmitStatus.NONE ? null : (
+      <div className={classNames(cls)}>
+        {FM(`MailForm.SubmitStatus_${this.state.status}`)}
+      </div>
+    )
   }
 
   render() {
