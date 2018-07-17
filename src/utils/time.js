@@ -17,11 +17,15 @@ const mm = d => PAD2(d.getMinutes())
 const ss = d => PAD2(d.getSeconds())
 
 /**
- * `function OR string` applicator
- * if it's a function then apply it as function on arg
- * it is's a string then use it as is
+ * `function OR string` applicator factory
+ *
+ * if parameter is a function
+ *        then applicator acts as function on its arg
+ * it parameter is a string
+ *        then applicator just returns that string
+ *        and disregard its arg.
  */
-const applyFunctionOrString = fOs => x =>
+const makeFunctionOrStringApplicator = fOs => x =>
   typeof fOs === 'function' ? fOs(x) : fOs
 
 /**
@@ -41,8 +45,12 @@ const makeFormatDate = fmt => d => {
 
   if (!Array.isArray(fmt)) return `${d}` // toString() is default formatting
 
-  // Apply each `micro` format piece one by one
-  return fmt.reduce((acc, f) => acc + applyFunctionOrString(f)(d), '')
+  // Apply each `micro` format piece one by one.
+  // Here each piece is `function OR string`
+  return fmt.reduce(
+    (acc, fOs) => acc + makeFunctionOrStringApplicator(fOs)(d),
+    ''
+  )
 }
 
 /**
@@ -66,8 +74,7 @@ export const formatDate_YearMonth = makeFormatDate(fmt_YearMonth)
  *             '1531655957912'
  * @return {Number}    timestamp in a numeric form
  */
-const normalizeTs = ts => (typeof ts === 'string') ? parseInt(ts, 10) : ts
-
+const normalizeTs = ts => (typeof ts === 'string' ? parseInt(ts, 10) : ts)
 
 /**
  * Formats the timestamp with our particular date formatter
