@@ -11,7 +11,7 @@ import {
   localeURLPrefix
 } from '../i18n'
 
-const LocaleRedirector = ({
+const LocaleRouter = ({
   location: { pathname },
   locale,
   appUrl,
@@ -70,7 +70,7 @@ const LocaleRedirector = ({
   return null
 }
 
-LocaleRedirector.propTypes = {
+LocaleRouter.propTypes = {
   location: PropTypes.object.isRequired,
   locale: PropTypes.string,
   appUrl: PropTypes.string,
@@ -101,7 +101,7 @@ export default withRouter(
   connect(
     mapStateToProps,
     mapDispatchToProps
-  )(LocaleRedirector)
+  )(LocaleRouter)
 )
 
 /**
