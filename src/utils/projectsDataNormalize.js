@@ -6,12 +6,12 @@ import { formatDate_YearMonth } from './time'
  *  - renumber badges (in json files they can go with large steps)
  *  - form badgeMinor field if absent
  *  - sort projects by (badge, badgeMinor)
- *  - form badgeFull out of Badge and BadgeMinor
+ *  - add badgeFull, id and monthSpan attributes
  */
 function projectsDataNormalize(projectsData) {
   let projects = Array.isArray(projectsData) ? projectsData : []
 
-  // get list of all the unique badges
+  // get sorted list of all the unique badges
   const badges = _
     .chain(projects)
     .map(p => p.badge)
@@ -19,34 +19,40 @@ function projectsDataNormalize(projectsData) {
     .sortedUniq()
     .value()
 
-  // normalize badge numbers and sort projects
   projects = _
     .chain(projects)
     .map(p => ({
       ...p,
-      // normalize badge numbers (to their ascending ordinal number)
+      // normalize badge numbers
+      // to their ascending ordinal number starting from 1
       badge: badges.indexOf(p.badge) + 1,
       // normalize badgeMinor for sorting purposes
       badgeMinor: p.badgeMinor ? parseInt(p.badgeMinor, 10) : 0
     }))
+    // apply sorting
     .sortBy(['badge', 'badgeMinor'])
+    // add computed attributes:
     .map((p, idx) => ({
       ...p,
-      // make a full badge String presentation (like '7' and '7.1')
+      // full badge String presentation (like '7' and '7.1')
       badgeFull: `${p.badge}${p.badgeMinor === 0 ? '' : `.${p.badgeMinor}`}`,
-      // add id field
       id: idx,
       monthSpan: monthSpan(p)
     }))
     .value()
 
   // Extract all tags from all projects
-  const tags = _
-    .chain(projects)
-    .reduce((acc, p) => [...acc, ...(p.tags || [])], [])
-    .uniq()
-    .sortBy()
-    .value()
+  const tags = Array.from(
+    projects
+      .map(p => p.tags || [])
+      .reduce((acc, tags) => {
+        for (let tag of tags) {
+          acc.set(tag, true)
+        }
+        return acc
+      }, new Map())
+      .keys()
+  ).sort()
 
   return {
     projects,
