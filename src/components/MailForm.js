@@ -9,7 +9,10 @@ import classNames from 'classnames'
 import { injectIntl } from 'react-intl'
 import { makeFM } from '../i18n'
 
-import { MAILER_URL } from '../config'
+import { MAILER_URL, MAILER_MAX_DISPATCH_TIME } from '../config'
+
+// Allowed time frame so dispatch the message
+const maxDispatchTime = MAILER_MAX_DISPATCH_TIME || 7000 // default 7 sec
 
 const validations = {
   isNotBlank: 'trim',
@@ -64,12 +67,12 @@ const styles = theme => ({
     verticalAlign: 'center',
     padding: '3px 0.8em',
     backgroundImage: `linear-gradient(
-          60deg,
-          hsla(220, 25%, 50%, 0) 0,
-          hsla(220, 25%, 77%, 1) 25%,
-          hsla(220, 25%, 77%, 0.75) 50%,
-          hsla(220, 25%, 50%, 0) 80%
-      )`
+      60deg,
+      hsla(220, 25%, 50%, 0) 0,
+      hsla(220, 25%, 77%, 1) 25%,
+      hsla(220, 25%, 77%, 0.75) 50%,
+      hsla(220, 25%, 50%, 0) 80%
+    )`
   },
   submitError: {
     color: 'hsla(0, 100%, 42%, 1)',
@@ -128,7 +131,7 @@ class MailForm extends Component {
 
     try {
       await Promise.race([
-        delayReject(7000), // a time frame of 7 sec to dispatch the message
+        delayReject(maxDispatchTime),
         fetch(MAILER_URL, {
           method: 'POST',
           body: JSON.stringify(fData),
