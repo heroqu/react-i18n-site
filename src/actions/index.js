@@ -29,13 +29,3 @@ export const loadProjectsData = () => async dispatch => {
     console.error(`Error fetching projects data:\n${e}`)
   }
 }
-
-export const loadGalleryData = () => async dispatch => {
-  try {
-    const data = await fetchJsonWithCache('/data/gallery.json')
-
-    dispatch({ type: types.LOAD_GALLERY_DATA, payload: data })
-  } catch (e) {
-    console.error(`Error fetching gallery data:\n${e}`)
-  }
-}

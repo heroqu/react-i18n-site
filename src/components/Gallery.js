@@ -6,7 +6,6 @@ import PropTypes from 'prop-types'
 import { sanitize, getI18nAttr } from '../i18n'
 
 import { connect } from 'react-redux'
-import { loadGalleryData } from '../actions'
 
 /**
  * Displays image collection in a lightBox
@@ -17,12 +16,31 @@ class Gallery extends Component {
 
     this.state = {
       photoIndex: this.startIndexFromProps(),
-      isOpen: false
+      isOpen: false,
+      items: []
     }
   }
 
+  async dataLoad() {
+    const response = await fetch('/data/gallery.json', {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json'
+      }
+    })
+
+    const items = (await response.json()) || []
+
+    if (!Array.isArray(items)) {
+      // not empty and not an array
+      throw new Error('Gallery data is not loaded properly')
+    }
+
+    this.setState({ items })
+  }
+
   componentDidMount() {
-    this.props.loadGalleryData()
+    this.dataLoad().catch(console.error)
   }
 
   /**
@@ -32,7 +50,7 @@ class Gallery extends Component {
    * function _imagesWithTag for details.
    */
   imagesWithTag() {
-    return _imagesWithTag(this.props.galleryData, this.props.tag)
+    return _imagesWithTag(this.state.items, this.props.tag)
   }
 
   /**
@@ -103,18 +121,11 @@ Gallery.propTypes = {
 }
 
 const mapsStateToProps = state => ({
-  galleryData: state.galleryData,
   locale: state.i18n.locale
 })
 
-const mapDispatchToProps = dispatch => ({
-  loadGalleryData: locale => dispatch(loadGalleryData(locale))
-})
 
-export default connect(
-  mapsStateToProps,
-  mapDispatchToProps
-)(Gallery)
+export default connect(mapsStateToProps)(Gallery)
 
 /*
  * helper functions
