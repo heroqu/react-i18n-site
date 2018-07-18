@@ -8,6 +8,9 @@ import { sanitize, getI18nAttr } from '../i18n'
 import { connect } from 'react-redux'
 import { loadGalleryData } from '../actions'
 
+/**
+ * Displays image collection in a lightBox
+ */
 class Gallery extends Component {
   constructor(props) {
     super(props)
@@ -59,7 +62,7 @@ class Gallery extends Component {
 
   render() {
     const { photoIndex, isOpen } = this.state
-    const { locale, children } = this.props
+    const { locale, className, children } = this.props
 
     const images = this.imagesWithTag()
     const count = images.length
@@ -69,8 +72,7 @@ class Gallery extends Component {
     const idxNext = (idx + 1) % count
     const idxPrev = (idx + count - 1) % count
 
-    // Attributes to be applied to <a>:
-    const className = this.props.className || ''
+    // Additional attributes for the <a>:
     const aAttrs = className ? { className } : {}
 
     return (
