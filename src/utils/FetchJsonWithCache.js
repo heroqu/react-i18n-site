@@ -7,7 +7,7 @@ const DEFAULT_TTL = 3600000 // 1 hour in milliseconds
  * @param  {Number} ttl  Time to live in milliseconds -
  *                         expiration duration for a cached value
  * @return {Function}    fetcher function with cache and ttl
- *                         embedded through a closer
+ *                         embedded through a closure
  */
 function makeFetchJsonWithCache(ttl) {
   typeof ttl === 'number' || (ttl = DEFAULT_TTL)
@@ -23,7 +23,7 @@ function makeFetchJsonWithCache(ttl) {
       cached &&
       cached.timestamp &&
       // and is not expired
-      Date.now() - cached.timestamp < ttl
+      Date.now() < cached.timestamp + ttl
     ) {
       // use cached value
       value = cached.value
