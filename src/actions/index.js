@@ -26,7 +26,7 @@ export const loadProjectsData = () => async dispatch => {
 
     dispatch({ type: types.LOAD_PROJECTS_DATA, payload: { projects, tags } })
   } catch (e) {
-    console.log(`Error fetching projects data:\n${e}`)
+    console.error(`Error fetching projects data:\n${e}`)
   }
 }
 
@@ -36,6 +36,6 @@ export const loadGalleryData = () => async dispatch => {
 
     dispatch({ type: types.LOAD_GALLERY_DATA, payload: data })
   } catch (e) {
-    console.log(`Error fetching gallery data:\n${e}`)
+    console.error(`Error fetching gallery data:\n${e}`)
   }
 }
