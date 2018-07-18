@@ -3,8 +3,6 @@ import { withStyles } from '@material-ui/core/styles'
 import { AppBar, Toolbar } from '@material-ui/core'
 import NavButton from '../buttons/NavButton'
 
-// import BgImage from '../../assets/images/starsky_018.png'
-
 import { navMessages } from '../../i18n/FMessages'
 
 const Spacer = props => {
@@ -49,21 +47,9 @@ const styles = theme => ({
     marginRight: theme.spacing.unit / 2
   },
   // appBar: {
-  // * moved to index.css, so that webpack would not
-  // * load the same background picture twice
-  //
-  //   background:
-  //     url(${BgImage}),
-  //     linear-gradient(
-  //     90deg,
-  //     hsla(220, 25%, 50%, 0),
-  //     hsla(220, 25%, 77%, 0.85) 35%,
-  //     hsla(220, 25%, 77%, 1) 50%,
-  //     hsla(220, 25%, 77%, 0.85) 65%,
-  //     hsla(220, 25%, 50%, 0)
-  //   ),
-  //   hsla(220, 20%, 45%, 1),
-  //   padding: 5,
+  // ...
+  // - moved to index.css, so that webpack would not
+  //   load the same background picture twice
   // },
   toolBar: {
     justifyContent: 'center',

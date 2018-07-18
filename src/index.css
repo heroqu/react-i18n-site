@@ -9,7 +9,7 @@ body {
 }
 
 body {
-  background-image: url('assets/images/starsky_018.png'),
+  background-image: url('assets/images/main_bg.png'),
     linear-gradient(
       90deg,
       hsla(220, 25%, 50%, 0),
@@ -84,7 +84,7 @@ a.NavLink__Active:hover {
 
 .AppBar {
   background-color: hsla(220, 20%, 45%, 1) !important;
-  background: url('assets/images/starsky_018.png'),
+  background: url('assets/images/main_bg.png'),
     linear-gradient(
       90deg,
       hsla(220, 25%, 50%, 0),
