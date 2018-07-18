@@ -22,14 +22,13 @@ import Layout from './Layout'
  */
 const App = () => (
   <Router>
-    <Fragment>
-      <AppRouter />
+    <AppRouter>
       <Intl>
         <Theme>
           <Layout />
         </Theme>
       </Intl>
-    </Fragment>
+    </AppRouter>
   </Router>
 )
 

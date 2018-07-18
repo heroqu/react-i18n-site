@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { withRouter, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -16,7 +16,8 @@ const LocaleRouter = ({
   locale,
   appUrl,
   setLocale,
-  setAppUrl
+  setAppUrl,
+  children
 }) => {
   const parts = pathToParts(pathname)
 
@@ -67,7 +68,7 @@ const LocaleRouter = ({
   }
 
   // url is OK, no operation
-  return null
+  return <Fragment>{children}</Fragment>
 }
 
 LocaleRouter.propTypes = {
