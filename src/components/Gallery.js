@@ -50,7 +50,8 @@ class Gallery extends Component {
    * function _imagesWithTag for details.
    */
   imagesWithTag() {
-    return _imagesWithTag(this.state.items, this.props.tag)
+    const items = (this.state && this.state.items) || []
+    return _imagesWithTag(items, this.props.tag)
   }
 
   /**
