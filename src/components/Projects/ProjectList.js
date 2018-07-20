@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Fragment, Component } from 'react'
 import ProjectTitle from './ProjectTitle'
 import ProjectCard from './ProjectCard'
 import { FormattedMessage } from 'react-intl'
@@ -62,7 +62,7 @@ class ProjectList extends Component {
     ))
 
     return (
-      <div className="XLeft">
+      <Fragment>
         <div className="Flex MarginBottom_03">
           <div className="Flex__Middle">{FM.ProjectList}</div>
           <div className="Flex__End MarginLeft_1">
@@ -76,10 +76,10 @@ class ProjectList extends Component {
             </a>
           </div>
         </div>
-        <Accordion className="Accordion" msg={this.state.accordionMsg}>
+        <Accordion msg={this.state.accordionMsg}>
           {sections}
         </Accordion>
-      </div>
+      </Fragment>
     )
   }
 }
