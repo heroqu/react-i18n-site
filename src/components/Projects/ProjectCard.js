@@ -54,14 +54,14 @@ const ProjectCard = props => {
       description += '\n'
       contents = (
         <div onClick={e => e.stopPropagation()}>
-          <div className="ProjectCard__row">
+          <div className="ProjectCard__Row">
             <span className="Flex__Start Flex__Grow ProjectCard__MonthSpan">
               {props.monthSpan}
             </span>
             <span className="Flex__End ProjectCard__EmployerLabel">
               {FM.Employer}:{' '}
             </span>
-            <span className="Flex__End ProjectCard__Employer MarginLeft_1">
+            <span className="Flex__End MarginLeft_1">
               {T('employer')}
             </span>
           </div>

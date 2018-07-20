@@ -35,7 +35,7 @@ const makeFunctionOrStringApplicator = fOs => x =>
  *                   mixed with string delimeters, e.g.:
  *                   [YYYY, '-', MM, '-', DD]
  *                   here YYYY, MM and DD - functions to extract date parts,
- *                   whereas '-' is a string to inserted in between
+ *                   whereas '-' is a string to be inserted in between
  * @return {Function}  - a formatting function (date => string),
  *                   based on the format given
  */

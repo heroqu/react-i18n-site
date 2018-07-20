@@ -2,6 +2,11 @@
   margin-top: 2.1em;
 }
 
+.Br {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 .PageContent {
   max-width: 38em;
   margin: 0 auto;

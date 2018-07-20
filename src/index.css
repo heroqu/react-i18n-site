@@ -9,6 +9,10 @@ body {
 }
 
 body {
+  font-family: Arsenal, serif, sans-serif;
+  font-size: 1.2em;
+
+  background-color: hsla(220, 25%, 55%, 1);
   background-image: url('assets/images/main_bg.png'),
     linear-gradient(
       90deg,
@@ -24,14 +28,7 @@ body {
       hsla(220, 25%, 80%, 1)
     );
   background-position: center 0;
-  /* background-position: 0 0; */
-  background-color: hsla(220, 25%, 55%, 1);
-
   background-attachment: fixed;
-  /* background-attachment: scroll; */
-
-  font-family: Arsenal, serif, sans-serif;
-  font-size: 1.2em;
 }
 
 /* Buttons */
@@ -43,11 +40,11 @@ body {
 /* Links */
 
 a {
+  color: hsl(48, 100%, 91%);
   text-decoration: underline;
   /* border-bottom-width: 1px;
   border-bottom-style: solid; */
-  color: hsla(48, 100%, 91%, 1);
-  border-bottom-color: hsla(48, 100%, 93%, 0.75);
+  /* border-bottom-color: hsla(48, 100%, 93%, 0.75); */
 }
 
 a.Photo {
@@ -57,30 +54,17 @@ a.Photo {
 
 a:hover,
 a.Photo:hover {
-  color: hsla(0, 100%, 38%, 1);
+  color: hsl(0, 100%, 37%);
   border-bottom-color: hsla(350, 100%, 45%, 1);
 }
 
-/* Navlink */
-
-a.NavLink {
-  text-decoration: none;
-  border-width: 0;
-  margin: 0px;
-  color: hsla(48, 100%, 91%, 1);
-}
-a.NavLink:hover {
-  color: hsl(38, 100%, 85%);
-  color: hsl(2, 100%, 84%);
-  /* color: hsl(0, 100%, 35%); */
-}
-a.NavLink__Active,
-a.NavLink__Active:hover {
-  color: hsla(220, 20%, 10%, 1);
-  /* color: hsl(220, 100%, 98%); */
-}
-
 /* AppBar */
+
+/* move it here from CSS-in-JS for the sake of background
+image: we use the same image main_bg.png twice - as
+main background and as the background in AppBar.
+When both are refered to here then webpack will
+load it only once.  */
 
 .AppBar {
   background-color: hsla(220, 20%, 45%, 1) !important;
@@ -95,41 +79,6 @@ a.NavLink__Active:hover {
     );
   background-position: center 0;
   padding: 5px;
-}
-
-/* ============= */
-
-
-
-.Flex {
-  display: flex;
-  flex-wrap: wrap;
-}
-.Flex__Start {
-  align-self: flex-start;
-  text-align: left;
-}
-.Flex__Grow {
-  flex-grow: 1;
-}
-.Flex__Middle {
-  flex-grow: 1;
-  text-align: left;
-}
-.Flex__End {
-  align-self: flex-end;
-  text-align: right;
-}
-
-.MarginLeft_1 {
-  margin-left: 1em;
-}
-.MarginBottom_03 {
-  margin-bottom: 0.3em;
-}
-
-.Left {
-  text-align: left;
 }
 
 /* Lists */
@@ -179,11 +128,6 @@ li ul li {
 
 .Cnt {
   text-align: center;
-}
-
-.Br {
-  margin-top: 0;
-  margin-bottom: 0;
 }
 
 .Highlight {
