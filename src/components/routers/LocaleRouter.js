@@ -4,12 +4,8 @@ import { withRouter, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import { setLocale, setAppUrl } from '../../actions'
-import {
-  normalizeString,
-  extractLocale,
-  resolveLocale,
-  localeURLPrefix
-} from '../../i18n'
+import { extractLocale, resolveLocale, localeURLPrefix } from '../../i18n'
+import normalizeString from '../../utils/normalizeString'
 
 const LocaleRouter = ({
   location: { pathname },

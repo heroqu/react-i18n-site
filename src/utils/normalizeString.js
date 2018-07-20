@@ -3,7 +3,7 @@
  * @param  {any} arg - can be anything
  * @return {string}
  */
-export function normalizeString(arg) {
+export default function normalizeString(arg) {
   if (arg) {
     return ('' + arg).toLowerCase().trim()
   }
