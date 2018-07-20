@@ -22,7 +22,7 @@ class Gallery extends Component {
     }
   }
 
-  async dataLoad() {
+  async loadData() {
     const response = await fetch('/data/gallery.json', {
       method: 'GET',
       headers: {
@@ -41,7 +41,7 @@ class Gallery extends Component {
   }
 
   componentDidMount() {
-    this.dataLoad().catch(console.error)
+    this.loadData().catch(console.error)
   }
 
   /**
