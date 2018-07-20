@@ -1,12 +1,13 @@
 import _ from 'lodash'
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
-import { loadProjectsData } from '../../actions'
 
 import { FormattedMessage } from 'react-intl'
 import ProjectList from './ProjectList'
 import ProjectFilter from './ProjectFilter'
 import './Project.css'
+
+import projectsDataNormalize from './projectsDataNormalize'
 
 import { getI18nAttr } from '../../i18n'
 
@@ -40,13 +41,35 @@ class Projects extends Component {
     super(props)
 
     this.state = {
+      projects: [],
+      tags: [],
       showFilter: false,
       selectedTags: []
     }
   }
 
+  async loadData() {
+    const response = await fetch('/data/projects.json', {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json'
+      }
+    })
+
+    const items = (await response.json()) || []
+
+    if (!Array.isArray(items)) {
+      // not empty and not an array
+      throw new Error('Projects data is not loaded properly')
+    }
+
+    const { projects, tags } = projectsDataNormalize(items)
+
+    this.setState({ projects, tags })
+  }
+
   componentDidMount() {
-    this.props.loadProjectsData()
+    this.loadData().catch(console.error)
   }
 
   onTagToggle(tag) {
@@ -94,7 +117,8 @@ class Projects extends Component {
   }
 
   render() {
-    const { projects, tags, locale } = this.props
+    const { locale } = this.props
+    const { projects, tags } = this.state
 
     /**
      * Attribute translator function, with current locale value injected
@@ -115,7 +139,9 @@ class Projects extends Component {
             />
           </div>
           <div className="Projects__List">
-            <div className="Projects__CurrentFilter">{this.currentFilter()}</div>
+            <div className="Projects__CurrentFilter">
+              {this.currentFilter()}
+            </div>
             <ProjectList projects={visible} T={T} />
           </div>
         </div>
@@ -125,16 +151,7 @@ class Projects extends Component {
 }
 
 const mapsStateToProps = state => ({
-  locale: state.i18n.locale,
-  projects: state.projectsData.projects,
-  tags: state.projectsData.tags
+  locale: state.i18n.locale
 })
 
-const mapDispatchToProps = dispatch => ({
-  loadProjectsData: locale => dispatch(loadProjectsData(locale))
-})
-
-export default connect(
-  mapsStateToProps,
-  mapDispatchToProps
-)(Projects)
+export default connect(mapsStateToProps)(Projects)
