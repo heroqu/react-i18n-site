@@ -3,22 +3,9 @@ import PropTypes from 'prop-types'
 
 /**
  * The wrap around the standard html `a` tag prepopulated with
- *    target="_blank"
- *    and
- *    rel="noopener noreferrer"
+ *    target="_blank" rel="noopener noreferrer"
  * attributes to make external links inside content authoring
  * less verbose.
- * Now instead of
- *     <a href="https://.../README.md"
- *         target="_blank"
- *         rel="noopener noreferrer"
- *      >
- *      README
- *      </a>
- * one can write a somewhat terser:
- *     <A href="https://.../README.md">
- *      README
- *      </A>
  */
 const A = ({ children, ...rest }) => (
   <a target="_blank" rel="noopener noreferrer" {...rest}>
