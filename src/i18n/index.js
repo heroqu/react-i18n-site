@@ -1,16 +1,5 @@
 import { DEFAULT_LOCALE, ALLOWED_LOCALES } from '../config'
-
-/**
- * Turn argument into a lowercased trimmed string
- * @param  {any} arg - can be anything
- * @return {string}
- */
-export function sanitize(arg) {
-  if (arg) {
-    return ('' + arg).toLowerCase().trim()
-  }
-  return ''
-}
+import normalizeString from '../utils/normalizeString'
 
 /**
  * Try to interpret given value as a valid locale.
@@ -20,7 +9,7 @@ export function sanitize(arg) {
  * @return {string} -  valid locale or ''
  */
 export function extractLocale(value) {
-  value = sanitize(value)
+  value = normalizeString(value)
   if (value && ALLOWED_LOCALES.indexOf(value) !== -1) {
     return value
   }
@@ -128,7 +117,7 @@ export function getI18nAttr(obj, attr, locale) {
 export const makeFM = ({ intl }) => id => intl.formatMessage({ id })
 
 export default {
-  sanitize,
+  normalizeString,
   extractLocale,
   resolveLocale,
   localeURLPrefix,

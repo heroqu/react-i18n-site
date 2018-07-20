@@ -3,7 +3,8 @@ import Lightbox from 'react-image-lightbox'
 import _ from 'lodash'
 import PropTypes from 'prop-types'
 
-import { sanitize, getI18nAttr } from '../i18n'
+import { getI18nAttr } from '../i18n'
+import normalizeString from '../utils/normalizeString'
 
 import { connect } from 'react-redux'
 
@@ -74,7 +75,7 @@ class Gallery extends Component {
       return 0
     }
     const index = this.imagesWithTag().findIndex(
-      x => sanitize(x.name) === sanitize(name)
+      x => normalizeString(x.name) === normalizeString(name)
     )
     return index === -1 ? 0 : index
   }
@@ -164,6 +165,6 @@ function _makeTagFilter(tag) {
   return ({ tags }) =>
     ('' + tags)
       .split(',')
-      .map(sanitize)
-      .indexOf(sanitize(tag)) !== -1
+      .map(normalizeString)
+      .indexOf(normalizeString(tag)) !== -1
 }

@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 import { setLocale, setAppUrl } from '../../actions'
 import {
-  sanitize,
+  normalizeString,
   extractLocale,
   resolveLocale,
   localeURLPrefix
@@ -129,7 +129,7 @@ function execAfterThisTick(fnc) {
  * @return {[string]}    An array of chunks
  */
 function pathToParts(path) {
-  return sanitize(path)
+  return normalizeString(path)
     .split('/')
     .filter(Boolean)
 }
