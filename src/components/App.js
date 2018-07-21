@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 
 import Redux from './Redux'
-import AppRouter from './routers/AppRouter'
+import Router from './Router'
 import Intl from './Intl'
 import Theme from './Theme'
 import Layout from './Layout'
@@ -10,7 +10,7 @@ import Layout from './Layout'
  * What happens here:
  *
  * 1. Redux provider
- * 2. AppRouter
+ * 2. Router
  *     takes care of App routes and redirect logic
  * 3. Intl
  *      React-Intl provider loaded with translation messages
@@ -21,13 +21,13 @@ import Layout from './Layout'
  */
 const App = () => (
   <Redux>
-    <AppRouter>
+    <Router>
       <Intl>
         <Theme>
           <Layout />
         </Theme>
       </Intl>
-    </AppRouter>
+    </Router>
   </Redux>
 )
 
