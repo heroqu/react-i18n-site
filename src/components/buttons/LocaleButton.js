@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 
 import { connect } from 'react-redux'
-import { setLocale } from '../../actions'
+import { setLocale } from '../../Redux/actions'
 
 import AppButton from './AppButton'
 

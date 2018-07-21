@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Redirect } from 'react-router-dom'
-import { HOME_PAGE } from '../../config'
+import { HOME_PAGE } from '../config'
 import LocaleRouter from './LocaleRouter'
 import ScrollToTop from './ScrollToTop'
 

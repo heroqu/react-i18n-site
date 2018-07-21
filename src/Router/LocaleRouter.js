@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import { withRouter, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import { setLocale, setAppUrl } from '../../actions'
-import { extractLocale, resolveLocale, localeURLPrefix } from '../../i18n'
-import normalizeString from '../../utils/normalizeString'
+import { setLocale, setAppUrl } from '../Redux/actions'
+import { extractLocale, resolveLocale, localeURLPrefix } from '../utils/i18n'
+import normalizeString from '../utils/normalizeString'
 
 const LocaleRouter = ({
   location: { pathname },

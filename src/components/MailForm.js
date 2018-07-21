@@ -7,7 +7,7 @@ import AppButton from './buttons/AppButton'
 import classNames from 'classnames'
 
 import { injectIntl } from 'react-intl'
-import { makeFM } from '../i18n'
+import { makeFM } from '../utils/i18n'
 
 import { MAILER_URL, MAILER_MAX_DISPATCH_TIME } from '../config'
 

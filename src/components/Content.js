@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import pages from './pages'
 import NotFound from './NotFound'
 
-import { getI18nAttr } from '../i18n'
+import { getI18nAttr } from '../utils/i18n'
 
 import './Content.css'
 

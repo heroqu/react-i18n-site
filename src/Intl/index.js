@@ -4,9 +4,9 @@ import { connect } from 'react-redux'
 
 import { IntlProvider } from 'react-intl'
 
-import '../i18n/loadLocaleData'
-import { resolveLocale } from '../i18n'
-import messages from '../i18n/messages.json'
+import './loadLocaleData'
+import { resolveLocale } from '../utils/i18n'
+import messages from './messages.json'
 
 /**
  * React-intl provider preloaded with:

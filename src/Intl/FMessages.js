@@ -2,7 +2,7 @@ import React from 'react'
 import { FormattedMessage } from 'react-intl'
 
 import { DEFAULT_LOCALE } from '../config'
-import messages from '../i18n/messages.json'
+import messages from './messages.json'
 
 const defaultMessages = messages[DEFAULT_LOCALE]
 

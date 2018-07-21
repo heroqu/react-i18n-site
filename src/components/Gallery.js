@@ -3,7 +3,7 @@ import Lightbox from 'react-image-lightbox'
 import _ from 'lodash'
 import PropTypes from 'prop-types'
 
-import { getI18nAttr } from '../i18n'
+import { getI18nAttr } from '../utils/i18n'
 import normalizeString from '../utils/normalizeString'
 
 import { connect } from 'react-redux'

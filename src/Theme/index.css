@@ -13,7 +13,7 @@ body {
   font-size: 1.2em;
 
   background-color: hsla(220, 25%, 55%, 1);
-  background-image: url('../../assets/images/main_bg.png'),
+  background-image: url('../assets/images/main_bg.png'),
     linear-gradient(
       90deg,
       hsla(220, 25%, 50%, 0),
@@ -68,7 +68,7 @@ load it only once.  */
 
 .AppBar {
   background-color: hsla(220, 20%, 45%, 1) !important;
-  background: url('../../assets/images/main_bg.png'),
+  background: url('../assets/images/main_bg.png'),
     linear-gradient(
       90deg,
       hsla(220, 25%, 50%, 0),

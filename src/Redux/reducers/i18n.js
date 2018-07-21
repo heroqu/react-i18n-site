@@ -1,6 +1,6 @@
 import * as actionTypes from '../constants/actionTypes'
-import { DEFAULT_LOCALE, ALLOWED_LOCALES } from '../config'
-import localeCookie from '../i18n/localeCookie'
+import { DEFAULT_LOCALE, ALLOWED_LOCALES } from '../../config'
+import localeCookie from '../../utils/localeCookie'
 
 const linkPrefixFromLocale = locale =>
   locale === DEFAULT_LOCALE ? '' : `/${locale}`

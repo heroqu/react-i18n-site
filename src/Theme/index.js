@@ -4,7 +4,7 @@ import './index.css'
 
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 
-import '../../assets/fonts'
+import '../assets/fonts'
 
 const theme = createMuiTheme({
   breakpoints: {

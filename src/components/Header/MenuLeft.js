@@ -9,7 +9,7 @@ import MenuIcon from '@material-ui/icons/Menu'
 import AppButton from '../buttons/AppButton'
 import NavButton from '../buttons/NavButton'
 
-import { navMessages } from '../../i18n/FMessages'
+import { navMessages } from '../../Intl/FMessages'
 
 const colors = {
   trans: 'hsla(0, 0%, 0%, 0)',
