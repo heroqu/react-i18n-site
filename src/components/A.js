@@ -4,8 +4,6 @@ import PropTypes from 'prop-types'
 /**
  * The wrap around the standard html `a` tag prepopulated with
  *    target="_blank" rel="noopener noreferrer"
- * attributes to make external links inside content authoring
- * less verbose.
  */
 const A = ({ children, ...rest }) => (
   <a target="_blank" rel="noopener noreferrer" {...rest}>

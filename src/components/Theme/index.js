@@ -1,7 +1,10 @@
 import React from 'react'
+
+import './index.css'
+
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 
-import '../fonts'
+import '../../assets/fonts'
 
 const theme = createMuiTheme({
   breakpoints: {
@@ -42,10 +45,8 @@ const theme = createMuiTheme({
   }
 })
 
-const Theme = ({children}) => (
-  <MuiThemeProvider theme={theme}>
-    {children}
-  </MuiThemeProvider>
+const Theme = ({ children }) => (
+  <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>
 )
 
 export default Theme
