@@ -9,7 +9,7 @@ import './Layout.css'
 /**
  * Make a Sticky Footer layout with CSS
  */
-const Layout = props => {
+const Layout = () => {
   return (
     <div className="WholePage">
       <div className="WholePage__ButStickyFooter">
