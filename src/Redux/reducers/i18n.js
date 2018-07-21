@@ -1,5 +1,5 @@
 import * as actionTypes from '../constants/actionTypes'
-import { DEFAULT_LOCALE, ALLOWED_LOCALES } from '../../config'
+import { DEFAULT_LOCALE } from '../../config'
 import localeCookie from '../../utils/localeCookie'
 
 const linkPrefixFromLocale = locale =>
@@ -8,8 +8,6 @@ const linkPrefixFromLocale = locale =>
 const localeFromCookie = localeCookie.get() || ''
 
 const initialState = {
-  defaultLocale: DEFAULT_LOCALE,
-  allowedLocales: ALLOWED_LOCALES,
   locale: localeFromCookie,
   linkPrefix: linkPrefixFromLocale(localeFromCookie)
 }

@@ -4,7 +4,7 @@ import { Toolbar } from '@material-ui/core'
 
 import LocaleButton from '../buttons/LocaleButton'
 
-import { connect } from 'react-redux'
+import { ALLOWED_LOCALES } from '../../config'
 
 const styles = theme => ({
   root: {
@@ -26,32 +26,23 @@ const styles = theme => ({
   }
 })
 
-const LanguagePanel = props => {
-  const { classes, allowedLocales } = props
+const LanguagePanel = ({ classes }) => (
+  <div className={classes.root}>
+    <Toolbar _color="inherit" className={classes.toolBar}>
+      {ALLOWED_LOCALES.map((toLocale, idx) => (
+        <LocaleButton
+          key={`ButtonNumber_${idx}`}
+          size="small"
+          variant="raised"
+          color="inherit"
+          className={classes.button}
+          toLocale={toLocale}
+        >
+          {toLocale}
+        </LocaleButton>
+      ))}
+    </Toolbar>
+  </div>
+)
 
-  return (
-    <div className={classes.root}>
-      <Toolbar _color="inherit" className={classes.toolBar}>
-        {allowedLocales.map((toLocale, idx) => (
-          <LocaleButton
-            key={`ButtonNumber_${idx}`}
-            size="small"
-            variant="raised"
-            color="inherit"
-            className={classes.button}
-            // locale={locale}
-            toLocale={toLocale}
-          >
-            {toLocale}
-          </LocaleButton>
-        ))}
-      </Toolbar>
-    </div>
-  )
-}
-
-const mapsStateToProps = state => ({
-  allowedLocales: state.i18n.allowedLocales
-})
-
-export default withStyles(styles)(connect(mapsStateToProps)(LanguagePanel))
+export default withStyles(styles)(LanguagePanel)
