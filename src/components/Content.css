@@ -14,13 +14,22 @@
 
 /* Styles for Education */
 
-.Book,
-.Course {
-  display: flex;
+ul.Course li {
+  color: #d03;
+}
+
+ul.Book li {
+  color: #6ff;
+}
+
+.BookTitle,
+.CourseTitle {
+  display: inline-block;
 }
 
 .BookAuthor,
 .CourseDetails {
+  display: inline-block;
   color: hsla(220, 0%, 0%, 0.35);
   margin-left: 0.6em;
 }

@@ -41,9 +41,6 @@ body {
 a {
   color: hsl(48, 100%, 91%);
   text-decoration: underline;
-  /* border-bottom-width: 1px;
-  border-bottom-style: solid; */
-  /* border-bottom-color: hsla(48, 100%, 93%, 0.75); */
 }
 
 a.Photo {
@@ -57,34 +54,12 @@ a.Photo:hover {
   border-bottom-color: hsla(350, 100%, 45%, 1);
 }
 
-/* AppBar */
-
-/* move it here from CSS-in-JS for the sake of background
-image: we use the same image main_bg.png twice - as
-main background and as the background in AppBar.
-When both are refered to here then webpack will
-load it only once.  */
-
-.AppBar {
-  background-color: hsla(220, 20%, 45%, 1) !important;
-  background: url('../assets/images/main_bg.png'),
-    linear-gradient(
-      90deg,
-      hsla(220, 25%, 50%, 0),
-      hsla(220, 25%, 77%, 0.85) 35%,
-      hsla(220, 25%, 77%, 1) 50%,
-      hsla(220, 25%, 77%, 0.85) 65%,
-      hsla(220, 25%, 50%, 0)
-    );
-  background-position: center 0;
-  padding: 5px;
-}
 
 /* Lists */
 
 ul.List {
   display: inline-block;
-  list-style-type: circle;
+  list-style-type: none;
   padding-left: 0.2em;
   margin: 0 auto;
   text-align: left;
@@ -171,4 +146,29 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-transition-delay: 99999s;
+}
+
+
+/* AppBar */
+
+/* I move this particular style here from CSS-in-JS
+for the sake of background image: we use the same image
+main_bg.png twice - as main background and as the
+background in AppBar. When both are here in a regular
+CSS file then webpack will figure it out and load it
+only once. */
+
+.AppBar {
+  background-color: hsla(220, 20%, 45%, 1) !important;
+  background: url('../assets/images/main_bg.png'),
+    linear-gradient(
+      90deg,
+      hsla(220, 25%, 50%, 0),
+      hsla(220, 25%, 77%, 0.85) 35%,
+      hsla(220, 25%, 77%, 1) 50%,
+      hsla(220, 25%, 77%, 0.85) 65%,
+      hsla(220, 25%, 50%, 0)
+    );
+  background-position: center 0;
+  padding: 5px;
 }
