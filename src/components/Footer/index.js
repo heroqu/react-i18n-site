@@ -16,7 +16,7 @@ const Footer = props => (
         />
       </ResumeDownload>
     </div>
-    <div className="Footer__Item">
+    <div className="Footer__Item Footer__Item__Wide">
       <FormattedMessage id="app.footer_text" defaultMessage="©" />
     </div>
     <div className="Footer__Item Right">

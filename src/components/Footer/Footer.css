@@ -5,12 +5,7 @@
   text-align: center;
   color: hsla(220, 25%, 75%, 0.45);
   font-size: 0.8rem;
-  background-image: url('../../assets/images/footer_bg.png')
-    /* ,
-    linear-gradient(
-      transparent 45%,
-      #000 45%
-    ) */;
+  background-image: url('../../assets/images/footer_bg.png');
   background-repeat: repeat-x;
   background-position: center 1rem;
 
@@ -22,13 +17,9 @@
 
 .Footer__Item {
   padding: 0rem 1rem;
-  flex: 1 1 12rem;
+  flex: 1 1 10rem;
 }
 
-.Right {
-  text-align: right;
-}
-
-.Left {
-  text-align: left;
+.Footer__Item__Wide {
+  flex-basis: 16rem;
 }
