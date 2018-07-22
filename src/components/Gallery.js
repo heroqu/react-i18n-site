@@ -1,5 +1,6 @@
 import React, { Fragment, Component } from 'react'
 import Lightbox from 'react-image-lightbox'
+import './Gallery.css'
 import _ from 'lodash'
 import PropTypes from 'prop-types'
 
