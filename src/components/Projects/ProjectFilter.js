@@ -23,7 +23,7 @@ const ProjectFilter = ({ tags, selectedTags, onToggle, reset }) => {
   return (
     <div className="Cnt">
       <div className="Flex">
-        <div className="Flex__Start Flex__Grow Title">{FM.ProjectFilter}</div>
+        <div className="Flex__Start Flex__Grow Left Title">{FM.ProjectFilter}</div>
         <div className="Flex__End">
           <a
             onClick={() => {

@@ -124,6 +124,10 @@ li ul li {
   );
 }
 
+.Left {
+  text-align: left;
+}
+
 .Cnt {
   text-align: center;
 }
