@@ -30,10 +30,33 @@ body {
   background-attachment: fixed;
 }
 
-/* Buttons */
+/* Titles */
 
-.Button__Active {
-  color: hsla(220, 20%, 10%, 1) !important;
+h1,
+h2,
+h3 {
+  margin: 0.8em 0 0.1em 0;
+}
+
+h1.Title {
+  /* h1 default is 2.4rem, we apply 7/6 factor */
+  font-size: 2.8rem;
+}
+h2.Title {
+  /* h2 default is 1.8rem, we apply 7/6 factor */
+  font-size: 2.1rem;
+}
+
+.Title {
+  font-weight: 400;
+  color: hsla(220, 50%, 20%, 1);
+  text-shadow: 3px 3px 5px hsla(0, 0%, 50%, 0.65);
+}
+
+.Subtitle {
+  font-weight: 400;
+  color: white;
+  text-shadow: 2px 2px 5px hsla(0, 0%, 30%, 0.65);
 }
 
 /* Links */
@@ -85,6 +108,14 @@ ul.List li {
   );
 }
 
+/* Buttons */
+
+.Button__Active {
+  color: hsla(220, 20%, 10%, 1) !important;
+}
+
+/* Positioning */
+
 .Left {
   text-align: left;
 }
@@ -97,6 +128,8 @@ ul.List li {
   text-align: center;
 }
 
+/* Highlighting */
+
 .Highlight {
   margin: 0.5rem 0;
   font-size: larger;
@@ -104,35 +137,6 @@ ul.List li {
 
 .Colored {
   color: hsl(0, 100%, 37%);
-}
-
-/* Titles */
-
-h1,
-h2,
-h3 {
-  margin: 0.8em 0 0.1em 0;
-}
-
-h1.Title {
-  /* h1 default is 2.4rem, we apply 7/6 factor */
-  font-size: 2.8rem;
-}
-h2.Title {
-  /* h2 default is 1.8rem, we apply 7/6 factor */
-  font-size: 2.1rem;
-}
-
-.Title {
-  font-weight: 400;
-  color: hsla(220, 50%, 20%, 1);
-  text-shadow: 3px 3px 5px hsla(0, 0%, 50%, 0.65);
-}
-
-.Subtitle {
-  font-weight: 400;
-  color: white;
-  text-shadow: 2px 2px 5px hsla(0, 0%, 30%, 0.65);
 }
 
 /*
