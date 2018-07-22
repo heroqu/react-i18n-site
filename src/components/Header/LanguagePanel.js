@@ -18,7 +18,7 @@ const styles = theme => ({
   toolBar: {
     justifyContent: 'space-around',
     padding: '2px 0',
-    minHeight: '1em'
+    minHeight: '1rem'
   },
   button: {
     marginLeft: theme.spacing.unit / 2,

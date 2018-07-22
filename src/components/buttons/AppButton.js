@@ -7,15 +7,14 @@ const colors = {
   trans: 'transparent',
   link: 'hsl(48, 100%, 91%)',
   linkHover: 'hsl(0, 100%, 42%)',
-  lighter: `hsla(220, 20%, 80%, 0.32)`
+  lighter: 'hsla(220, 20%, 80%, 0.32)'
 }
 
 const styles = theme => ({
   root: {
-    // minWidth: theme.spacing.unit * 11,
     minWidth: '2.5em',
     minHeight: '2.2em',
-    padding: `0 0.7em`,
+    padding: '0 0.7em',
     borderRadius: '0.25em',
     // color: theme.palette.text.primary,
     color: colors.link,

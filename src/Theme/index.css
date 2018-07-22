@@ -7,7 +7,7 @@ body {
 }
 
 body {
-  font-family: Arsenal, Helvetica,  Verdana, Tahoma, sans-serif;
+  font-family: Arsenal, Helvetica, Verdana, Tahoma, sans-serif;
   font-weight: 300;
   font-size: 1.2em;
 
@@ -54,24 +54,27 @@ a.Photo:hover {
   border-bottom-color: hsla(350, 100%, 45%, 1);
 }
 
-
 /* Lists */
 
 ul.List {
   display: inline-block;
   list-style-type: none;
-  padding-left: 0.2em;
+  padding-left: 0.2rem;
   margin: 0 auto;
   text-align: left;
 }
 
+ul.Circle {
+  list-style-type: circle;
+}
+
 ul.List ul {
-  padding-left: 0.2em;
+  padding-left: 0.2rem;
 }
 
 ul.List li {
-  margin: 0.25em 0 0.2em 1em;
-  padding: 1px 0.4em;
+  margin: 0.25rem 0 0.2rem 1rem;
+  padding: 1px 0.4rem;
   background-image: linear-gradient(
     90deg,
     hsla(220, 25%, 77%, 0),
@@ -91,7 +94,7 @@ ul.List li {
 }
 
 .Highlight {
-  margin: 0.5em 0;
+  margin: 0.5rem 0;
   font-size: larger;
 }
 
@@ -99,18 +102,20 @@ ul.List li {
   color: hsl(0, 100%, 37%);
 }
 
-
 h1,
 h2,
 h3 {
-  margin: 0;
-  padding: 0.5em 0 0.1em 0;
+  margin: 0.8em 0 0.1em 0;
 }
 
-h1 {
-  font-size: 2.2rem;
+h1.Title {
+  /* h1 default is 2.4rem, we apply 7/6 factor */
+  font-size: 2.8rem;
 }
-
+h2.Title {
+  /* h2 default is 1.8rem, we apply 7/6 factor */
+  font-size: 2.1rem;
+}
 
 .Title {
   color: hsla(220, 50%, 20%, 1);
@@ -139,7 +144,6 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-transition-delay: 99999s;
 }
-
 
 /* AppBar */
 

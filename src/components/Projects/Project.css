@@ -1,5 +1,5 @@
 .Projects {
-  padding: 0 0.5em;
+  padding: 0 0.5rem;
 }
 
 /* Projects : Current filter */
@@ -8,17 +8,17 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
-  padding: 0.25em 0;
-  font-size: 0.7em;
+  padding: 0.25rem 0;
+  font-size: 0.7rem;
 }
 
 .Projects__CurrentFilter__Caption {
   flex: 0 0 auto;
-  padding: 0 0.5em 0 0;
+  padding: 0 0.5rem 0 0;
 }
 .Projects__CurrentFilter__Value {
   flex: 1 1 auto;
-  padding: 0 0 0 0.5em;
+  padding: 0 0 0 0.5rem;
 }
 
 /* Project filter & Project list */
@@ -33,11 +33,11 @@
 
 .Projects__A {
   flex: 2 2 2px;
-  padding: 0 0.5em 0 0;
+  padding: 0 0.5rem 0 0;
 }
 .Projects__B {
   flex: 3 3 3px;
-  padding: 0 0 0 0.5em;
+  padding: 0 0 0 0.5rem;
 }
 
 @media (max-width: 768px) {
@@ -91,7 +91,7 @@
 
 .Tag {
   font-size: smaller;
-  padding: 0px 0.4em;
+  padding: 0px 0.4rem;
   margin-top: 2px;
   margin-right: 2px;
   border-radius: 5px;
@@ -105,10 +105,10 @@
 }
 
 .Badge {
-  flex-basis: 1.3em;
-  margin: 0 0.5em 0 0;
+  flex-basis: 1.3rem;
+  margin: 0 0.5rem 0 0;
   display: inline-block;
-  padding: 0px 0.4em;
+  padding: 0px 0.4rem;
   background-color: hsla(220, 30%, 20%, 0.5);
   color: hsla(0, 100%, 100%, 0.75);
   border-top-left-radius: 5px;
@@ -119,7 +119,7 @@
 
 .ProjectCard {
   margin: 1px 0;
-  margin-left: 2.3em;
+  margin-left: 2.3rem;
   border-radius: 5px;
   background-color: hsla(220, 50%, 97%, 0.75);
   text-align: left;
@@ -172,8 +172,8 @@
 /* Quick margins */
 
 .MarginLeft_1 {
-  margin-left: 1em;
+  margin-left: 1rem;
 }
 .MarginBottom_03 {
-  margin-bottom: 0.3em;
+  margin-bottom: 0.3rem;
 }

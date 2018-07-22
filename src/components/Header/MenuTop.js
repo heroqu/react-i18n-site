@@ -55,7 +55,7 @@ const styles = theme => ({
     justifyContent: 'center',
     background: 'transparent',
     padding: 0,
-    minHeight: '1em'
+    minHeight: '1rem'
   }
 })
 

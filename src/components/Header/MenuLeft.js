@@ -24,13 +24,13 @@ const styles = theme => ({
   },
   paper: {
     background: colors.trans,
-    left: '0.5em',
-    top: '0.5em',
+    left: '0.5rem',
+    top: '0.5rem',
     height: 'auto'
   },
   list: {
     margin: 0,
-    width: '10em',
+    width: '10rem',
     minWidth: '35vw',
     background: 'transparent',
     color: colors.fgDark,
@@ -39,7 +39,7 @@ const styles = theme => ({
   button: {
     textTransform: 'none',
     fontFamily: 'Arsenal',
-    fontSize: '1.2em',
+    fontSize: '1.2rem',
     borderRadius: 0,
     background: colors.bgLighterTrans,
     marginTop: '1px !important',
