@@ -23,7 +23,7 @@
 
 /* Project filter & Project list */
 
-.Projects__FilterAndList {
+.Projects__AB {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -31,17 +31,17 @@
   padding: 0;
 }
 
-.Projects__Filter {
-  flex: 2 2 100px;
+.Projects__A {
+  flex: 2 2 2px;
   padding: 0 0.5em 0 0;
 }
-.Projects__List {
-  flex: 3 3 150px;
+.Projects__B {
+  flex: 3 3 3px;
   padding: 0 0 0 0.5em;
 }
 
 @media (max-width: 768px) {
-  .Projects__FilterAndList {
+  .Projects__AB {
     flex-direction: column;
   }
 }

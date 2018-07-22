@@ -129,8 +129,16 @@ class Projects extends Component {
 
     return (
       <div className="Projects">
-        <div className="Projects__FilterAndList">
-          <div className="Projects__Filter">
+        <div className="Projects__AB">
+          <div className="Projects__A" />
+          <div className="Projects__B">
+            <div className="Projects__CurrentFilter">
+              {this.currentFilter()}
+            </div>
+          </div>
+        </div>
+        <div className="Projects__AB">
+          <div className="Projects__A">
             <ProjectFilter
               tags={tags}
               onToggle={tag => this.onTagToggle(tag)}
@@ -138,10 +146,7 @@ class Projects extends Component {
               reset={() => this.reset()}
             />
           </div>
-          <div className="Projects__List">
-            <div className="Projects__CurrentFilter">
-              {this.currentFilter()}
-            </div>
+          <div className="Projects__B">
             <ProjectList projects={visible} T={T} />
           </div>
         </div>
