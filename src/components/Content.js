@@ -16,7 +16,7 @@ const Content = props => {
   const Component = getI18nAttr(pages, appUrl, locale) || NotFound
 
   return (
-    <div className="Cnt PadTop">
+    <div className="Center PadTop">
       <Component {...props} />
     </div>
   )

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { FormattedMessage } from 'react-intl'
 import Tag from './Tag'
 
@@ -21,9 +21,11 @@ const ProjectFilter = ({ tags, selectedTags, onToggle, reset }) => {
   ))
 
   return (
-    <div className="Cnt">
+    <Fragment>
       <div className="Flex">
-        <div className="Flex__Start Flex__Grow Left Title">{FM.ProjectFilter}</div>
+        <div className="Flex__Start Flex__Grow Left Title">
+          {FM.ProjectFilter}
+        </div>
         <div className="Flex__End">
           <a
             onClick={() => {
@@ -36,7 +38,7 @@ const ProjectFilter = ({ tags, selectedTags, onToggle, reset }) => {
         </div>
       </div>
       <div className="Flex">{Tags}</div>
-    </div>
+    </Fragment>
   )
 }
 

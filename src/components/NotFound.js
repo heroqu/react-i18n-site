@@ -5,7 +5,7 @@ import AppLink from './AppLink'
 import { HOME_PAGE } from '../config'
 
 const NotFound = props => (
-  <div className="Cnt">
+  <div className="Center">
     <h1 className="Title">
       <FormattedMessage
         id="app.not_found"

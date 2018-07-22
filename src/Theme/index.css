@@ -15,11 +15,11 @@ body {
   background-image: url('../assets/images/main_bg.png'),
     linear-gradient(
       90deg,
-      hsla(220, 25%, 50%, 0),
+      hsla(220, 25%, 77%, 0),
       hsla(220, 25%, 77%, 0.85) 35%,
       hsla(220, 25%, 77%, 1) 50%,
       hsla(220, 25%, 77%, 0.85) 65%,
-      hsla(220, 25%, 50%, 0)
+      hsla(220, 25%, 77%, 0)
     ),
     linear-gradient(
       hsla(220, 25%, 35%, 1),
@@ -72,27 +72,13 @@ ul.List ul {
 ul.List li {
   margin: 0.25em 0 0.2em 1em;
   padding: 1px 0.4em;
-  border-color: hsla(220, 0%, 0%, 0.15);
-  border-style: dashed;
-  border-width: 0;
   background-image: linear-gradient(
     90deg,
-    hsla(220, 25%, 50%, 0),
+    hsla(220, 25%, 77%, 0),
     hsla(220, 25%, 77%, 0.85) 35%,
     hsla(220, 25%, 77%, 1) 50%,
     hsla(220, 25%, 77%, 0.85) 65%,
-    hsla(220, 25%, 50%, 0)
-  );
-}
-
-li ul.List li {
-  background-image: linear-gradient(
-    90deg,
-    hsla(220, 25%, 50%, 0),
-    hsla(220, 25%, 93%, 0.35) 30%,
-    hsla(220, 25%, 93%, 0.5) 50%,
-    hsla(220, 25%, 93%, 0.35) 70%,
-    hsla(220, 25%, 50%, 0)
+    hsla(220, 25%, 77%, 0)
   );
 }
 
@@ -100,7 +86,7 @@ li ul.List li {
   text-align: left;
 }
 
-.Cnt {
+.Center {
   text-align: center;
 }
 
@@ -113,12 +99,18 @@ li ul.List li {
   color: hsl(0, 100%, 37%);
 }
 
+
 h1,
 h2,
 h3 {
   margin: 0;
   padding: 0.5em 0 0.1em 0;
 }
+
+h1 {
+  font-size: 2.2rem;
+}
+
 
 .Title {
   color: hsla(220, 50%, 20%, 1);
@@ -163,11 +155,11 @@ only once. */
   background: url('../assets/images/main_bg.png'),
     linear-gradient(
       90deg,
-      hsla(220, 25%, 50%, 0),
+      hsla(220, 25%, 77%, 0),
       hsla(220, 25%, 77%, 0.85) 35%,
       hsla(220, 25%, 77%, 1) 50%,
       hsla(220, 25%, 77%, 0.85) 65%,
-      hsla(220, 25%, 50%, 0)
+      hsla(220, 25%, 77%, 0)
     );
   background-position: center 0;
   padding: 5px;
