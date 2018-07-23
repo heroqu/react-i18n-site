@@ -11,7 +11,7 @@ body {
   font-weight: 300;
   font-size: 1.2em;
 
-  background-color: hsla(220, 25%, 55%, 1);
+  background-color: hsl(220, 25%, 55%);
   background-image: url('../assets/images/main_bg.png'),
     linear-gradient(
       90deg,
@@ -48,13 +48,12 @@ h2.Title {
 }
 
 .Title {
-  font-weight: 400;
-  color: hsla(220, 50%, 20%, 1);
+  font-weight: 300;
+  color: hsl(220, 50%, 20%);
   text-shadow: 3px 3px 5px hsla(0, 0%, 50%, 0.65);
 }
 
 .Subtitle {
-  font-weight: 400;
   color: white;
   text-shadow: 2px 2px 5px hsla(0, 0%, 30%, 0.65);
 }
@@ -74,7 +73,7 @@ a.Photo {
 a:hover,
 a.Photo:hover {
   color: hsl(0, 100%, 37%);
-  border-bottom-color: hsla(350, 100%, 45%, 1);
+  border-bottom-color: hsl(350, 100%, 45%);
 }
 
 /* Lists */
@@ -111,7 +110,7 @@ ul.List li {
 /* Buttons */
 
 .Button__Active {
-  color: hsla(220, 20%, 10%, 1) !important;
+  color: hsl(220, 20%, 10%) !important;
 }
 
 /* Positioning */
@@ -159,12 +158,12 @@ input:-webkit-autofill:active {
 
 /* AppBar */
 
-/* I move this particular style here from CSS-in-JS
+/* I've moved this particular selector here from CSS-in-JS
 for the sake of background image: we use the same image
 main_bg.png twice - as main background and as the
 background in AppBar. When both are here in a regular
-CSS file then webpack will figure it out and load it
-only once. */
+CSS file then webpack css loader will figure it out
+and load it only once. */
 
 .AppBar {
   background-color: hsla(220, 20%, 45%, 1) !important;
