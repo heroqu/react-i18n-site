@@ -18,7 +18,7 @@ class Gallery extends Component {
 
     this.state = {
       isOpen: false,
-      items: [],
+      images: [],
       photoIndex: -1
     }
   }
@@ -31,78 +31,42 @@ class Gallery extends Component {
       }
     })
 
-    const items = (await response.json()) || []
+    const images = (await response.json()) || []
 
-    if (!Array.isArray(items)) {
+    if (!Array.isArray(images)) {
       // not empty and not an array
       throw new Error('Gallery data is not loaded properly')
     }
 
-    // this.setState({ items })
+    // find the start index by its name
+    const { name, tag } = this.props
+    const photoIndex = _startIndex(name, images, tag)
 
-    this.setState({ items, photoIndex: this.computeStartIndex(items) })
+    this.setState({ images, photoIndex })
   }
 
   componentDidMount() {
     this.loadData().catch(console.error)
   }
 
-  /**
-   * get current subcollection of images that correspond
-   * to the current tag
-   * @return {array} - array of image objects. See underlying
-   * function _imagesWithTag for details.
-   */
-  imagesWithTag() {
-    const items = (this.state && this.state.items) || []
-    return _imagesWithTag(items, this.props.tag)
-  }
-
-  /**
-   * One can specify name of an image that current subcollection
-   * should start the show from, e.g.:
-   *    <Gallery name='pic_1' tag='graphics'>picture 1</Gallery>
-   * - which reads as: "open `graphics` subcollection
-   * and start show from the image with the name='pic_1'"
-   *
-   * This function finds index of the image with that name
-   * inside current subcollection, or returns zero, if it's not found,
-   * which means the show will start from very first image.
-   *
-   * @return {integer} - the index of the first image to be displayed
-   */
-  computeStartIndex(items) {
-    const { name } = this.props
-
-    if (!name) return 0
-
-    const { tag } = this.props
-    if (!items) {
-      items = this.state.items
-    }
-
-    const images = _imagesWithTag(items, tag)
-
-    const index = images.findIndex(
-      x => normalizeString(x.name) === normalizeString(name)
-    )
-
-    return index === -1 ? 0 : index
-  }
-
   render() {
+    const { locale, className, tag, children } = this.props
+
     const { photoIndex, isOpen } = this.state
-    const { locale, className, children } = this.props
+    let { images } = this.state
 
-    const images = this.imagesWithTag()
+    images = _imagesWithTag(images || [], tag)
+
     const count = images.length
-
-    if (count === 0) return null
 
     // indexes
     const idx = photoIndex
+
+    // idxNext and idxPrev will be NaN if count === 0,
+    // but it doesn't matter, as we're not going
+    // to render that part in such a case
     const idxNext = (idx + 1) % count
-    const idxPrev = (idx + count - 1) % count
+    const idxPrev = (idx + count - 1) % count || idx
 
     // Additional attributes for the <a>:
     const aAttrs = className ? { className } : {}
@@ -148,7 +112,7 @@ export default connect(mapsStateToProps)(Gallery)
  * Get array of all the images with specified tag,
  * or just all of them if no tag is given
  *
- * @param {array} items - array of all image objects.
+ * @param {array} images - array of all image objects.
  *      Each object should nave following attributes:
  *      {
  *        name {string},
@@ -160,9 +124,10 @@ export default connect(mapsStateToProps)(Gallery)
  * @param {string} tag - if present the collection will be filtered by it
  * @return {array} - a filtered array of image objects
  */
-function _imagesWithTag(items, tag) {
+function _imagesWithTag(images, tag) {
+  images || (images = [])
   return _
-    .chain(items)
+    .chain(images)
     .filter(_makeTagFilter(tag))
     .sortBy('order')
     .value()
@@ -178,4 +143,29 @@ function _makeTagFilter(tag) {
       .split(',')
       .map(normalizeString)
       .indexOf(normalizeString(tag)) !== -1
+}
+
+/**
+ * One can specify name of an image that current subcollection
+ * should start the show from, e.g.:
+ *    <Gallery name='pic_1' tag='graphics'>picture 1</Gallery>
+ * - which reads as: "open `graphics` subcollection
+ * and start show from the image with the name='pic_1'"
+ *
+ * This function finds index of the image with that name
+ * inside current subcollection, or returns zero, if it's not found,
+ * which means the show will start from very first image.
+ *
+ * @return {integer} - the index of the first image to be displayed
+ */
+function _startIndex(name, images, tag) {
+  if (!name) return 0 // by default start from the first image
+
+  images = _imagesWithTag(images, tag)
+
+  const index = images.findIndex(
+    x => normalizeString(x.name) === normalizeString(name)
+  )
+
+  return index === -1 ? 0 : index
 }
