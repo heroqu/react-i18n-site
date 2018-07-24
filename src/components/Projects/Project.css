@@ -177,3 +177,15 @@
 .MarginBottom_03 {
   margin-bottom: 0.3rem;
 }
+
+/* Inside project description */
+
+code {
+  color: hsl(280, 50%, 45%);
+  background-color: hsla(220, 25%, 50%, 0.2);
+  margin: 0.5rem 0 0.5rem 1rem;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  border-left: 0.3rem solid hsla(220, 25%, 50%, 0.3);
+  display: block;
+}
