@@ -52,7 +52,7 @@ function projectsDataNormalize(projectsData) {
         return acc
       }, new Map())
       .keys()
-  ).sort()
+  ).sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()))
 
   return {
     projects,
