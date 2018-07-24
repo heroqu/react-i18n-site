@@ -17,9 +17,9 @@ class Gallery extends Component {
     super(props)
 
     this.state = {
-      photoIndex: this.startIndexFromProps(),
       isOpen: false,
-      items: []
+      items: [],
+      photoIndex: -1
     }
   }
 
@@ -38,7 +38,9 @@ class Gallery extends Component {
       throw new Error('Gallery data is not loaded properly')
     }
 
-    this.setState({ items })
+    // this.setState({ items })
+
+    this.setState({ items, photoIndex: this.computeStartIndex(items) })
   }
 
   componentDidMount() {
@@ -69,15 +71,22 @@ class Gallery extends Component {
    *
    * @return {integer} - the index of the first image to be displayed
    */
-  startIndexFromProps() {
+  computeStartIndex(items) {
     const { name } = this.props
-    if (!name) {
-      // by default start with the first image of subcollection
-      return 0
+
+    if (!name) return 0
+
+    const { tag } = this.props
+    if (!items) {
+      items = this.state.items
     }
-    const index = this.imagesWithTag().findIndex(
+
+    const images = _imagesWithTag(items, tag)
+
+    const index = images.findIndex(
       x => normalizeString(x.name) === normalizeString(name)
     )
+
     return index === -1 ? 0 : index
   }
 
@@ -87,6 +96,8 @@ class Gallery extends Component {
 
     const images = this.imagesWithTag()
     const count = images.length
+
+    if (count === 0) return null
 
     // indexes
     const idx = photoIndex
@@ -126,7 +137,6 @@ Gallery.propTypes = {
 const mapsStateToProps = state => ({
   locale: state.i18n.locale
 })
-
 
 export default connect(mapsStateToProps)(Gallery)
 
