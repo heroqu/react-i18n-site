@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 
 import pages from './pages'
 import NotFound from './NotFound'
+import Meta from './Meta'
 
 import { getI18nAttr } from '../utils/i18n'
 
@@ -17,6 +18,7 @@ const Content = props => {
 
   return (
     <div className="Center PadTop">
+      <Meta {...{ appUrl }} />
       <Component {...props} />
     </div>
   )
