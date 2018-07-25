@@ -123,7 +123,7 @@ class Projects extends Component {
     /**
      * Attribute translator function, with current locale value injected
      */
-    const T = (project, attr) => getI18nAttr(project, attr, locale)
+    const T = (project, attr) => getI18nAttr(project, locale, attr)
 
     const visible = this.visibleProjects(projects)
 

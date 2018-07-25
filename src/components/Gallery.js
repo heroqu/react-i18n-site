@@ -79,7 +79,7 @@ class Gallery extends Component {
         {!isOpen || count === 0 ? null : (
           <Lightbox
             // a localized version of caption
-            imageCaption={getI18nAttr(images[photoIndex], 'caption', locale)}
+            imageCaption={getI18nAttr(images[photoIndex], locale, 'caption')}
             mainSrc={images[idx].src}
             nextSrc={images[idxNext].src}
             prevSrc={images[idxPrev].src}

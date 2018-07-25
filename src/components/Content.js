@@ -14,7 +14,7 @@ import './Content.css'
 const Content = props => {
   const { locale, appUrl } = props
 
-  const Page = getI18nAttr(pages, appUrl, locale) || NotFound
+  const Page = getI18nAttr(pages, locale, appUrl) || NotFound
 
   return (
     <Fragment>

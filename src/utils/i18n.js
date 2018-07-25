@@ -78,7 +78,7 @@ export function localeURLPrefix(locale) {
  * @param  {string} locale - desired locale
  * @return {any} - either the value of found nested attr, or undefined
  */
-export function getI18nAttr(obj, attr, locale) {
+export function getI18nAttr(obj, locale, attr) {
   if (!obj) {
     return undefined
   }
