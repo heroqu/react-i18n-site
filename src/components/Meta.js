@@ -28,7 +28,7 @@ const Meta = props => {
 }
 
 Meta.propTypes = {
-  intl: PropTypes.Object,
+  intl: PropTypes.object,
   appUrl: PropTypes.string
 }
 
