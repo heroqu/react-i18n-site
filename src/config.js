@@ -6,6 +6,7 @@ export const ALLOWED_LOCALES = (
 export const HOME_PAGE = process.env.REACT_APP_HOME_PAGE
 export const COOKIE_SECRET = process.env.REACT_APP_COOKIE_SECRET
 export const COOKIE_MAX_AGE = process.env.REACT_APP_COOKIE_MAX_AGE
+export const DEBUG_MODE = process.env.REACT_APP_DEBUG_MODE === 'true'
 export const MAILER_URL = process.env.REACT_APP_MAILER_URL
 export const MAILER_MAX_DISPATCH_TIME = process.env
   .REACT_APP_MAILER_MAX_DISPATCH_TIME
