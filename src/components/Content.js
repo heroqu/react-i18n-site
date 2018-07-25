@@ -14,13 +14,13 @@ import './Content.css'
 const Content = props => {
   const { locale, appUrl } = props
 
-  const Component = getI18nAttr(pages, appUrl, locale) || NotFound
+  const Page = getI18nAttr(pages, appUrl, locale) || NotFound
 
   return (
     <Fragment>
       <Meta {...{ appUrl }} />
-      <div className="Center PadTop">
-        <Component {...props} />
+      <div className="Content">
+        <Page {...props} />
       </div>
     </Fragment>
   )
