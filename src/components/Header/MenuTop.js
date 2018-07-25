@@ -3,7 +3,7 @@ import { withStyles } from '@material-ui/core/styles'
 import { AppBar, Toolbar } from '@material-ui/core'
 import NavButton from '../buttons/NavButton'
 
-import { navMessages } from '../../Intl/FMessages'
+import navMessages from '../../Intl/navMessages'
 
 const Spacer = props => {
   const { width } = props

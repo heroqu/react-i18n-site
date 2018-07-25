@@ -24,7 +24,7 @@ export const navMessages = Object.keys(defaultNavMessages).reduce(
   {}
 )
 
-export function fmtMessage(id) {
+function fmtMessage(id) {
   if (!id) return null
 
   let defaultMessage = defaultMessages[id]
@@ -38,4 +38,4 @@ export function fmtMessage(id) {
   return <FormattedMessage {...{ id, defaultMessage }} />
 }
 
-export default { fmtMessage, navMessages }
+export default navMessages
