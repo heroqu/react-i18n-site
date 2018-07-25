@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { createElement } from 'react'
 import { FormattedMessage } from 'react-intl'
 
 import LastBuilt from '../LastBuilt'
 import ResumeDownload from '../ResumeDownload'
+
+import { DEBUG_MODE } from '../../config'
 
 import './Footer.css'
 
@@ -20,7 +22,7 @@ const Footer = props => (
       <FormattedMessage id="app.footer_text" defaultMessage="©" />
     </div>
     <div className="Footer__Item Right">
-      <LastBuilt />
+      {DEBUG_MODE ? createElement(LastBuilt) : null}
     </div>
   </div>
 )
