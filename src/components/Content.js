@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
 import { connect } from 'react-redux'
@@ -17,10 +17,12 @@ const Content = props => {
   const Component = getI18nAttr(pages, appUrl, locale) || NotFound
 
   return (
-    <div className="Center PadTop">
+    <Fragment>
       <Meta {...{ appUrl }} />
-      <Component {...props} />
-    </div>
+      <div className="Center PadTop">
+        <Component {...props} />
+      </div>
+    </Fragment>
   )
 }
 
