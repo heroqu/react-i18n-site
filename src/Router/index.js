@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Redirect } from 'react-router-dom'
+import { BrowserRouter, Switch, Redirect } from 'react-router-dom'
 import { HOME_PAGE } from '../config'
 import LocaleRouter from './LocaleRouter'
 import ScrollToTop from './ScrollToTop'
@@ -7,8 +7,8 @@ import ScrollToTop from './ScrollToTop'
 /**
  * App routing rules are here
  */
-const AppRouter = ({ children }) => (
-  <Router>
+const Router = ({ children }) => (
+  <BrowserRouter>
     <Switch>
       <Redirect exact from="/" to={`/${HOME_PAGE}`} />
       <LocaleRouter>
@@ -16,7 +16,7 @@ const AppRouter = ({ children }) => (
         {children}
       </LocaleRouter>
     </Switch>
-  </Router>
+  </BrowserRouter>
 )
 
-export default AppRouter
+export default Router
