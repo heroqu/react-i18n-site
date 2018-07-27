@@ -18,7 +18,7 @@ class NavButton extends Component {
     const isActive = `/${appUrl}` === to
 
     // dispatch function sometimes slippes here
-    // while is not allowable for <a> tag
+    // while is not allowed for <a> tag
     // simply get rid of it
     delete rest.dispatch
 

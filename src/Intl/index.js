@@ -11,7 +11,7 @@ import messages from './messages.json'
 /**
  * React-intl provider preloaded with:
  *  - translation messages for current locale
- *  - pluralization and format rules for all allowable locales
+ *  - pluralization and format rules for all allowed locales
  *      (see import of loadLocaleData above)
  */
 const Intl = ({ children, locale }) => {
