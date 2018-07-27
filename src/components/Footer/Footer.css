@@ -1,7 +1,9 @@
 .Footer {
+  box-sizing: border-box;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   justify-content: space-between;
+  align-items: flex-end;
   text-align: center;
   color: hsla(220, 25%, 75%, 0.45);
   font-size: 0.8rem;
@@ -10,13 +12,13 @@
   background-position: center 1rem;
 
   /* dimensions */
-  height: 100%;
-  padding: 12rem 0 0.4rem 0;
-  margin: 1rem 0 0 0;
+  min-height: 12rem;
+  margin: 0;
+  padding: 0.5rem 0;
 }
 
 .Footer__Item {
-  padding: 0rem 1rem;
+  padding: 0 1rem;
   flex: 1 1 10rem;
 }
 
