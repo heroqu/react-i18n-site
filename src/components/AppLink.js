@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import { localeURLPrefix } from '../utils/i18n'
 
 /**
  * A react-router Link component enhancement that takes care
@@ -14,30 +15,30 @@ import PropTypes from 'prop-types'
  *    locale === 'ru',
  *    appUrl === '/about',
  *    full_url === '/ru/about',
- *    linkPrefix === '/ru'
+ *    prefix === '/ru'
  *
  * while
  *    locale === 'en' (the default one),
  *    appUrl === '/about',
  *    full_url === '/about'
- *    linkPrefix === ''
+ *    prefix === ''
  *
  * Now we can write <AppLink to=/about>...</AppLink>
  * in any language.
  */
-const AppLink = ({ linkPrefix, to, children, className }) => (
-  <Link to={`${linkPrefix}${to}`} className={className}>
+const AppLink = ({ locale, to, children, className }) => (
+  <Link to={`${localeURLPrefix(locale)}${to}`} className={className}>
     {children}
   </Link>
 )
 
 AppLink.propTypes = {
-  linkPrefix: PropTypes.string,
+  locale: PropTypes.string,
   to: PropTypes.string
 }
 
 const mapStateToProps = state => ({
-  linkPrefix: state.i18n.linkPrefix
+  locale: state.i18n.locale
 })
 
 export default connect(mapStateToProps)(AppLink)

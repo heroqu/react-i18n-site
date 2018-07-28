@@ -1,22 +1,18 @@
 import * as actionTypes from '../constants/actionTypes'
 import { DEFAULT_LOCALE } from '../../config'
 import localeCookie from '../../utils/localeCookie'
-
-const linkPrefixFromLocale = locale =>
-  locale === DEFAULT_LOCALE ? '' : `/${locale}`
+import { localeURLPrefix } from '../../utils/i18n'
 
 const localeFromCookie = localeCookie.get() || ''
 
 const initialState = {
-  locale: localeFromCookie,
-  linkPrefix: linkPrefixFromLocale(localeFromCookie)
+  locale: localeFromCookie
 }
 
 const i18nReducer = (state = initialState, action) => {
   if (action.type === actionTypes.SET_LOCALE) {
     const locale = action.payload
-    const linkPrefix = linkPrefixFromLocale(locale)
-    return { ...state, locale, linkPrefix }
+    return { ...state, locale }
   }
   return state
 }
