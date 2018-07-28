@@ -96,33 +96,24 @@ const SubmitStatus = Object.freeze({
 })
 
 class MailForm extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      formData: {
-        name: '',
-        email: '',
-        message: ''
-      },
-      status: SubmitStatus.NONE
-    }
-
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+  state = {
+    formData: {
+      name: '',
+      email: '',
+      message: ''
+    },
+    status: SubmitStatus.NONE
   }
 
-  isSending() {
-    return this.state.submitStatus === SubmitStatus.IS_SENDING
-  }
+  isSending = () => this.state.submitStatus === SubmitStatus.IS_SENDING
 
-  handleChange(event) {
+  handleChange = event => {
     const { formData } = this.state
     formData[event.target.name] = event.target.value
     this.setState({ formData })
   }
 
-  async handleSubmit(event) {
+  handleSubmit = async event => {
     event.preventDefault()
 
     this.setState({ status: SubmitStatus.IS_SENDING })
@@ -221,10 +212,7 @@ class MailForm extends Component {
             errorMessages={[fm('app.please_enter_your_message')]}
             multiline
             label={fm('app.Message')}
-            className={classNames(
-              classes.textField
-              // classes.inputMultiline
-            )}
+            className={classNames(classes.textField)}
             InputProps={{
               className: classNames(classes.input, classes.inputMultiline)
             }}
