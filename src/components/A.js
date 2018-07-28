@@ -12,9 +12,7 @@ const A = ({ children, ...rest }) => (
 )
 
 A.propTypes = {
-  href: PropTypes.string,
-  target: PropTypes.string,
-  rel: PropTypes.string
+  href: PropTypes.string.isRequired
 }
 
 export default A

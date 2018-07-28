@@ -1,10 +1,11 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import A from './A'
 import Link from './Link'
 
 /**
- * Selectively renders 3 different components:
+ * Selectively render one of the 3 different components:
  *
  * if href is mailto on empty - render <a>
  * if href is http(s)         - render <A>
@@ -27,6 +28,10 @@ const ALink = props => {
     props = { to: href, ...rest }
   }
   return makeElement(component, props)
+}
+
+ALink.propTypes = {
+  href: PropTypes.string
 }
 
 export default ALink

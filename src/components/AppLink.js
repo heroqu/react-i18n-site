@@ -33,8 +33,9 @@ const AppLink = ({ locale, to, children, className }) => (
 )
 
 AppLink.propTypes = {
-  locale: PropTypes.string,
-  to: PropTypes.string
+  locale: PropTypes.string.isRequired,
+  to: PropTypes.string.isRequired,
+  className: PropTypes.string
 }
 
 const mapStateToProps = state => ({
