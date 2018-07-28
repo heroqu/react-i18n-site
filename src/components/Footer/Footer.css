@@ -4,9 +4,10 @@
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: flex-end;
-  text-align: center;
+
   color: hsla(220, 25%, 75%, 0.45);
   font-size: 0.8rem;
+
   background-image: url('../../assets/images/footer_bg.png');
   background-repeat: repeat-x;
   background-position: center 1rem;
