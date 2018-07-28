@@ -7,13 +7,15 @@ import NotFound from './NotFound'
 import Meta from './Meta'
 
 import { getI18nAttr } from '../utils/i18n'
+import { slugToName } from '../utils/pageNaming'
 
 import './Content.css'
 
 const Content = props => {
   const { locale, appUrl } = props
 
-  const Page = getI18nAttr(pages, locale, appUrl) || NotFound
+  const pageKey = slugToName(appUrl)
+  const Page = getI18nAttr(pages, locale, pageKey) || NotFound
 
   return (
     <Fragment>

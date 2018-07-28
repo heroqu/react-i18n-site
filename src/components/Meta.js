@@ -11,14 +11,19 @@ import { injectIntl } from 'react-intl'
  * require appUrl in props
  */
 const Meta = props => {
-  const { intl, appUrl } = props
-  const { messages } = intl
+  const {
+    intl: { messages },
+    appUrl
+  } = props
 
   if (!messages) return null
 
-  const keyTitle = `app.title`
-  const keyPage = `nav.${capitalize(appUrl)}`
-  const title = `${intl.messages[keyTitle]} : ${intl.messages[keyPage]}`
+  let title = messages[`app.title`]
+
+  const pageName = messages[`nav.${appUrl}`]
+  if (pageName) {
+    title = `${title} : ${pageName}`
+  }
 
   return (
     <Helmet>
@@ -28,20 +33,8 @@ const Meta = props => {
 }
 
 Meta.propTypes = {
-  intl: PropTypes.object,
-  appUrl: PropTypes.string
+  intl: PropTypes.object.isRequired,
+  appUrl: PropTypes.string.isRequired
 }
 
 export default injectIntl(Meta)
-
-/**
- * Helpers
- */
-
-/**
- * Make first char upper cased
- * @param  {String} txt - input string
- * @return {String}
- */
-const capitalize = txt =>
-  `${txt.substring(0, 1).toUpperCase()}${txt.substring(1)}`
