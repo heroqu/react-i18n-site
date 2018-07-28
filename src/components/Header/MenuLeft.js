@@ -1,9 +1,7 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
-
 import { Drawer, List, ListItem } from '@material-ui/core'
-
 import MenuIcon from '@material-ui/icons/Menu'
 
 import AppButton from '../buttons/AppButton'
@@ -12,7 +10,6 @@ import NavButton from '../buttons/NavButton'
 import navMessages from '../../Intl/navMessages'
 
 const colors = {
-  trans: 'hsla(0, 0%, 0%, 0)',
   fgDark: 'hsla(220, 20%, 40%, 1)',
   bgLighterTrans: 'hsla(220, 20%, 55%, 0.75)'
 }
@@ -23,7 +20,7 @@ const styles = theme => ({
     flexWrap: 'wrap'
   },
   paper: {
-    background: colors.trans,
+    background: 'transparent',
     left: '0.5rem',
     top: '0.5rem',
     height: 'auto'
@@ -42,7 +39,7 @@ const styles = theme => ({
     fontSize: '1.2rem',
     borderRadius: 0,
     background: colors.bgLighterTrans,
-    marginTop: '1px !important',
+    marginTop: '1px',
     '&:hover': {
       backgroundColor: 'transparent',
       '@media (hover: none)': {
@@ -62,15 +59,18 @@ const styles = theme => ({
 
 class MenuLeft extends React.Component {
   state = {
-    top: false,
-    left: false,
-    bottom: false,
-    right: false
+    isOpen: false
   }
 
-  toggleDrawer = (side, open) => () => {
+  showDrawer = () => {
     this.setState({
-      [side]: open
+      isOpen: true
+    })
+  }
+
+  hideDrawer = () => {
+    this.setState({
+      isOpen: false
     })
   }
 
@@ -99,7 +99,7 @@ class MenuLeft extends React.Component {
           size="small"
           aria-label="menu"
           className={classes.menuButton}
-          onClick={this.toggleDrawer('left', true)}
+          onClick={this.showDrawer}
         >
           <MenuIcon />
         </AppButton>
@@ -107,14 +107,14 @@ class MenuLeft extends React.Component {
           classes={{
             paper: classes.paper
           }}
-          open={this.state.left}
-          onClose={this.toggleDrawer('left', false)}
+          open={this.state.isOpen}
+          onClose={this.hideDrawer}
         >
           <div
             tabIndex={0}
             role="button"
-            onClick={this.toggleDrawer('left', false)}
-            onKeyDown={this.toggleDrawer('left', false)}
+            onClick={this.hideDrawer}
+            onKeyDown={this.hideDrawer}
           >
             {itemList}
           </div>

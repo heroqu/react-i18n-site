@@ -48,7 +48,7 @@ const styles = theme => ({
   },
   // appBar: {
   // ...
-  // - moved to index.css, so that webpack would not
+  // - moved to src/Theme/index.css, so that webpack would not
   //   load the same background picture twice
   // },
   toolBar: {

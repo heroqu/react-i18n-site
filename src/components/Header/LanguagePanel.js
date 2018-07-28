@@ -28,7 +28,7 @@ const styles = theme => ({
 
 const LanguagePanel = ({ classes }) => (
   <div className={classes.root}>
-    <Toolbar _color="inherit" className={classes.toolBar}>
+    <Toolbar className={classes.toolBar}>
       {ALLOWED_LOCALES.map((toLocale, idx) => (
         <LocaleButton
           key={`ButtonNumber_${idx}`}

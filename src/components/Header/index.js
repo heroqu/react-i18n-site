@@ -10,7 +10,7 @@ import LanguagePanel from './LanguagePanel'
  * when width < 768px shows MenuLeft
  * always show LanguagePanel
  */
-const Header = props => (
+const Header = () => (
   <Fragment>
     <Hidden smDown>
       <MenuTop />
