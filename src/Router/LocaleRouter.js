@@ -27,7 +27,7 @@ const LocaleRouter = ({
    * which can already contain locale prefix. In such a case
    * `props.locale` would be empty (as there is no cookie set yet)
    * so we should extract and use preferred locale from url prefix.
-   * If both absent go for default.
+   * If both absent go for default (see resolveLocale()).
    */
   const newLocale = resolveLocale(locale, localeFromUrl)
 
@@ -63,7 +63,7 @@ const LocaleRouter = ({
     return <Redirect to={newPathName} />
   }
 
-  // url is OK, no operation
+  // url is OK, render the children
   return <Fragment>{children}</Fragment>
 }
 
@@ -91,7 +91,7 @@ const mapDispatchToProps = dispatch => ({
 
 /**
  * Let's also `connect` to React-router,
- * giving access to { match, history, location } props
+ * to get access to location prop
  */
 
 export default withRouter(
