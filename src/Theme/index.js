@@ -26,16 +26,6 @@ const theme = createMuiTheme({
       dark: 'hsla(220, 20%, 45%, 1)',
       contrastText: '#fff'
     },
-    secondary: {
-      light: '#ff4081',
-      main: '#f50057',
-      dark: '#c51162',
-      contrastText: '#fff'
-    },
-    background: {
-      paper: 'hsla(220, 20%, 90%, 0.15)',
-      default: '#fafafa'
-    },
     error: {
       light: 'hsla(40, 100%, 80%, 1)',
       main: 'hsla(0, 50%, 45%, 1)',
