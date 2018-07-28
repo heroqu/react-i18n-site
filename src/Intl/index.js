@@ -1,12 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-
 import { IntlProvider } from 'react-intl'
 
 import './loadLocaleData'
-import { resolveLocale } from '../utils/i18n'
 import messages from './messages.json'
+import { resolveLocale } from '../utils/i18n'
 
 /**
  * React-intl provider preloaded with:

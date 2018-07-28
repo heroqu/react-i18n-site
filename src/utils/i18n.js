@@ -117,7 +117,6 @@ export function getI18nAttr(obj, locale, attr) {
 export const makeFM = ({ intl }) => id => intl.formatMessage({ id })
 
 export default {
-  normalizeString,
   extractLocale,
   resolveLocale,
   localeURLPrefix,
