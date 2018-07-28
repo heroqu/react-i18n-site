@@ -29,7 +29,7 @@ const LocaleButton = ({ locale, toLocale, setLocale, children, ...rest }) => {
 }
 
 const mapsStateToProps = state => ({
-  locale: state.i18n.locale
+  locale: state.locale
 })
 
 const mapDispatchToProps = dispatch => ({

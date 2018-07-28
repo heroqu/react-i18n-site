@@ -61,7 +61,7 @@ class NavButton extends Component {
 }
 
 const mapStateToProps = state => ({
-  locale: state.i18n.locale,
+  locale: state.locale,
   appUrl: state.appUrl
 })
 

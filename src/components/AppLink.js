@@ -38,7 +38,7 @@ AppLink.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  locale: state.i18n.locale
+  locale: state.locale
 })
 
 export default connect(mapStateToProps)(AppLink)

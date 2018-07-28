@@ -99,7 +99,7 @@ Gallery.propTypes = {
 }
 
 const mapsStateToProps = state => ({
-  locale: state.i18n.locale
+  locale: state.locale
 })
 
 export default connect(mapsStateToProps)(Gallery)

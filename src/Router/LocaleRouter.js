@@ -80,8 +80,8 @@ LocaleRouter.propTypes = {
  */
 
 const mapStateToProps = state => ({
-  locale: state.i18n.locale,
-  appUrl: state.i18n.appUrl
+  locale: state.locale,
+  appUrl: state.appUrl
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
-import i18n from './i18n'
+import locale from './locale'
 import appUrl from './appUrl'
 
 const rootReducer = combineReducers({
-  i18n,
+  locale,
   appUrl
 })
 
