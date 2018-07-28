@@ -11,13 +11,16 @@ import { resolveLocale } from '../utils/i18n'
  * React-intl provider preloaded with:
  *  - translation messages for current locale
  *  - pluralization and format rules for all allowed locales
- *      (see import of loadLocaleData above)
+ *      (see import './loadLocaleData' above)
  */
 const Intl = ({ children, locale }) => {
-  // props.locale comes from from app state (redux store),
+  // props.locale comes from app state (redux store),
   // but it can be empty on the first load
   // because ultimately it comes from cookie.
-  // But here we need a valid locale no matter what:
+  //
+  // But here we need a valid locale no matter what,
+  // and resolveLocale does guarantee that -
+  // by resorting to default locale when required
   locale = resolveLocale(locale)
 
   return (
