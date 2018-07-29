@@ -15,6 +15,7 @@ const ProjectFilter = ({ tags, selectedTags, onToggle, reset }) => {
       key={tag}
       isActive={selectedTags.indexOf(tag) !== -1}
       onClick={() => onToggle(tag)}
+      className="Tag__Filter"
     >
       {tag}
     </Tag>

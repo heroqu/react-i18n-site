@@ -14,14 +14,14 @@ const MarkdownOptions = {
     a: {
       component: ALink,
       props: {
-        className: 'LinkInProjectCard',
+        className: 'ProjectCard__Link',
         onClick: e => e.stopPropagation()
       }
     },
     Photo: {
       component: Gallery,
       props: {
-        className: 'LinkInProjectCard',
+        className: 'ProjectCard__Link',
         onClick: e => e.stopPropagation()
       }
     }

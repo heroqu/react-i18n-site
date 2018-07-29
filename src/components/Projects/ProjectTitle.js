@@ -4,7 +4,7 @@ import Tag from './Tag'
 const ProjectTitle = ({ badgeFull, tags, G }) => {
   // here G is localized attributed getter for current project object
 
-  const Tags = (tags || []).map((t, idx) => <Tag key={`tag_${idx}`}>{t}</Tag>)
+  const Tags = (tags || []).map((t, idx) => <Tag key={`tag_${idx}`} className='Tag__InTitle'>{t}</Tag>)
 
   return (
     <div className="ProjectTitle">
