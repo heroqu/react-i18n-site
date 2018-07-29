@@ -2,6 +2,12 @@ const isDate = d => d && Object.prototype.toString.call(d) === '[object Date]'
 const isValidDate = d => isDate(d) && !isNaN(d)
 
 // 7 -> '07'
+/**
+ * Pad small number leading zero
+ *
+ * @param {Number} x - an integer, 0 <= x < 100
+ * @returns {string}
+ */
 const PAD2 = x => (x + 100).toString().slice(-2)
 
 /**
