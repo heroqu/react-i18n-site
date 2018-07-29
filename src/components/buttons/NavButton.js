@@ -10,6 +10,7 @@ class NavButton extends Component {
   }
 
   handleClick(e) {
+    // redirecting click to AppLink element
     this.innerRef.current.click()
   }
 
@@ -18,8 +19,8 @@ class NavButton extends Component {
     const isActive = `/${appUrl}` === to
 
     // dispatch function sometimes slippes here
-    // while is not allowed for <a> tag
-    // simply get rid of it
+    // as an attribute, while is not allowed for <a> tag
+    // - simply get rid of it
     delete rest.dispatch
 
     return (
@@ -31,9 +32,11 @@ class NavButton extends Component {
        * - text label is outside of AppLink and is being
        *      rendered directly by Button (as {children})
        * - all the mouse clicks are catched by Button and redirected
-       *      to a AppLink to do its job of navigating
+       *      to a AppLink to do its job of navigating.
+       * - a click propagation stopper is wrapped around AppLink
+       *      to suppress further event bubbling and avoid infinite loop.
        *
-       * All of these together makes a clear separation of concerns:
+       * All of these together make a clear separation of concerns:
        *    Button plays representational role
        *      (taking care of label color among other things)
        *    AppLink plays functional (navigational) role only
