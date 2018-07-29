@@ -20,14 +20,9 @@ const FM = {
   ExpandAll: <FormattedMessage id="app.ExpandAll" defaultMessage="Expand All" />
 }
 
-
 class ProjectList extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      accordionMsg: actionsToMsg({ type: actionTypes.accordionOff })
-    }
+  state = {
+    accordionMsg: actionsToMsg({ type: actionTypes.accordionOff })
   }
 
   accordionDispatch(actions) {
@@ -44,41 +39,45 @@ class ProjectList extends Component {
   }
 
   render() {
-    const { projects, T } = this.props
+    const { projects, localizedAttrGetter } = this.props
 
     if (!Array.isArray(projects) || projects.lengh === 0) {
       return null
     }
 
-    const sections = projects.map(p => (
-      <AccordionSection
-        id={`p_${p.id}`}
-        key={`p_${p.id}`}
-        className="AccordionSection"
-      >
-        <ProjectTitle {...p} T={T} />
-        <ProjectCard {...p} T={T} />
-      </AccordionSection>
-    ))
+    const sections = projects.map(p => {
+      /**
+       * localized attribute getter injected with current project
+       *
+       * Can be used to directly get any attribute of current project
+       * in current locale branch
+       */
+      const G = attr => localizedAttrGetter(p, attr)
+
+      return (
+        <AccordionSection
+          id={`p_${p.id}`}
+          key={`p_${p.id}`}
+          className="AccordionSection"
+        >
+          <ProjectTitle {...p} {...{ G }} />
+          <ProjectCard {...p} {...{ G }} />
+        </AccordionSection>
+      )
+    })
 
     return (
       <Fragment>
         <div className="Flex MarginBottom_03">
           <div className="Flex__Middle">{FM.ProjectList}</div>
           <div className="Flex__End MarginLeft_1">
-            <a onClick={() => this.collapseAll()}>
-              {FM.CollapseAll}
-            </a>
+            <a onClick={() => this.collapseAll()}>{FM.CollapseAll}</a>
           </div>
           <div className="Flex__End MarginLeft_1">
-            <a onClick={() => this.expandAll()}>
-              {FM.ExpandAll}
-            </a>
+            <a onClick={() => this.expandAll()}>{FM.ExpandAll}</a>
           </div>
         </div>
-        <Accordion msg={this.state.accordionMsg}>
-          {sections}
-        </Accordion>
+        <Accordion msg={this.state.accordionMsg}>{sections}</Accordion>
       </Fragment>
     )
   }

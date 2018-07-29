@@ -23,18 +23,9 @@ const ProjectFilter = ({ tags, selectedTags, onToggle, reset }) => {
   return (
     <Fragment>
       <div className="Flex">
-        <div className="Flex__Start Flex__Grow Left">
-          {FM.ProjectFilter}
-        </div>
+        <div className="Flex__Start Flex__Grow Left">{FM.ProjectFilter}</div>
         <div className="Flex__End">
-          <a
-            onClick={() => {
-              reset()
-              return false
-            }}
-          >
-            {FM.Reset}
-          </a>
+          <a onClick={reset}>{FM.Reset}</a>
         </div>
       </div>
       <div className="Flex">{Tags}</div>

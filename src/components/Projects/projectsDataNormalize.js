@@ -3,8 +3,8 @@ import { formatDate_YearMonth } from '../../utils/time'
 
 /**
  * Normalize loaded projects data:
- *  - renumber badges (in json files they can go with large steps)
- *  - form badgeMinor field if absent
+ *  - renumber badges (in json files they can be sparse)
+ *  - if badgeMinor field is absent, add { badgeMinor: 0 } default
  *  - sort projects by (badge, badgeMinor)
  *  - add badgeFull, id and monthSpan attributes
  */

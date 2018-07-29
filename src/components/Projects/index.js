@@ -118,14 +118,29 @@ class Projects extends Component {
 
   render() {
     const { locale } = this.props
-    const { projects, tags } = this.state
+    let { projects, tags } = this.state
 
     /**
-     * Attribute translator function, with current locale value injected
+     * Attribute getter function, with current locale value injected
+     *
+     * Basically, if object has some attribute repeated inside
+     * different locale branches, this getter jumps directly to the
+     * right branch to retrive the right value:
+     *     obj = {
+     *        en: {
+     *          attr: value_in_en
+     *        },
+     *        ru: {
+     *          attr: value_in_ru
+     *        }
+     *     }
+     * now, if locale = 'ru' is injected then
+     *     const value = localizedAttrGetter(obj, 'attr')
+     * will give value_in_ru
      */
-    const T = (project, attr) => getI18nAttr(project, locale, attr)
+    const localizedAttrGetter = (obj, attr) => getI18nAttr(obj, locale, attr)
 
-    const visible = this.visibleProjects(projects)
+    projects = this.visibleProjects(projects)
 
     return (
       <div className="Projects">
@@ -147,7 +162,7 @@ class Projects extends Component {
             />
           </div>
           <div className="Projects__B">
-            <ProjectList projects={visible} T={T} />
+            <ProjectList {...{ projects, localizedAttrGetter }} />
           </div>
         </div>
       </div>

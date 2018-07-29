@@ -7,7 +7,7 @@ import ALink from '../ALink'
 /**
  * we are going to replace on the fly:
  *    <a> -> <ALink>
- *    <Photo> -> <Gallery className='LinkInProjectCard'>
+ *    <Photo> -> <Gallery>
  */
 const MarkdownOptions = {
   overrides: {
@@ -29,9 +29,9 @@ const MarkdownOptions = {
 }
 
 /**
- * A MarkDown rendering compoent,
+ * A MarkDown rendering component,
  * injected with predefined options
- * especially to be used inside ProjectCard
+ * designed to be used inside ProjectCard
  */
 const MarkDown = ({ children, ...rest }) => (
   <Markdown {...rest} options={MarkdownOptions}>
