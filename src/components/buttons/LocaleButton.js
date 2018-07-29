@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
-
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+
 import { setLocale } from '../../Redux/actions'
 
 import AppButton from './AppButton'
@@ -26,6 +27,12 @@ const LocaleButton = ({ locale, toLocale, setLocale, children, ...rest }) => {
       {children}
     </AppButton>
   )
+}
+
+LocaleButton.propTypes = {
+  locale: PropTypes.string.isRequired,
+  toLocale: PropTypes.string.isRequired,
+  setLocale: PropTypes.func.isRequired
 }
 
 const mapsStateToProps = state => ({
