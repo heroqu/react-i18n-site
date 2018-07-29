@@ -54,6 +54,7 @@ h2.Title {
 }
 
 .Subtitle {
+  font-weight: 300;
   color: white;
   text-shadow: 2px 2px 5px hsla(0, 0%, 30%, 0.65);
 }
