@@ -16,6 +16,8 @@ export const BUILD_TIMESTAMP = process.env.REACT_APP_BUILD_TIMESTAMP
 
 AssertIsSet('DEFAULT_LOCALE', DEFAULT_LOCALE)
 
+AssertIsSet('HOME_PAGE', HOME_PAGE)
+
 AssertIsSet(
   'ALLOWED_LOCALES',
   Array.isArray(ALLOWED_LOCALES) && ALLOWED_LOCALES.length !== 0
