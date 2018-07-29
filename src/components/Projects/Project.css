@@ -67,7 +67,7 @@
 }
 
 .LinkInProjectCard {
-  color: red;
+  color: hsla(340,100%,50%,1);
 }
 
 .ProjectTitle__Row {
@@ -97,11 +97,25 @@
   border-radius: 5px;
   color: hsla(0, 100%, 100%, 0.4);
   background-color: hsla(220, 30%, 75%, 0.2);
+  border: 1px solid hsla(220, 30%, 75%, 0.2);
+}
+
+.Tag:hover {
+  color: hsla(350, 100%, 75%, 1);
+  background-color: hsla(220, 30%, 40%, 0.7);
+  text-shadow: 1px 1px 2px hsla(0, 0%, 0%, 0.65);
 }
 
 .Tag__Active {
   color: hsl(0, 100%, 100%);
   background-color: hsla(220, 30%, 40%, 0.25);
+  text-shadow: 1px 1px 2px hsla(0, 0%, 0%, 0.65);
+}
+
+.Tag__Active:hover {
+  color: hsl(0, 100%, 100%, 0.75);
+  background-color: hsla(220, 30%, 40%, 0.25);
+  text-shadow: 1px 1px 2px hsla(0, 0%, 0%, 0.65);
 }
 
 .Badge {
@@ -123,8 +137,6 @@
   border-radius: 5px;
   background-color: hsla(220, 50%, 97%, 0.75);
   text-align: left;
-  /* overflow-y: scroll;
-  max-height: 300px; */
 }
 
 .ProjectCard__Row {
@@ -137,7 +149,6 @@
 }
 
 .ProjectCard__MonthSpan {
-  /* text-align: left; */
   color: #f03;
 }
 
