@@ -5,7 +5,7 @@ import { IntlProvider } from 'react-intl'
 
 import './loadLocaleData'
 import messages from './messages.json'
-import { resolveLocale } from '../utils/i18n'
+import { resolveLocale } from '../lib/i18n'
 
 /**
  * React-intl provider preloaded with:

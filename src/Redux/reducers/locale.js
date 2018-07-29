@@ -1,6 +1,6 @@
 import * as actionTypes from '../constants/actionTypes'
-import { get as localeCookieGet } from '../../utils/localeCookie'
-import { extractLocale } from '../../utils/i18n'
+import { get as localeCookieGet } from '../../lib/localeCookie'
+import { extractLocale } from '../../lib/i18n'
 
 // Will be a valid locale OR ''
 const initialState = extractLocale(localeCookieGet())

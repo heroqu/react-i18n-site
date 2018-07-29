@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import { formatDate_YearMonth } from '../../utils/time'
+import { formatDate_YearMonth } from '../../lib/time'
 
 /**
  * Normalize loaded projects data:

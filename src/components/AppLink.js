@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { localeURLPrefix } from '../utils/i18n'
+import { localeURLPrefix } from '../lib/i18n'
 
 /**
  * A react-router Link component enhancement that takes care

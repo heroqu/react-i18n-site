@@ -9,7 +9,7 @@ import './Project.css'
 
 import projectsDataNormalize from './projectsDataNormalize'
 
-import { getI18nAttr } from '../../utils/i18n'
+import { getI18nAttr } from '../../lib/i18n'
 
 /**
  * we define React-intl formatted mesages here in this verbose format

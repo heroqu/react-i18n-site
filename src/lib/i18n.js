@@ -1,5 +1,5 @@
 import { DEFAULT_LOCALE, ALLOWED_LOCALES } from '../config'
-import normalizeString from '../utils/normalizeString'
+import normalizeString from '../lib/normalizeString'
 
 /**
  * Try to interpret given value as a valid locale.

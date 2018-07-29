@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { BUILD_TIMESTAMP } from '../config'
-import { formatTimestamp_Full } from '../utils/time'
+import { formatTimestamp_Full } from '../lib/time'
 
 import { FormattedMessage } from 'react-intl'
 

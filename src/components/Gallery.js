@@ -4,8 +4,8 @@ import './Gallery.css'
 import _ from 'lodash'
 import PropTypes from 'prop-types'
 
-import { getI18nAttr } from '../utils/i18n'
-import normalizeString from '../utils/normalizeString'
+import { getI18nAttr } from '../lib/i18n'
+import normalizeString from '../lib/normalizeString'
 
 import { connect } from 'react-redux'
 

@@ -6,8 +6,8 @@ import pages from './pages'
 import NotFound from './NotFound'
 import Meta from './Meta'
 
-import { getI18nAttr } from '../utils/i18n'
-import { slugToName } from '../utils/pageNaming'
+import { getI18nAttr } from '../lib/i18n'
+import { slugToName } from '../lib/pageNaming'
 
 import './Content.css'
 
