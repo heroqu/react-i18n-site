@@ -1,9 +1,9 @@
 import * as actionTypes from '../constants/actionTypes'
-import localeCookie from '../../utils/localeCookie'
+import { get as localeCookieGet } from '../../utils/localeCookie'
 import { extractLocale } from '../../utils/i18n'
 
 // Will be a valid locale OR ''
-const initialState = extractLocale(localeCookie.get())
+const initialState = extractLocale(localeCookieGet())
 
 const localeReducer = (state = initialState, action) => {
   if (action.type === actionTypes.SET_LOCALE) {

@@ -6,8 +6,8 @@ const cookies = new Cookies()
 const maxAge = COOKIE_MAX_AGE || 30 * 24 * 3600
 const KEY = `LOCALE_${COOKIE_SECRET}`
 
-const get = () => cookies.get(KEY)
+export const get = () => cookies.get(KEY)
 
-const set = locale => cookies.set(KEY, locale, { path: '/', maxAge })
+export const set = locale => cookies.set(KEY, locale, { path: '/', maxAge })
 
 export default { get, set }

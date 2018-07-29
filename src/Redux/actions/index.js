@@ -1,10 +1,10 @@
 import * as types from '../constants/actionTypes'
-import localeCookie from '../../utils/localeCookie'
+import { set as localeCookieSet } from '../../utils/localeCookie'
 import { resolveLocale } from '../../utils/i18n'
 
 export const setLocale = locale => {
   locale = resolveLocale(locale)
-  localeCookie.set(locale)
+  localeCookieSet(locale)
   return { type: types.SET_LOCALE, payload: locale }
 }
 
