@@ -31,12 +31,14 @@ const makeFunctionOrStringApplicator = fOs => x =>
 /**
  * factory for making format functions
  *
- * @param  {Array} fmt - a format - an array of date part extractors,
+ * @param  {(Function|string)[]} fmt
+ *               - a format - an array of date part extractors,
  *                   mixed with string delimeters, e.g.:
  *                   [YYYY, '-', MM, '-', DD]
  *                   here YYYY, MM and DD - functions to extract date parts,
  *                   whereas '-' is a string to be inserted in between
- * @return {Function}  - a formatting function (date => string),
+ * @return {Function}
+ *               - a formatting function (date => string),
  *                   based on the format given
  */
 const makeFormatDate = fmt => d => {
@@ -67,12 +69,12 @@ export const formatDate_YearMonth = makeFormatDate(fmt_YearMonth)
  * Make sure the given timestamp is in a numeric format
  *  ( timestamp from ENV VAR comes as string )
  *
- * @param  {String|Number} ts  - a timestamp,
+ * @param  {string|Number} ts  - a timestamp,
  *           either a number of missiseconds since unix epoch,
  *              1531655957912
  *           or, the same number but in a string form:
  *             '1531655957912'
- * @return {Number}    timestamp in a numeric form
+ * @return {Number}    - timestamp in a numeric form
  */
 const normalizeTs = ts => (typeof ts === 'string' ? parseInt(ts, 10) : ts)
 

@@ -22,7 +22,7 @@ export function extractLocale(value) {
  * successfully resolved.
  * If none does resolve, return the DEFAULT_LOCALE
  *
- * Sample usage:
+ * @example
  *   ( assuming that
  *      ALLOWED_LOCALES === ['en', 'ru']
  *      DEFAULT_LOCALE='en' )
@@ -36,18 +36,17 @@ export function extractLocale(value) {
  *    'en' === resolveLocale('rus')
  *    'en' === resolveLocale()
  *
- * @param  {[stringtype]} args [description]
- * @return {[type]}      [description]
+ * @param  {string[]} args - array of locale candidates
+ * @return {string}        - a valid locale
  */
 export function resolveLocale(...values) {
   return [...values, DEFAULT_LOCALE].map(extractLocale).find(Boolean)
-  // return extractLocale(locale) || extractLocale(default) || DEFAULT_LOCALE
 }
 
 /**
  * Create a prefix to be used before payload part of an URL
  *
- * Examples:
+ * @example
  *   ( assuming that
  *      ALLOWED_LOCALES === ['en', 'ru']
  *      DEFAULT_LOCALE='en' )
@@ -73,7 +72,7 @@ export function localeURLPrefix(locale) {
  *  - or, if fails, as `obj[DEFAULT_LOCALE][attr]`
  *  - If both fail - return undefined
  *
- * @param  {object} obj - object holding desired nested attribute
+ * @param  {Object} obj - object holding desired nested attribute
  * @param  {string} attr - name of nested attribute
  * @param  {string} locale - desired locale
  * @return {any} - either the value of found nested attr, or undefined

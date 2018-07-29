@@ -49,7 +49,7 @@ const unBreakSpace = txt => `${txt}`.replace(/ /g, '\u00a0')
  * When making <FormattedMessage> the `id` key is not enough,
  * as `defaultMessage` is also obligatory.
  * Here we take care of automatically prepopulating defaultMessage attribute. *
- * @param  {String} id          - message key
+ * @param  {string} id          - message key
  * @return {FormattedMessage}   - the component from React-intl package
  */
 const makeFormattedMessage = id => {

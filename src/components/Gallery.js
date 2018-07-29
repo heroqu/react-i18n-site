@@ -112,7 +112,7 @@ export default connect(mapsStateToProps)(Gallery)
  * Get array of all the images with specified tag,
  * or just all of them if no tag is given
  *
- * @param {array} images - array of all image objects.
+ * @param {Object[]} images - array of all image objects.
  *      Each object should nave following attributes:
  *      {
  *        name {string},
@@ -122,7 +122,7 @@ export default connect(mapsStateToProps)(Gallery)
  *        caption: {string} - text that will go beneath the picture
  *      }
  * @param {string} tag - if present the collection will be filtered by it
- * @return {array} - a filtered array of image objects
+ * @return {Object[]} - a filtered array of image objects
  */
 function _imagesWithTag(images, tag) {
   images || (images = [])
@@ -156,7 +156,7 @@ function _makeTagFilter(tag) {
  * inside current subcollection, or returns zero, if it's not found,
  * which means the show will start from very first image.
  *
- * @return {integer} - the index of the first image to be displayed
+ * @return {Number} - the index of the first image to be displayed
  */
 function _startIndex(name, images, tag) {
   if (!name) return 0 // by default start from the first image

@@ -122,7 +122,7 @@ function execAfterThisTick(fnc) {
  *    '' -> []
  *
  * @param  {string} path
- * @return {[string]}    An array of chunks
+ * @return {string[]}      - An array of chunks
  */
 function pathToParts(path) {
   return normalizeString(path)
