@@ -13,14 +13,10 @@ import { connect } from 'react-redux'
  * Displays image collection in a lightBox
  */
 class Gallery extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      isOpen: false,
-      images: [],
-      photoIndex: -1
-    }
+  state = {
+    isOpen: false,
+    images: [],
+    photoIndex: -1
   }
 
   async loadData() {
@@ -79,7 +75,7 @@ class Gallery extends Component {
         {!isOpen || count === 0 ? null : (
           <Lightbox
             // a localized version of caption
-            imageCaption={getI18nAttr(images[photoIndex], locale, 'caption')}
+            imageCaption={getI18nAttr(images[idx], locale, 'caption')}
             mainSrc={images[idx].src}
             nextSrc={images[idxNext].src}
             prevSrc={images[idxPrev].src}
@@ -121,7 +117,7 @@ export default connect(mapsStateToProps)(Gallery)
  *        tags: {string} - comma separated values, e.g. "vacation,hot",
  *        caption: {string} - text that will go beneath the picture
  *      }
- * @param {string} tag - if present the collection will be filtered by it
+ * @param {string} tag - if present, the collection will be filtered by it
  * @return {Object[]} - a filtered array of image objects
  */
 function _imagesWithTag(images, tag) {
@@ -154,7 +150,7 @@ function _makeTagFilter(tag) {
  *
  * This function finds index of the image with that name
  * inside current subcollection, or returns zero, if it's not found,
- * which means the show will start from very first image.
+ * which means the show will start from the very first image.
  *
  * @return {Number} - the index of the first image to be displayed
  */
