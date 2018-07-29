@@ -4,7 +4,6 @@ import { Button } from '@material-ui/core'
 import classNames from 'classnames'
 
 const colors = {
-  trans: 'transparent',
   link: 'hsl(48, 100%, 91%)',
   linkHover: 'hsl(0, 100%, 42%)',
   lighter: 'hsla(220, 20%, 80%, 0.32)'
@@ -16,9 +15,8 @@ const styles = theme => ({
     minHeight: '2.2em',
     padding: '0 0.7em',
     borderRadius: '0.25em',
-    // color: theme.palette.text.primary,
     color: colors.link,
-    backgroundColor: colors.trans,
+    backgroundColor: 'transparent',
     transition: theme.transitions.create(['background-color', 'box-shadow'], {
       duration: theme.transitions.duration.short
     }),
