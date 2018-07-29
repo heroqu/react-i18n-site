@@ -84,6 +84,18 @@ export function getI18nAttr(obj, locale, attr) {
 
   locale = resolveLocale(locale)
 
+  if (!locale) {
+    return undefined
+  }
+
+  /**
+   * term `path` here stands for intermediate attribute to get to the
+   * final attribute, like e.g. if we want
+   *
+   *    value = obj['en'][attr]
+   *
+   * then 'en' is the path.
+   */
   const pathList =
     locale === DEFAULT_LOCALE ? [locale] : [locale, DEFAULT_LOCALE]
 
