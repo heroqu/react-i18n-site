@@ -62,7 +62,7 @@ class Gallery extends Component {
     // but it doesn't matter, as we're not going
     // to render that part in such a case
     const idxNext = (idx + 1) % count
-    const idxPrev = (idx + count - 1) % count || idx
+    const idxPrev = (idx + count - 1) % count
 
     // Additional attributes for the <a>:
     const aAttrs = className ? { className } : {}
