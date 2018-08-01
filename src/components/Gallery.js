@@ -10,35 +10,44 @@ import normalizeString from '../lib/normalizeString'
 import { connect } from 'react-redux'
 
 /**
+ * Data fetching with cache
+ *
+ * we use memory caching here, which should be enough, considering
+ * additional caching layer in browser for the fetching as such
+ */
+
+import fetchJsonData from '../lib/fetchJsonData'
+import FetchWithCache from '../lib/FetchWithCache'
+
+const fetcher = async () => fetchJsonData('/data/gallery.json')
+const TTL = 3600000 // 1 hour Time to Live
+const fetchWithCache = FetchWithCache(fetcher, TTL)
+
+/**
  * Displays image collection in a lightBox
  */
 class Gallery extends Component {
   state = {
     isOpen: false,
-    images: [],
     photoIndex: -1
   }
 
+  // share images between all instances
+  static images = []
+
   async loadData() {
-    const response = await fetch('/data/gallery.json', {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json'
-      }
-    })
+    Gallery.images = (await fetchWithCache()).value
 
-    const images = (await response.json()) || []
-
-    if (!Array.isArray(images)) {
-      // not empty and not an array
-      throw new Error('Gallery data is not loaded properly')
-    }
-
+    // update photoIndex too:
     // find the start index by its name
-    const { name, tag } = this.props
-    const photoIndex = _startIndex(name, images, tag)
+    const photoIndex = _startIndex(
+      this.props.name,
+      Gallery.images,
+      this.props.tag
+    )
 
-    this.setState({ images, photoIndex })
+    // go re-render
+    this.setState({ photoIndex })
   }
 
   componentDidMount() {
@@ -49,9 +58,8 @@ class Gallery extends Component {
     const { locale, className, tag, children } = this.props
 
     const { photoIndex, isOpen } = this.state
-    let { images } = this.state
 
-    images = _imagesWithTag(images || [], tag)
+    const images = _imagesWithTag(Gallery.images || [], tag)
 
     const count = images.length
 
@@ -109,7 +117,7 @@ export default connect(mapsStateToProps)(Gallery)
  * or just all of them if no tag is given
  *
  * @param {Object[]} images - array of all image objects.
- *      Each object should nave following attributes:
+ *      Each object should have following attributes:
  *      {
  *        name {string},
  *        order: {number},
@@ -122,8 +130,7 @@ export default connect(mapsStateToProps)(Gallery)
  */
 function _imagesWithTag(images, tag) {
   images || (images = [])
-  return _
-    .chain(images)
+  return _.chain(images)
     .filter(_makeTagFilter(tag))
     .sortBy('order')
     .value()
