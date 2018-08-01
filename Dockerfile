@@ -35,4 +35,4 @@ ENV PORT=3010
 
 EXPOSE $PORT
 
-CMD ["serve"]
+CMD ["serve", "-s"]
