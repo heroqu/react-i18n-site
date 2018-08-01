@@ -2,6 +2,8 @@ import React, { Fragment } from 'react'
 import { FormattedMessage } from 'react-intl'
 import Tag from './Tag'
 
+import AClick from '../AClick'
+
 const FM = {
   ProjectFilter: (
     <FormattedMessage id="app.ProjectFilter" defaultMessage="Project filter" />
@@ -26,7 +28,7 @@ const ProjectFilter = ({ tags, selectedTags, onToggle, reset }) => {
       <div className="Flex">
         <div className="Flex__Start Flex__Grow Left">{FM.ProjectFilter}</div>
         <div className="Flex__End">
-          <a onClick={reset}>{FM.Reset}</a>
+          <AClick onClick={reset}>{FM.Reset}</AClick>
         </div>
       </div>
       <div className="Flex">{Tags}</div>

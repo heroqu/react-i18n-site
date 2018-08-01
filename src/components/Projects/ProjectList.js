@@ -10,6 +10,8 @@ import {
   actionsToMsg
 } from 'react-accordion-composable'
 
+import AClick from '../AClick'
+
 const FM = {
   ProjectList: (
     <FormattedMessage id="app.ProjectList" defaultMessage="Project list" />
@@ -71,10 +73,10 @@ class ProjectList extends Component {
         <div className="Flex MarginBottom_03">
           <div className="Flex__Middle">{FM.ProjectList}</div>
           <div className="Flex__End MarginLeft_1">
-            <a onClick={() => this.collapseAll()}>{FM.CollapseAll}</a>
+            <AClick onClick={() => this.collapseAll()}>{FM.CollapseAll}</AClick>
           </div>
           <div className="Flex__End MarginLeft_1">
-            <a onClick={() => this.expandAll()}>{FM.ExpandAll}</a>
+            <AClick onClick={() => this.expandAll()}>{FM.ExpandAll}</AClick>
           </div>
         </div>
         <Accordion msg={this.state.accordionMsg}>{sections}</Accordion>
