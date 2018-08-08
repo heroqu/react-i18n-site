@@ -1,4 +1,3 @@
-export const APP_VERSION = process.env.REACT_APP_APP_VERSION
 export const DEFAULT_LOCALE = process.env.REACT_APP_DEFAULT_LOCALE
 export const ALLOWED_LOCALES = (
   '' + process.env.REACT_APP_ALLOWED_LOCALES
