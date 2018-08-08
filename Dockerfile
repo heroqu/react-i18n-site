@@ -4,19 +4,19 @@ FROM $DISTRO as builder
 
 WORKDIR /usr/src/app
 
-COPY package*.json ./
+COPY package*.json yarn*.lock ./
 
-RUN npm install
+RUN yarn
 
 COPY . .
 
-RUN npm run build
+RUN yarn build
 
 FROM $DISTRO as deploy
 
 ARG SERVE_VERSION=9.4.0
 
-RUN npm i -g serve@$SERVE_VERSION
+RUN yarn global add serve@$SERVE_VERSION
 
 WORKDIR /usr/src/app
 
