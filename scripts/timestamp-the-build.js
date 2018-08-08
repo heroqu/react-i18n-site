@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-const ENV_FILE = './.env.local'
+const ENV_FILE = './.env.production'
 const VAR = 'REACT_APP_BUILD_TIMESTAMP'
 
 /**
