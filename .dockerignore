@@ -7,3 +7,4 @@ Dockerfile
 *.log
 .envrc
 ~*
+.env*.local
