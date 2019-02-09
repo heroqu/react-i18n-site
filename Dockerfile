@@ -1,26 +1,17 @@
-ARG DISTRO=node:10.7.0-alpine
-
-FROM $DISTRO as builder
-
-WORKDIR /usr/src/app
-
-COPY package*.json yarn*.lock ./
-
-RUN yarn
-
-COPY . .
-
-RUN yarn build
+ARG DISTRO=node:11.9-alpine
 
 FROM $DISTRO as deploy
 
-ARG SERVE_VERSION=9.4.0
+ARG SERVE_VERSION=10.1.2
 
+# RUN npm i -g serve@$SERVE_VERSION
 RUN yarn global add serve@$SERVE_VERSION
 
 WORKDIR /usr/src/app
 
-COPY --from=builder /usr/src/app/build/ .
+RUN pwd
+
+COPY ./build/ ./build
 
 # Starting from version 9.1.0 `serve` can read the PORT value
 # from process.env.PORT, which is a good news for us, as Docker
@@ -35,4 +26,4 @@ ENV PORT=3010
 
 EXPOSE $PORT
 
-CMD ["serve", "-s"]
+CMD ["serve", "-s", "build"]
