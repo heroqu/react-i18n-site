@@ -15,8 +15,8 @@ const theme = createMuiTheme({
       sm: 576,
       md: 768,
       lg: 992,
-      xl: 1200
-    }
+      xl: 1200,
+    },
   },
   spacing: { unit: 5 },
   palette: {
@@ -24,15 +24,15 @@ const theme = createMuiTheme({
       light: 'hsla(220, 40%, 60%, 1)',
       main: 'hsla(220, 30%, 50%, 1)',
       dark: 'hsla(220, 20%, 45%, 1)',
-      contrastText: '#fff'
+      contrastText: '#fff',
     },
     error: {
       light: 'hsla(40, 100%, 80%, 1)',
       main: 'hsla(0, 50%, 45%, 1)',
       dark: 'hsla(20, 100%, 60%, 1)',
-      contrastText: '#fff'
-    }
-  }
+      contrastText: '#fff',
+    },
+  },
 })
 
 const Theme = ({ children }) => (

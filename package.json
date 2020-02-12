@@ -1,7 +1,7 @@
 {
   "name": "React-i18n-site",
   "description": "React site with i18n",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "repository": {
     "type": "git",

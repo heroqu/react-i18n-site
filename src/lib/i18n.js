@@ -132,5 +132,5 @@ export default {
   resolveLocale,
   localeURLPrefix,
   getI18nAttr,
-  makeFM
+  makeFM,
 }

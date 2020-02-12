@@ -10,5 +10,5 @@ export const setLocale = locale => {
 
 export const setAppUrl = appUrl => ({
   type: types.SET_APP_URL,
-  payload: appUrl
+  payload: appUrl,
 })

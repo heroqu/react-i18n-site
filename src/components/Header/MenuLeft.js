@@ -11,19 +11,19 @@ import navMessages from '../../Intl/navMessages'
 
 const colors = {
   fgDark: 'hsla(220, 20%, 40%, 1)',
-  bgLighterTrans: 'hsla(220, 20%, 55%, 0.75)'
+  bgLighterTrans: 'hsla(220, 20%, 55%, 0.75)',
 }
 
 const styles = theme => ({
   container: {
     display: 'flex',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
   },
   paper: {
     background: 'transparent',
     left: '0.5rem',
     top: '0.5rem',
-    height: 'auto'
+    height: 'auto',
   },
   list: {
     margin: 0,
@@ -31,7 +31,7 @@ const styles = theme => ({
     minWidth: '35vw',
     background: 'transparent',
     color: colors.fgDark,
-    marginBottom: 0
+    marginBottom: 0,
   },
   button: {
     textTransform: 'none',
@@ -43,34 +43,34 @@ const styles = theme => ({
     '&:hover': {
       backgroundColor: 'transparent',
       '@media (hover: none)': {
-        backgroundColor: 'transparent'
+        backgroundColor: 'transparent',
       },
       '&:disabled': {
-        backgroundColor: 'transparent'
-      }
-    }
+        backgroundColor: 'transparent',
+      },
+    },
   },
   menuButton: {
     position: 'fixed',
     top: 5,
-    left: 10
-  }
+    left: 10,
+  },
 })
 
 class MenuLeft extends React.Component {
   state = {
-    isOpen: false
+    isOpen: false,
   }
 
   showDrawer = () => {
     this.setState({
-      isOpen: true
+      isOpen: true,
     })
   }
 
   hideDrawer = () => {
     this.setState({
-      isOpen: false
+      isOpen: false,
     })
   }
 
@@ -105,7 +105,7 @@ class MenuLeft extends React.Component {
         </AppButton>
         <Drawer
           classes={{
-            paper: classes.paper
+            paper: classes.paper,
           }}
           open={this.state.isOpen}
           onClose={this.hideDrawer}
@@ -125,7 +125,7 @@ class MenuLeft extends React.Component {
 }
 
 MenuLeft.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
 }
 
 export default withStyles(styles)(MenuLeft)

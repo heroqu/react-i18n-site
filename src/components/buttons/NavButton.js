@@ -65,7 +65,7 @@ class NavButton extends Component {
 
 const mapStateToProps = state => ({
   locale: state.locale,
-  appUrl: state.appUrl
+  appUrl: state.appUrl,
 })
 
 export default connect(mapStateToProps)(NavButton)

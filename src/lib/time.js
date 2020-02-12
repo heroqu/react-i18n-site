@@ -57,7 +57,7 @@ const makeFormatDate = fmt => d => {
   // Here each piece is `function OR string`
   return fmt.reduce(
     (acc, fOs) => acc + makeFunctionOrStringApplicator(fOs)(d),
-    ''
+    '',
   )
 }
 

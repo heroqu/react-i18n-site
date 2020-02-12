@@ -11,7 +11,7 @@ const Spacer = props => {
     display: 'flex',
     flexGrow: 0,
     flexShrink: 0,
-    flexBasis: width || 'auto'
+    flexBasis: width || 'auto',
   }
   return <div style={style}> </div>
 }
@@ -44,7 +44,7 @@ const MenuTop = props => {
 const styles = theme => ({
   button: {
     marginLeft: theme.spacing.unit / 2,
-    marginRight: theme.spacing.unit / 2
+    marginRight: theme.spacing.unit / 2,
   },
   // appBar: {
   // ...
@@ -55,8 +55,8 @@ const styles = theme => ({
     justifyContent: 'center',
     background: 'transparent',
     padding: 0,
-    minHeight: '1rem'
-  }
+    minHeight: '1rem',
+  },
 })
 
 export default withStyles(styles)(MenuTop)

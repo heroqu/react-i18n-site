@@ -6,7 +6,7 @@ import classNames from 'classnames'
 const colors = {
   link: 'hsl(48, 100%, 91%)',
   linkHover: 'hsl(0, 100%, 42%)',
-  lighter: 'hsla(220, 20%, 80%, 0.32)'
+  lighter: 'hsla(220, 20%, 80%, 0.32)',
 }
 
 const styles = theme => ({
@@ -18,7 +18,7 @@ const styles = theme => ({
     color: colors.link,
     backgroundColor: 'transparent',
     transition: theme.transitions.create(['background-color', 'box-shadow'], {
-      duration: theme.transitions.duration.short
+      duration: theme.transitions.duration.short,
     }),
     '&:hover': {
       textDecoration: 'none',
@@ -26,9 +26,9 @@ const styles = theme => ({
       backgroundColor: colors.lighter,
       // Reset on touch devices, it doesn't add specificity
       '@media (hover: none)': {
-        backgroundColor: 'transparent'
-      }
-    }
+        backgroundColor: 'transparent',
+      },
+    },
   },
   raised: {
     color: colors.link,
@@ -36,10 +36,10 @@ const styles = theme => ({
       backgroundColor: colors.lighter,
       // Reset on touch devices, it doesn't add specificity
       '@media (hover: none)': {
-        backgroundColor: 'transparent'
-      }
-    }
-  }
+        backgroundColor: 'transparent',
+      },
+    },
+  },
 })
 
 const AppButton = ({ children, className, isActive, ...rest }) => {

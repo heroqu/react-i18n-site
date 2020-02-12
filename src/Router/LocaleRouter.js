@@ -13,7 +13,7 @@ const LocaleRouter = ({
   appUrl,
   setLocale,
   setAppUrl,
-  children
+  children,
 }) => {
   const parts = pathToParts(pathname)
 
@@ -72,7 +72,7 @@ LocaleRouter.propTypes = {
   locale: PropTypes.string,
   appUrl: PropTypes.string,
   setLocale: PropTypes.func.isRequired,
-  setAppUrl: PropTypes.func.isRequired
+  setAppUrl: PropTypes.func.isRequired,
 }
 
 /**
@@ -81,12 +81,12 @@ LocaleRouter.propTypes = {
 
 const mapStateToProps = state => ({
   locale: state.locale,
-  appUrl: state.appUrl
+  appUrl: state.appUrl,
 })
 
 const mapDispatchToProps = dispatch => ({
   setLocale: locale => dispatch(setLocale(locale)),
-  setAppUrl: appUrl => dispatch(setAppUrl(appUrl))
+  setAppUrl: appUrl => dispatch(setAppUrl(appUrl)),
 })
 
 /**
@@ -97,8 +97,8 @@ const mapDispatchToProps = dispatch => ({
 export default withRouter(
   connect(
     mapStateToProps,
-    mapDispatchToProps
-  )(LocaleRouter)
+    mapDispatchToProps,
+  )(LocaleRouter),
 )
 
 /**

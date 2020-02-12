@@ -77,7 +77,7 @@ export const navMessages = Object.keys(defaultNavMessages).reduce(
     acc[attr.toLowerCase()] = makeFormattedMessage(`nav.${attr}`)
     return acc
   },
-  {}
+  {},
 )
 
 export default navMessages

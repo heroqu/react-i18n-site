@@ -4,7 +4,7 @@ import appUrl from './appUrl'
 
 const rootReducer = combineReducers({
   locale,
-  appUrl
+  appUrl,
 })
 
 export default rootReducer

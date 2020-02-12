@@ -31,11 +31,11 @@ const Intl = ({ children, locale }) => {
 }
 
 Intl.propTypes = {
-  locale: PropTypes.string.isRequired
+  locale: PropTypes.string.isRequired,
 }
 
 const mapsStateToProps = state => ({
-  locale: state.locale
+  locale: state.locale,
 })
 
 export default connect(mapsStateToProps)(Intl)

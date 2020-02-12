@@ -32,18 +32,18 @@ const LocaleButton = ({ locale, toLocale, setLocale, children, ...rest }) => {
 LocaleButton.propTypes = {
   locale: PropTypes.string.isRequired,
   toLocale: PropTypes.string.isRequired,
-  setLocale: PropTypes.func.isRequired
+  setLocale: PropTypes.func.isRequired,
 }
 
 const mapsStateToProps = state => ({
-  locale: state.locale
+  locale: state.locale,
 })
 
 const mapDispatchToProps = dispatch => ({
-  setLocale: locale => dispatch(setLocale(locale))
+  setLocale: locale => dispatch(setLocale(locale)),
 })
 
 export default connect(
   mapsStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(LocaleButton)
