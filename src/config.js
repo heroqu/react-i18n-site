@@ -3,6 +3,7 @@ export const ALLOWED_LOCALES = (
   '' + process.env.REACT_APP_ALLOWED_LOCALES
 ).split(',')
 export const HOME_PAGE = process.env.REACT_APP_HOME_PAGE
+export const RESUME_PATH = process.env.REACT_APP_RESUME_PATH
 export const COOKIE_SECRET = process.env.REACT_APP_COOKIE_SECRET
 export const COOKIE_MAX_AGE = process.env.REACT_APP_COOKIE_MAX_AGE
 export const DEBUG_MODE = process.env.REACT_APP_DEBUG_MODE === 'true'
@@ -19,7 +20,7 @@ AssertIsSet('HOME_PAGE', HOME_PAGE)
 
 AssertIsSet(
   'ALLOWED_LOCALES',
-  Array.isArray(ALLOWED_LOCALES) && ALLOWED_LOCALES.length !== 0
+  Array.isArray(ALLOWED_LOCALES) && ALLOWED_LOCALES.length !== 0,
 )
 
 function AssertIsSet(attr, value) {

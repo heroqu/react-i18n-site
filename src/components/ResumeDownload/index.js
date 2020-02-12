@@ -1,5 +1,6 @@
 import React from 'react'
 import A from '../A'
+import { RESUME_PATH } from '../../config'
 
 import './ResumeDownload.css'
 
@@ -8,7 +9,7 @@ import './ResumeDownload.css'
  * `download resume` link
  */
 const ResumeDownload = ({ children }) => (
-  <A className="ResumeDownload" href="/data/resume.pdf">
+  <A className="ResumeDownload" href={RESUME_PATH}>
     {children}
   </A>
 )
