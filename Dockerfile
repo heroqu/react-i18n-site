@@ -1,8 +1,8 @@
-ARG DISTRO=node:11.9-alpine
+ARG DISTRO=node:13-alpine
 
 FROM $DISTRO as deploy
 
-ARG SERVE_VERSION=10.1.2
+ARG SERVE_VERSION=11.3
 
 # RUN npm i -g serve@$SERVE_VERSION
 RUN yarn global add serve@$SERVE_VERSION
