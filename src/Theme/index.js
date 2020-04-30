@@ -18,7 +18,7 @@ const theme = createMuiTheme({
       xl: 1200,
     },
   },
-  spacing: { unit: 5 },
+  spacing: 5,
   palette: {
     primary: {
       light: 'hsla(220, 40%, 60%, 1)',

@@ -7,7 +7,7 @@ import {
   Accordion,
   AccordionSection,
   actionTypes,
-  actionsToMsg
+  actionsToMsg,
 } from 'react-accordion-composable'
 
 import AClick from '../AClick'
@@ -19,17 +19,19 @@ const FM = {
   CollapseAll: (
     <FormattedMessage id="app.CollapseAll" defaultMessage="Collapse All" />
   ),
-  ExpandAll: <FormattedMessage id="app.ExpandAll" defaultMessage="Expand All" />
+  ExpandAll: (
+    <FormattedMessage id="app.ExpandAll" defaultMessage="Expand All" />
+  ),
 }
 
 class ProjectList extends Component {
   state = {
-    accordionMsg: actionsToMsg({ type: actionTypes.accordionOff })
+    accordionMsg: actionsToMsg({ type: actionTypes.accordionOff }),
   }
 
   accordionDispatch(actions) {
     this.setState({
-      accordionMsg: actionsToMsg(actions)
+      accordionMsg: actionsToMsg(actions),
     })
   }
 
@@ -56,11 +58,14 @@ class ProjectList extends Component {
        */
       const G = attr => localizedAttrGetter(p, attr)
 
+      const hasIndent = !!p.badgeMinor
+      let className = `AccordionSection${hasIndent ? ' Indent' : ''}`
+
       return (
         <AccordionSection
           id={`p_${p.id}`}
           key={`p_${p.id}`}
-          className="AccordionSection"
+          className={`${className}`}
         >
           <ProjectTitle {...p} {...{ G }} />
           <ProjectCard {...p} {...{ G }} />
@@ -70,15 +75,15 @@ class ProjectList extends Component {
 
     return (
       <Fragment>
-        <div className="Flex MarginBottom_03">
-          <div className="Flex__Middle">{FM.ProjectList}</div>
-          <div className="Flex__End MarginLeft_1">
+        <div className="Flex MarginBottom_03_">
+          <div className="ProjectList__TitleControls">
             <AClick onClick={() => this.collapseAll()}>{FM.CollapseAll}</AClick>
           </div>
-          <div className="Flex__End MarginLeft_1">
+          <div className="ProjectList__TitleControls MarginLeft_1">
             <AClick onClick={() => this.expandAll()}>{FM.ExpandAll}</AClick>
           </div>
         </div>
+        <div className="ProjectList__Annotation">{FM.ProjectList}</div>
         <Accordion msg={this.state.accordionMsg}>{sections}</Accordion>
       </Fragment>
     )

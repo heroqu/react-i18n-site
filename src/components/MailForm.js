@@ -29,14 +29,14 @@ const styles = theme => ({
     display: 'flex',
     flexDirection: 'column',
     maxWidth: '25em',
-    padding: theme.spacing.unit,
+    padding: theme.spacing,
     backgroundColor: 'hsla(220, 20%, 50%, 0.45)',
-    marginLeft: theme.spacing.unit * 2,
-    marginRight: theme.spacing.unit * 2
+    marginLeft: theme.spacing * 2,
+    marginRight: theme.spacing * 2
   },
   textField: {
     flex: '1 1 auto',
-    marginTop: theme.spacing.unit * 2
+    marginTop: theme.spacing * 2
   },
   input: {
     fontSize: '1em',
@@ -49,7 +49,7 @@ const styles = theme => ({
   bottomBar: {
     flex: '0 0 auto',
     margin: 0,
-    marginTop: theme.spacing.unit,
+    marginTop: theme.spacing,
     alignSelf: 'flex-end',
     display: 'flex',
     flexFlow: 'row no-wrap',
@@ -221,7 +221,7 @@ class MailForm extends Component {
           <div className={classes.bottomBar}>
             <div className={classes.tablo}>{this.submitStatusDiv()}</div>
             <AppButton
-              variant="flat"
+              variant="contained"
               type="submit"
               disabled={isDisabled}
               className={classes.button}

@@ -26,7 +26,7 @@ const MenuTop = props => {
             <NavButton
               key={`ButtonNumber_${idx}`}
               size="small"
-              variant="flat"
+              variant="contained"
               color="inherit"
               className={classes.button}
               to={`/${key}`}
@@ -43,8 +43,8 @@ const MenuTop = props => {
 
 const styles = theme => ({
   button: {
-    marginLeft: theme.spacing.unit / 2,
-    marginRight: theme.spacing.unit / 2,
+    marginLeft: theme.spacing / 2,
+    marginRight: theme.spacing / 2,
   },
   // appBar: {
   // ...

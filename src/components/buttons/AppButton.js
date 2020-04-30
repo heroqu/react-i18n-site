@@ -30,7 +30,7 @@ const styles = theme => ({
       },
     },
   },
-  raised: {
+  contained: {
     color: colors.link,
     '&:hover': {
       backgroundColor: colors.lighter,

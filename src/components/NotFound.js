@@ -7,7 +7,7 @@ import { HOME_PAGE } from '../config'
 
 const NotFound = props => (
   <div className="Center">
-    <h1 className="Title">
+    <h1 className="Title Pale">
       <FormattedMessage
         id="app.not_found"
         defaultMessage="The page is not found"

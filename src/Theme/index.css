@@ -35,17 +35,26 @@ body {
 
 h1,
 h2,
-h3 {
+h3,
+h4,
+h5 {
   margin: 0.8em 0 0.1em 0;
 }
 
 h1.Title {
-  /* h1 default is 2.4rem, we apply 7/6 factor */
-  font-size: 2.8rem;
+  font-size: 2.33em;
 }
 h2.Title {
-  /* h2 default is 1.8rem, we apply 7/6 factor */
-  font-size: 2.1rem;
+  font-size: 1.75em;
+}
+h3.Title {
+  font-size: 1.5em;
+}
+h4.Title {
+  font-size: 1.35em;
+}
+h5.Title {
+  font-size: 1.2em;
 }
 
 .Title {
@@ -138,6 +147,10 @@ ul.List li {
 
 .Colored {
   color: hsl(0, 100%, 37%);
+}
+
+.Pale {
+  color: hsla(0, 10%, 100%, 0.3);
 }
 
 /*

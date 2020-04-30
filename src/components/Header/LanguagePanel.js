@@ -21,8 +21,8 @@ const styles = theme => ({
     minHeight: '1rem',
   },
   button: {
-    marginLeft: theme.spacing.unit / 2,
-    marginRight: theme.spacing.unit / 2,
+    marginLeft: theme.spacing / 2,
+    marginRight: theme.spacing / 2,
   },
 })
 
@@ -33,7 +33,7 @@ const LanguagePanel = ({ classes }) => (
         <LocaleButton
           key={`ButtonNumber_${idx}`}
           size="small"
-          variant="raised"
+          variant="contained"
           color="inherit"
           className={classes.button}
           toLocale={toLocale}

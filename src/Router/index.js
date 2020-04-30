@@ -8,7 +8,7 @@ import ScrollToTop from './ScrollToTop'
  * App routing rules are here
  */
 const Router = ({ children }) => (
-  <BrowserRouter>
+  <BrowserRouter basename={process.env.PUBLIC_URL}>
     <Switch>
       <Redirect exact from="/" to={`/${HOME_PAGE}`} />
       <LocaleRouter>

@@ -12,22 +12,20 @@ function projectsDataNormalize(projectsData) {
   let projects = Array.isArray(projectsData) ? projectsData : []
 
   // get sorted list of all the unique badges
-  const badges = _
-    .chain(projects)
+  const badges = _.chain(projects)
     .map(p => p.badge)
     .sortBy()
     .sortedUniq()
     .value()
 
-  projects = _
-    .chain(projects)
+  projects = _.chain(projects)
     .map(p => ({
       ...p,
       // normalize badge numbers
       // to their ascending ordinal number starting from 1
       badge: badges.indexOf(p.badge) + 1,
       // normalize badgeMinor for sorting purposes
-      badgeMinor: p.badgeMinor ? parseInt(p.badgeMinor, 10) : 0
+      badgeMinor: p.badgeMinor ? parseInt(p.badgeMinor, 10) : 0,
     }))
     // apply sorting
     .sortBy(['badge', 'badgeMinor'])
@@ -37,7 +35,7 @@ function projectsDataNormalize(projectsData) {
       // full badge String presentation (like '7' and '7.1')
       badgeFull: `${p.badge}${p.badgeMinor === 0 ? '' : `.${p.badgeMinor}`}`,
       id: idx,
-      monthSpan: monthSpan(p)
+      monthSpan: monthSpan(p),
     }))
     .value()
 
@@ -51,12 +49,12 @@ function projectsDataNormalize(projectsData) {
         }
         return acc
       }, new Map())
-      .keys()
+      .keys(),
   ).sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()))
 
   return {
     projects,
-    tags
+    tags,
   }
 }
 

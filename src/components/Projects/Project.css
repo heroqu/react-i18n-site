@@ -32,11 +32,11 @@
 }
 
 .Projects__A {
-  flex: 2 2 2px;
+  flex: 1 1 1px;
   padding: 0 0.5rem 0 0;
 }
 .Projects__B {
-  flex: 3 3 3px;
+  flex: 2 2 2px;
   padding: 0 0 0 0.5rem;
 }
 
@@ -52,37 +52,40 @@
   margin: 1px 0;
 }
 
-.ProjectName {
-  text-align: left;
-}
-
 .ProjectTitle {
   margin: 0;
   width: 100%;
   border-radius: 5px;
-  background-color: hsla(0, 100%, 100%, 0.5);
-  background-color: hsla(0, 100%, 0%, 0.35);
-  background-color: hsla(220, 10%, 50%, 0.25);
   background-color: hsla(220, 10%, 30%, 0.35);
 }
 
+.ProjectTitle:hover {
+  background-color: hsla(220, 10%, 30%, 0.55);
+}
+
 .ProjectTitle__Row {
-  padding: 2px;
   padding-right: 10px;
   display: flex;
-  background-color: #ffee99;
-  background-color: hsla(230, 20%, 50%, 0.17);
 }
 .ProjectTitle__Row__Wrap {
   flex-wrap: wrap;
 }
-.ProjectTitle__Row__Top {
-  padding: 0;
+
+.ProjectTitle__Name {
+  color: hsl(48, 100%, 95%);
 }
 
-.ProjectName {
-  flex-grow: 1;
-  color: hsl(48, 100%, 95%);
+.ProjectTitle__Employer {
+  margin-left: auto;
+  padding: 0.2rem 0.1rem 0.1rem 0.5rem;
+
+  font-size: 0.8rem;
+  color: hsla(220, 30%, 100%, 0.75);
+}
+
+.ProjectTitle__EmployerLabel {
+  display: inline-block;
+  color: hsla(220, 30%, 100%, 0.25);
 }
 
 .Badge {
@@ -90,12 +93,10 @@
   margin: 0 0.5rem 0 0;
   display: inline-block;
   padding: 0px 0.4rem;
-  background-color: hsla(220, 30%, 20%, 0.5);
-  color: hsla(0, 100%, 100%, 0.75);
+  color: hsl(0, 0%, 20%);
   border-top-left-radius: 5px;
   border-top-right-radius: 0;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 5px;
 }
 
 /* Tag */
@@ -120,10 +121,14 @@
   text-shadow: 1px 1px 2px hsla(0, 0%, 0%, 0.65);
 }
 
+.Tag__Highlighted {
+  color: hsla(0, 100%, 100%, 1);
+}
+
 .Tag__Active {
-  color: hsl(0, 100%, 100%);
-  background-color: hsla(220, 30%, 40%, 0.25);
-  text-shadow: 1px 1px 2px hsla(0, 0%, 0%, 0.65);
+  color: hsl(0, 100%, 40%);
+  background-color: hsla(0, 100%, 100%, 0.9);
+  text-shadow: 1px 1px 2px hsla(0, 0%, 0%, 0.5);
 }
 
 .Tag__InTitle {
@@ -133,9 +138,9 @@
   border-width: 0;
 }
 
-.Tag__Active:hover,
-.Tag__InTitle:hover {
-  color: hsl(0, 100%, 100%, 0.75);
+/* .Tag__InTitle:hover, */
+.Tag__Active:hover {
+  color: hsl(0, 100%, 50%);
   background-color: hsla(220, 30%, 40%, 0.25);
   text-shadow: 1px 1px 2px hsla(0, 0%, 0%, 0.65);
 }
@@ -143,8 +148,7 @@
 /* ProjectCard */
 
 .ProjectCard {
-  margin: 5px 0;
-  margin-left: 2.3rem;
+  margin: 1px 0 0.5rem 1.1rem;
   border-radius: 3px;
   border-top-left-radius: 0;
   background-color: hsla(220, 50%, 97%, 0.75);
@@ -203,11 +207,24 @@
 
 /* Quick margins */
 
+.ProjectList__TitleControls {
+  margin-left: auto;
+}
+.ProjectList__Annotation {
+  font-size: 0.8em;
+}
+
+.Indent {
+  margin-left: 1.1rem;
+}
 .MarginLeft_1 {
   margin-left: 1rem;
 }
 .MarginBottom_03 {
   margin-bottom: 0.3rem;
+}
+.MarginLeftAuto {
+  margin-left: auto;
 }
 
 /* Inside project description */

@@ -95,7 +95,7 @@ class MenuLeft extends React.Component {
     return (
       <Fragment>
         <AppButton
-          variant="raised"
+          variant="contained"
           size="small"
           aria-label="menu"
           className={classes.menuButton}
