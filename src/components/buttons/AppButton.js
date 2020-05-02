@@ -1,6 +1,6 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
-import { Button } from '@material-ui/core'
+import Button from '@material-ui/core/Button'
 import classNames from 'classnames'
 
 const colors = {
@@ -23,16 +23,6 @@ const styles = theme => ({
     '&:hover': {
       textDecoration: 'none',
       color: colors.linkHover,
-      backgroundColor: colors.lighter,
-      // Reset on touch devices, it doesn't add specificity
-      '@media (hover: none)': {
-        backgroundColor: 'transparent',
-      },
-    },
-  },
-  contained: {
-    color: colors.link,
-    '&:hover': {
       backgroundColor: colors.lighter,
       // Reset on touch devices, it doesn't add specificity
       '@media (hover: none)': {

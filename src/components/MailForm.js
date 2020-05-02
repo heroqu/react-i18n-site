@@ -29,14 +29,14 @@ const styles = theme => ({
     display: 'flex',
     flexDirection: 'column',
     maxWidth: '25em',
-    padding: theme.spacing,
+    padding: theme.spacing.unit,
     backgroundColor: 'hsla(220, 20%, 50%, 0.45)',
-    marginLeft: theme.spacing * 2,
-    marginRight: theme.spacing * 2
+    marginLeft: theme.spacing.unit * 2,
+    marginRight: theme.spacing.unit * 2
   },
   textField: {
-    flex: '1 1 auto',
-    marginTop: theme.spacing * 2
+    flex: '0 0 auto',
+    marginTop: theme.spacing.unit * 2
   },
   input: {
     fontSize: '1em',
@@ -44,12 +44,13 @@ const styles = theme => ({
     lineHeight: '1.6em'
   },
   inputMultiline: {
-    minHeight: '5em'
+    width: '100%',
+    minHeight: '3em'
   },
   bottomBar: {
-    flex: '0 0 auto',
+    flex: '1 1 auto',
     margin: 0,
-    marginTop: theme.spacing,
+    marginTop: theme.spacing.unit,
     alignSelf: 'flex-end',
     display: 'flex',
     flexFlow: 'row no-wrap',
@@ -64,7 +65,6 @@ const styles = theme => ({
     textAlign: 'left'
   },
   submitStatus: {
-    verticalAlign: 'center',
     padding: '3px 0.8em',
     backgroundImage: `linear-gradient(
       60deg,
@@ -211,6 +211,7 @@ class MailForm extends Component {
             validators={[validations.isNotBlank]}
             errorMessages={[fm('app.please_enter_your_message')]}
             multiline
+            rowsMin={5}
             label={fm('app.Message')}
             className={classNames(classes.textField)}
             InputProps={{
@@ -221,7 +222,6 @@ class MailForm extends Component {
           <div className={classes.bottomBar}>
             <div className={classes.tablo}>{this.submitStatusDiv()}</div>
             <AppButton
-              variant="contained"
               type="submit"
               disabled={isDisabled}
               className={classes.button}

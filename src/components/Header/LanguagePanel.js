@@ -13,17 +13,17 @@ const styles = theme => ({
     right: 16,
     zIndex: 1150,
     padding: 0,
-    margin: 0,
+    margin: 0
   },
   toolBar: {
     justifyContent: 'space-around',
     padding: '2px 0',
-    minHeight: '1rem',
+    minHeight: '1rem'
   },
   button: {
-    marginLeft: theme.spacing / 2,
-    marginRight: theme.spacing / 2,
-  },
+    marginLeft: theme.spacing.unit / 2,
+    marginRight: theme.spacing.unit / 2
+  }
 })
 
 const LanguagePanel = ({ classes }) => (
