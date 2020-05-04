@@ -42,8 +42,8 @@ const MenuTop = props => {
 
 const styles = theme => ({
   button: {
-    marginLeft: theme.spacing.unit / 2,
-    marginRight: theme.spacing.unit / 2
+    marginLeft: theme.spacing(0.5),
+    marginRight: theme.spacing(0.5)
   },
   // appBar: {
   // ...

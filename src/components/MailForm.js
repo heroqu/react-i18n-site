@@ -29,14 +29,14 @@ const styles = theme => ({
     display: 'flex',
     flexDirection: 'column',
     maxWidth: '25em',
-    padding: theme.spacing.unit,
+    padding: theme.spacing(1),
     backgroundColor: 'hsla(220, 20%, 50%, 0.45)',
-    marginLeft: theme.spacing.unit * 2,
-    marginRight: theme.spacing.unit * 2
+    marginLeft: theme.spacing(2),
+    marginRight: theme.spacing(2)
   },
   textField: {
     flex: '0 0 auto',
-    marginTop: theme.spacing.unit * 2
+    marginTop: theme.spacing(2)
   },
   input: {
     fontSize: '1em',
@@ -50,7 +50,7 @@ const styles = theme => ({
   bottomBar: {
     flex: '1 1 auto',
     margin: 0,
-    marginTop: theme.spacing.unit,
+    marginTop: theme.spacing(1),
     alignSelf: 'flex-end',
     display: 'flex',
     flexFlow: 'row no-wrap',
@@ -211,7 +211,6 @@ class MailForm extends Component {
             validators={[validations.isNotBlank]}
             errorMessages={[fm('app.please_enter_your_message')]}
             multiline
-            rowsMin={5}
             label={fm('app.Message')}
             className={classNames(classes.textField)}
             InputProps={{
