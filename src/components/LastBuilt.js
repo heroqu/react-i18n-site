@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
 import { BUILD_TIMESTAMP } from '../config'
-import { formatTimestamp_Full } from '../lib/time'
+import { formatTimestamp_as_GMT } from '../lib/time'
 
 import { FormattedMessage } from 'react-intl'
 
-const dateString = formatTimestamp_Full(BUILD_TIMESTAMP)
+const dateString = formatTimestamp_as_GMT(BUILD_TIMESTAMP)
 
 const LastBuilt = () =>
   dateString ? (

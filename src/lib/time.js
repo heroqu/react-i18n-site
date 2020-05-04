@@ -57,7 +57,7 @@ const makeFormatDate = fmt => d => {
   // Here each piece is `function OR string`
   return fmt.reduce(
     (acc, fOs) => acc + makeFunctionOrStringApplicator(fOs)(d),
-    '',
+    ''
   )
 }
 
@@ -95,4 +95,10 @@ const normalizeTs = ts => (typeof ts === 'string' ? parseInt(ts, 10) : ts)
  */
 export const formatTimestamp_Full = ts => formatDate_Full(normalizeTs(ts))
 
-export default { formatTimestamp_Full, formatDate_YearMonth }
+export const formatTimestamp_as_GMT = ts =>
+  ts
+    ? new Date(normalizeTs(ts))
+        .toISOString()
+        .replace(/T/, ' ')
+        .replace(/.{5}$/, ' GMT')
+    : ''
